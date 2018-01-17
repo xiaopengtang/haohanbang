@@ -3,21 +3,57 @@
 		.item-inner{
 			border-bottom: none !important;
 		}
+		padding: 0;
+		margin: 0;
 		list-style: none;
 		.avatar{
-			min-height: 50px;
-			min-width: 50px;
+			max-height: 50px;
+			max-width: 50px;
+			margin: 12px 0;
 			img{
-				min-height: 50px;
-			    min-width: 50px;
+				max-height: 50px;
+			    max-width: 50px;
+			    border-radius: 50%;
+                overflow: hidden;
 			}
 		}
 		.mess-content{
 			// 
 		}
-		&.self{}
-		&.friend{}
+		li{
+			display: flex;
+			padding: 0 16px;
+			position: relative;
+			&:before{
+				position: absolute;
+				// bottom: 100% ;
+				top: -6px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: block;
+				content: attr(data-time);
+				padding: 2px 4px;
+				line-height: 1;
+				border-radius: 2px;
+				background-color: #999999;
+				color: #FFFFFF;
+				font-size: 12px;
+				vertical-align: bottom;
+
+			}
+			&.time-show{
+				// padding-top: 30px;
+			}
+			&.self{
+				justify-content: flex-start;
+
+			}
+			&.friend{
+				justify-content: flex-end;
+			}
+		}
 		ion-item{
+			display: flex;
 			&:last-child{
 				border-bottom: none !important;
 			}
