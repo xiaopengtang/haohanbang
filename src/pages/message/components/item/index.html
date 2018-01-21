@@ -1,34 +1,10 @@
 <ion-list class="message-list">
-    <ion-item (click)="open()">
+    <ion-item *ngFor="let it of list" (click)="open()">
         <ion-avatar item-start>
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+            <img [src]="it.faceUrl">
         </ion-avatar>
-	    <h2>Woody</h2>
-	    <p>This town ain't big enough for the two of us!</p>
-	    <ion-note item-end>3:43 pm</ion-note>
-    </ion-item>
-    <ion-item>
-        <ion-avatar item-start>
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-        </ion-avatar>
-	    <h2>Woody</h2>
-	    <p>This town ain't big enough for the two of us!</p>
-	    <ion-note item-end>3:43 pm</ion-note>
-    </ion-item>
-    <ion-item>
-        <ion-avatar item-start>
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-        </ion-avatar>
-	    <h2>Woody</h2>
-	    <p>This town ain't big enough for the two of us!</p>
-	    <ion-note item-end>3:43 pm</ion-note>
-    </ion-item>
-    <ion-item>
-        <ion-avatar item-start>
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-        </ion-avatar>
-	    <h2>Woody</h2>
-	    <p>This town ain't big enough for the two of us!</p>
-	    <ion-note item-end>3:43 pm</ion-note>
+	    <h2>{{it.name}}</h2>
+	    <p>{{it.message}}</p>
+	    <ion-note item-end>{{it.time}}</ion-note>
     </ion-item>
 </ion-list>

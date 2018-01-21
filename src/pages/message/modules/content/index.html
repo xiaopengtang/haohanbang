@@ -19,17 +19,19 @@
 	    </ion-item>
 	</ion-list> -->
 	<ul class="history-list">
-		<li class="self">
-			<ion-avatar  class="avatar">
-	            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+		<li *ngFor="let it of list" class="{{it.isOwn ? 'self':'friend'}}">
+			<!--不要问我为什么-->
+			<ion-avatar class="avatar" *ngIf="!it.isOwn">
+	            <img [src]="it.faceUrl">
 	        </ion-avatar>
 	        <ion-card>
-			    <ion-card-content>
-			    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-			    </ion-card-content>
+			    <ion-card-content>{{it.message}}</ion-card-content>
 			</ion-card>
+			<ion-avatar class="avatar" *ngIf="it.isOwn">
+	            <img [src]="it.faceUrl">
+	        </ion-avatar>
 		</li>
-		<li class="friend time-show" data-time="2017-12-30 12:30:31">
+		<!-- <li class="friend time-show" data-time="">
 	        <ion-card>
 			    <ion-card-content>
 			    The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
@@ -38,11 +40,18 @@
 			<ion-avatar  class="avatar" item-start>
 	            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
 	        </ion-avatar>
-		</li>
+		</li> -->
 	</ul>
 </ion-content>
-<ion-footer>
-	<ion-toolbar>
-	    <ion-title>Footer</ion-title>
-	</ion-toolbar>
+<ion-footer class="mess-footer">
+	<ion-grid>
+		<ion-row class="mess-input">
+			<ion-col class="send-content">
+				<p contenteditable="true" id="content"></p>
+			</ion-col>
+			<ion-col class="send-btn" col-auto>
+				<button ion-button (click)="send()">发送</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-footer>
