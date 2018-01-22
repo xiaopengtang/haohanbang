@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { MessagePage } from '../pages/message';
+import * as $message from 'hhb-message'
 
 
 @Component({
@@ -29,7 +30,10 @@ export class MyApp {
       { title: 'Map', component: MapPage },
       { title: 'Message', component: MessagePage}
     ];
-
+  }
+  ngAfterViewInit(){
+    $message.login('0000000001@ydj-b85-hd3', '123456', '0000000001')
+    // console.log({$message})
   }
 
   initializeApp() {

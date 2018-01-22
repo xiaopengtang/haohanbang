@@ -12,9 +12,11 @@ import { MessageModule } from '../pages/message/index.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as core from 'hhb-core'
+import * as config from '../config'
 
-
-// console.log(new HttpClientModule)
+// 配置安装
+core.config(config)
 
 
 @NgModule({
