@@ -8,7 +8,11 @@ import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { MessagePage } from '../pages/message';
 import * as $message from 'hhb-message'
+import * as amap from 'hhb-amap'
+import * as Eruda from 'eruda'
 
+// console.log(Eruda)
+Eruda.init()
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +35,8 @@ export class MyApp {
       { title: 'Message', component: MessagePage}
     ];
   }
-  ngAfterViewInit(){
+  async ngAfterViewInit(){
+    await amap.listen()
     $message.login('0000000001@ydj-b85-hd3', '123456', '0000000001')
     // console.log({$message})
   }
