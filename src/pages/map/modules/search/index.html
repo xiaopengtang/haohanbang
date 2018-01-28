@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>搜索</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <!-- <ion-list></ion-list> -->
+    <div class="hot" *ngIf="list.length == 0">
+    	<section class="hot-list">
+    		<h3>热门搜索</h3>
+    		<ul>
+    			<li>测试</li>
+    			<li>测试</li>
+    			<li>测试</li>
+    		</ul>
+    	</section>
+    	<section class="history-list">
+    		<h3>搜索历史</h3>
+    		<ul>
+    			<li>
+    				<span>测试</span>
+    				<ion-icon name="close"></ion-icon>
+    			</li>
+    		</ul>
+    	</section>
+    </div>
+    <com-service-item [list]="list"></com-service-item>
+</ion-content>

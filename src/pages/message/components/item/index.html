@@ -1,5 +1,5 @@
 <ion-list class="message-list">
-    <ion-item *ngFor="let it of list" (click)="open()">
+    <ion-item *ngFor="let it of list" (click)="open(it)">
         <ion-avatar item-start>
             <img [src]="it.faceUrl">
         </ion-avatar>

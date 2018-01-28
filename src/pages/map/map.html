@@ -3,10 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Map</ion-title>
+    <ion-title>
+    	周边
+    	<!-- <ion-input (click)="openSearch()" type="text" placeholder="家电维修"></ion-input> -->
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+	<ion-searchbar placeholder="家电维修" (click)="openSearch()" (ionInput)="getItems($event)"></ion-searchbar>
 	<div class="amap" id="amap"></div>
 </ion-content>

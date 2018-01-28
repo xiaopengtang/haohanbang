@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as amap from 'hhb-amap'
+import {MapPageSearch} from './modules/search'
 
 @Component({
   selector: 'page-map',
@@ -16,6 +17,7 @@ export class MapPage {
     // 获取当前用户位置
     amap.on('COMPLETE', info => {
       $map.clearMap()
+      // $map.setCenter(new $map.amap.LngLat(info.position.lng, info.position.lat))
       const marker = new amap.amap.Marker({position: info.position, zoom: $map.getZoom()})
       marker.setMap($map)
     })
@@ -29,4 +31,8 @@ export class MapPage {
     })
     return await $loader.create()*/
   }
+  openSearch(){
+    this.navCtrl.push(MapPageSearch)
+  }
+  getItems(){}
 }

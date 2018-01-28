@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'message-content',
@@ -23,8 +23,9 @@ export class MessageContent {
 		'message': 'I am back',
 		'time': '2017-12-30 12:30:51'
 	}]
-	constructor(public navCtrl: NavController) {
+	constructor(public navCtrl: NavController, navParams: NavParams) {
 		// console.log(this)
+		console.log(navParams.get('info'))
 	}
 
 	ngOnChanges(){

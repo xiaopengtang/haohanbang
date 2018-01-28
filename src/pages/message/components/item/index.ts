@@ -25,7 +25,8 @@ export class MessageItem {
 		'name': '黎明'
 	}]
 	constructor(public navCtrl: NavController) {}
-	open(...rest: any[]){
-		this.navCtrl.push(MessageContent, {id: 11})
+	open(info: any){
+		// console.log([...rest])
+		this.navCtrl.push(MessageContent, {info})
 	}
 }
