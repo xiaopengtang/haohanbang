@@ -1,2 +1,1 @@
-export {ComServiceItem} from './service-item' 
-export {ComDemo} from './demo'
+export {ComServiceItem} from './service-item'
