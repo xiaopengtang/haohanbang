@@ -6,6 +6,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { UserDetailPage} from '../pages/userDetail'
 // import {ComponentsModule} from '../components/index.module'
 // import {ComServiceItem} from '../components'
 // import { MapPage } from '../pages/map/map';
@@ -13,6 +14,7 @@ import { ListPage } from '../pages/list/list';
 import { MessageModule } from '../pages/message/index.module';
 import { MapModule } from '../pages/map/map.module';
 import { ServiceModule } from '../pages/service/index.module';
+import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
 // import {ComDemo} from '../components/demo'
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,6 +33,7 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
+    UserDetailPage
     // ComServiceItem
     // ComDemo
     // ...components
@@ -44,6 +47,7 @@ core.config(config)
     MessageModule,
     MapModule,
     ServiceModule,
+    ServiceDetailModule
 
   ],
   bootstrap: [IonicApp],
@@ -51,6 +55,7 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
+    UserDetailPage
     // ComServiceItem,
     // ComDemo
     // ...components

@@ -6,7 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
+import { UserDetailPage} from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
+import {SerivceDetailPage} from '../pages/serviceDetail'                        
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'
@@ -32,7 +34,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Map', component: MapPage },
-      { title: 'Message', component: MessagePage}
+      { title: 'Message', component: MessagePage},
+      { title: 'serviceDetail', component: SerivceDetailPage},
+      { title: 'UserDetailPage',component: UserDetailPage}
     ];
   }
   async ngAfterViewInit(){

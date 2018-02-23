@@ -86,3 +86,13 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$banner-width: 12px !default;
+
+$color-gray: #999 !default;
+$color-gray-light: #666 !default;
+
+ul{
+	margin: 0;
+	padding: 0;
+}

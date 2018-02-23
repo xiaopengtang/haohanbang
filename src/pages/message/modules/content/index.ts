@@ -37,7 +37,7 @@ export class MessageContent {
 	}
 
 	send(){
-		let message: string = document.querySelector('#content').value || ''
+		let message: string = document.querySelector('#content').innerHTML || ''
 		if(!message){
 			return
 		}
@@ -51,6 +51,6 @@ export class MessageContent {
 			//'message': 'I am back',
 			// 'time': '2017-12-30 12:30:51'
 		})
-		document.querySelector('#content').value = ""
+		document.querySelector('#content').innerHTML = ""
 	}
 }
