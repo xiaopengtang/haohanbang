@@ -1,9 +1,9 @@
 <ion-list class="message-list">
     <ion-item *ngFor="let it of list" (click)="open(it)">
         <ion-avatar item-start>
-            <img [src]="it.faceUrl">
+            <img [src]="it.imageUri">
         </ion-avatar>
-	    <h2>{{it.name}}</h2>
+	    <h2>{{it.nickName}}</h2>
 	    <p>{{it.message}}</p>
 	    <ion-note item-end>{{it.time}}</ion-note>
     </ion-item>

@@ -12,6 +12,8 @@ import {SerivceDetailPage} from '../pages/serviceDetail'
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'
+// import { LocalNotifications } from '@ionic-native/local-notifications';
+// import {$pres} from 'strophe.js'
 
 // console.log(Eruda)
 Eruda.init()
@@ -25,8 +27,8 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  // private notify: LocalNotifications
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -41,8 +43,21 @@ export class MyApp {
   }
   async ngAfterViewInit(){
     await amap.listen()
-    $message.login('0000000001@ydj-b85-hd3', '123456', '0000000001')
     // console.log({$message})
+    $message.login('0000000002@ydj-b85-hd3', '123456')
+    $message.on('MESSAGE', message => {
+      console.log({message})
+      /*this.notify.schedule({
+        id: 1,
+        text: message.message
+      })*/
+    })
+    /*var pres = $pres({
+        from: '0000000002@ydj-b85-hd3',
+        to: 'admin@ydj-b85-hd3' + "/" + '0000000002'
+    }).c('x',{xmlns: 'http://jabber.org/protocol/muc'}).tree();
+    $message.send(pres);*/
+    // console.log({pres})
   }
 
   initializeApp() {

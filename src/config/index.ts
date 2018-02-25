@@ -1,5 +1,5 @@
 export const message = {
-  'host': '//1989591.51vip.biz:17015/http-bind/'
+  'host': 'http://yqh0303.com:17015/http-bind/'
 }
 
 
