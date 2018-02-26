@@ -14,8 +14,10 @@ import { UserDetailPage} from '../pages/userDetail'
 // import { MessagePage } from '../pages/message';
 import { MessageModule } from '../pages/message/index.module';
 import { MapModule } from '../pages/map/map.module';
+import { IonicStorageModule } from '@ionic/storage';
 import { ServiceModule } from '../pages/service/index.module';
 import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
+import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -45,7 +47,9 @@ core.config(config)
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    IonicStorageModule.forRoot(),
     // ComponentsModule,
+    // HttpClientModule,
     MessageModule,
     MapModule,
     ServiceModule,
@@ -67,6 +71,7 @@ core.config(config)
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
