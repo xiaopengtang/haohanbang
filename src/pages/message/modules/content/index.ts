@@ -26,7 +26,7 @@ export class MessageContent {
 		this.friend = navParams.get('info')
 		this.serve = serve
 		this._updateFriendList()
-		console.log(this.friend)
+		// console.log(this.friend)
 		$message.on('MESSAGE', mess => {
 			// console.log({mess})
 			const r = new RegExp(`^${this.friend.id}@`)
@@ -49,7 +49,7 @@ export class MessageContent {
 	}
 
 	async _updateFriendList(){
-		// let oldList = 
+		// let oldList =
 
 		await this._renderHistoryList()
 		return this.storage.get('FRIEND_LIST').then(list => {
@@ -80,9 +80,9 @@ export class MessageContent {
 			'from': '',
 			'type': 'normal'
 		}).c('body', null, message)
-		// 
+		//
 		$message.send(mess.tree())
-		// 
+		//
 		this.list.push({
 			'faceUrl': 'https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png',
 			'isOwn': true,
