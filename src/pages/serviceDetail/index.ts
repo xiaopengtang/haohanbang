@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import {Service} from './index.service'
 
 @Component({
   selector: 'page-service-detail',
-  templateUrl: 'index.html'  
+  templateUrl: 'index.html'
 })
 
 export class SerivceDetailPage {
-	constructor(public navCtrl: NavController, public alertCtrl: AlertController) {}
+	constructor(public navCtrl: NavController, public alertCtrl: AlertController, public $server: Service) {
+  }
 
 	applyOrder(){
-		console.log(this)
-		/*alert()
 		let prompt = this.alertCtrl.create({
 	        title: 'Login',
 	        message: "Enter a name for this new album you're so keen on adding",
@@ -36,6 +36,6 @@ export class SerivceDetailPage {
 	        }
 	        ]
 	    });
-	    prompt.present();*/
+	    prompt.present();
 	}
 }
