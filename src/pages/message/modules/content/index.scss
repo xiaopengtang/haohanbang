@@ -85,16 +85,18 @@
 		}
 		.send-content{
 			margin-right: 6px;
-			padding: 8px 5px;
-			// overflow-y: scroll;
 			border-bottom: 1px solid #ADFF2F;
 			flex: 1;
-			p{
-				max-height: 44px;
+			#content{
+				width: 100%;
+				outline: none;
+				resize: none;
+				border: none;
 			    overflow-y: scroll;
 				margin: 0 ;
-				line-height: 1.2;
-
+				font-size: 14px;
+				vertical-align: middle;
+				line-height: 1;
 			}
 		}
 	}

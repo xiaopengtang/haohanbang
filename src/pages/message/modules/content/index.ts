@@ -19,6 +19,13 @@ export class MessageContent {
 		'message': 'hi,jim',
 		'time': '2017-12-30 12:30:51'
 	}]
+	get user(){
+		return {
+			id: '0000000002@',
+			name: 'ydj-b85-hd3',
+			'faceUrl': '//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'
+		}
+	}
 	friend: any = {}
 	storage: Storage
 	constructor(public navCtrl: NavController, navParams: NavParams, storage: Storage, serve: Serve) {
@@ -33,10 +40,13 @@ export class MessageContent {
 			if(!r.test(mess.from)){
 				return
 			}
+			let {message} = mess
+			// const arrEntities = {'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'}
+		    // message = message.replace(/&(lt|gt|nbsp|amp|quot);/ig,(all,t) => arrEntities[t])
 			this.list.push({
 				'faceUrl': this.friend.imageUri,
 				'isOwn': false,
-				'message': mess.message,
+				'message': message,
 				'time': moment().format('hh:ii:ss')
 			})
 		})
@@ -68,7 +78,9 @@ export class MessageContent {
 	}
 
 	send(){
-		let message: string = document.querySelector('#content').innerHTML || ''
+		let el: any = document.querySelector('#content')
+		let message: string = el.value || ''
+		console.log({message})
 		if(!message){
 			return
 		}
@@ -76,20 +88,20 @@ export class MessageContent {
 		message = message.replace(/&(lt|gt|nbsp|amp|quot);/ig,(all,t) => arrEntities[t])
 		// console.log({message})
 		const mess = $msg({
-			'to': '',
-			'from': '',
+			'to': `${this.friend.id}@${this.friend.name}`,
+			'from': `${this.user.id}@${this.user.name}`,
 			'type': 'normal'
 		}).c('body', null, message)
 		//
 		$message.send(mess.tree())
 		//
 		this.list.push({
-			'faceUrl': 'https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png',
+			'faceUrl': this.friend.imageUri, //'https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png',
 			'isOwn': true,
 			message
 			//'message': 'I am back',
 			// 'time': '2017-12-30 12:30:51'
 		})
-		document.querySelector('#content').innerHTML = ""
+		el.value = ""
 	}
 }
