@@ -1,0 +1,15 @@
+<ion-card class="user-card" *ngFor="let user of list">
+	<ion-card-content class="user-content" >
+		<div class="user-detail">
+			<img src="//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+			<div class="user-sub">
+				<div class="user-top">
+					<span>{{user.name}}</span>
+				    <span class="leval">{{user.level}}</span>
+				</div>
+				<div class="user-btm">测试测试</div>
+			</div>
+		</div>
+		<ion-icon name="chatbubbles"></ion-icon>
+	</ion-card-content>
+</ion-card>

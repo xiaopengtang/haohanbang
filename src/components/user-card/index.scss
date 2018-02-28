@@ -1,0 +1,48 @@
+com-user-card{
+	.user-card{
+		.user-content{
+			ion-icon{
+				// height: 20px;
+				// width: 20px;
+				&:before{
+					// width: 40px;
+					font-size: 1.8em;
+					color: #444;
+					// height: 40px;
+				}
+			}
+			padding: $banner-width;
+			// .user-content{
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			// }
+			.user-detail{
+				display: flex;
+				&>img{
+					max-width: 48px;
+					max-height: 48px;
+				}
+				.user-sub{
+					padding-left: 10px;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					.user-top{
+						font-size: 0;
+						span{
+							font-size: 14px;
+							&:not(:last-child){
+								padding-right: 10px;
+							}
+						}
+					}
+					.user-btm{
+						font-size: 12px;
+						color: #999;
+					}
+				}
+			}
+		}
+	}
+}

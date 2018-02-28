@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams } from 'ionic-angular';
 import {Service} from './index.service'
 
 @Component({
@@ -8,8 +8,20 @@ import {Service} from './index.service'
 })
 
 export class SerivceDetailPage {
-	constructor(public navCtrl: NavController, public alertCtrl: AlertController, public $server: Service) {
-  }
+	private orderId: string;
+	info: any = {};
+	public $server: Service; 
+	constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController ,public $server: Service) {
+        this.orderId = navParams.get('orderId')
+        // this.$server = $server
+        // console.log(this.orderId)
+    }
+
+    async ngAfterViewInit(){
+    	const res = await this.$server.queryDetail(this.orderId)
+    	console.log(res)
+    	return this.info = res.data || {}
+    }
 
 	applyOrder(){
 		let prompt = this.alertCtrl.create({
@@ -33,7 +45,7 @@ export class SerivceDetailPage {
 	            handler: data => {
 	                console.log('Saved clicked');
 	            }
-	        }
+	        } 
 	        ]
 	    });
 	    prompt.present();

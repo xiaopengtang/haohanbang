@@ -1,0 +1,8 @@
+<section class="apply-list" *ngFor="let it of list">
+	<div class="user-info">
+		<span>{{it.name}}</span>
+		<span class="red">v{{it.level}}</span>
+	</div>
+	<div class="apply-content">{{it.message}}</div>
+	<div class="user-time">{{it.createTime}}</div>
+</section>

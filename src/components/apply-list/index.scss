@@ -1,0 +1,27 @@
+com-apply-list{
+	.apply-list{
+		padding: 10px 0 ;
+		.user-info{
+			font-size: 0;
+			span{
+				padding-right: 10px;
+				font-size: 14px;
+				&.red{
+					color: red;
+				}
+			}
+		}
+		.apply-content{
+			padding-top: 10px;
+			font-size: 14px;
+		}
+		.user-time{
+			padding-top: 10px;
+			text-align: right;
+			font-size: 12px;
+		}
+		&:not(:last-child){
+			border-bottom: 1px solid #e5e5e5;
+		}
+	}
+}
