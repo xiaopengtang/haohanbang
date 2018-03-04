@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, ModalController, AlertController, NavParams } from 'ionic-angular';
 import {Service} from './index.service'
+import { ModalApply} from './modules/apply'
 
 @Component({
   selector: 'page-service-detail',
@@ -9,12 +10,10 @@ import {Service} from './index.service'
 
 export class SerivceDetailPage {
 	private orderId: string;
-	info: any = {};
+	info: any = {};  
 	public $server: Service; 
-	constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl: AlertController ,public $server: Service) {
+	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams ,public modalCtrl: ModalController ,public $server: Service) {
         this.orderId = navParams.get('orderId')
-        // this.$server = $server
-        // console.log(this.orderId)
     }
 
     async ngAfterViewInit(){
@@ -22,26 +21,25 @@ export class SerivceDetailPage {
     	console.log(res)
     	return this.info = res.data || {}
     }
-
-	applyOrder(){
-		let prompt = this.alertCtrl.create({
-	        title: 'Login',
-	        message: "Enter a name for this new album you're so keen on adding",
+    reply(){
+    	let prompt = this.alertCtrl.create({
+	        title: '评论',
+	        // message: "Enter a name for this new album you're so keen on adding",
 	        inputs: [
 		        {
-		            name: 'title',
-		            placeholder: 'Title'
+		            name: 'message',
+		            placeholder: '请输入评论信息'
 		        },
 	        ],
 	        buttons: [
 	        {
-	            text: 'Cancel',
+	            text: '取消',
 	            handler: data => {
 	                console.log('Cancel clicked');
 	            }
 	        },
 	        {
-	            text: 'Save',
+	            text: '评论',
 	            handler: data => {
 	                console.log('Saved clicked');
 	            }
@@ -49,5 +47,11 @@ export class SerivceDetailPage {
 	        ]
 	    });
 	    prompt.present();
+    }
+
+	applyOrder(){
+		let modal = this.modalCtrl.create(ModalApply);
+        modal.present();
+		
 	}
 }

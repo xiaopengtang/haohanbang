@@ -7,10 +7,12 @@ import {Service} from './index.service'
 
 import {SerivceDetailPage} from './index'
 
+import { ModalApply} from './modules/apply'
+
 @NgModule({
-	declarations: [SerivceDetailPage],
+	declarations: [SerivceDetailPage, ModalApply],
 	imports: [IonicModule.forRoot(SerivceDetailPage), ComponentsModule],
-	entryComponents: [SerivceDetailPage],
+	entryComponents: [SerivceDetailPage, ModalApply],
 	exports: [SerivceDetailPage],
     providers: [Service],
     bootstrap: [SerivceDetailPage]

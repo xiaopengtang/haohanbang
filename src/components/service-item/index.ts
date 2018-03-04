@@ -31,7 +31,7 @@ export class ComServiceItem{
 		return config('requestConfig.host')
 	}
 	async curl(map: Params){
-		return await this.http.post(`${this.host}/order/request/order/list`, JSON.stringify(map), {headers: new Headers({'Content-Type': 'application/json'})}).toPromise().then((res: any) => res.json())
+		return await this.http.post(`${this.host}order/request/order/list`, JSON.stringify(map), {headers: new Headers({'Content-Type': 'application/json'})}).toPromise().then((res: any) => res.json())
 	}
 	async ngAfterViewInit(){
 		if(Array.isArray(this.list) && this.list.length){

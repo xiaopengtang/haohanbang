@@ -47,15 +47,16 @@
 			<ion-card-content>{{info.describe}}</ion-card-content>
 		</ion-card>
 	</section>
-	<section class="card question" *ngIf="info.leaveMessageList">
+	<section class="card question">
 		<h2>评论</h2>
-		<ion-card>
+		<ion-card >
 			<ion-card-content>
-				<com-apply-list [list]="info.leaveMessageList"></com-apply-list>
+				<com-apply-list *ngIf="info.leaveMessageList" [list]="info.leaveMessageList"></com-apply-list>
+				<p *ngIf="!info.leaveMessageList">暂无评论</p>
 			</ion-card-content>
 		</ion-card>
 		<div class="send-btn"> 
-			<button ion-button color="light" small>发布评论</button>
+			<button ion-button color="light" small (click)="reply()">发布评论</button>
 		</div>
 	</section>
 	<section class="card history" *ngIf="info.applyDetailRespList">

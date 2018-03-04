@@ -1,4 +1,4 @@
-<ion-card class="user-card" *ngFor="let user of list">
+<ion-card class="user-card" *ngFor="let user of list" (click)="openMessCtrl(user)">
 	<ion-card-content class="user-content" >
 		<div class="user-detail">
 			<img src="//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">

@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
 }) 
 export class ComApplyList {
 	@Input() list: any[] = [];
-	// @Input() map: {}
+	// @Input() map: {} 
 	
 	constructor(public navCtrl: NavController){}
 	renderList: any[] = [];
@@ -16,9 +16,5 @@ export class ComApplyList {
 		if(Array.isArray(this.list) && this.list.length){
 			this.renderList = this.list
 		}
-		// console.log(this.renderList)
-		/*const res: any = await this.curl(this.map)
-		this.renderList = res.data && res.data.records || []
-		console.log(this.renderList)*/
 	}
 }

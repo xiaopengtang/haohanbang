@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {MessageContent} from '../../pages/message/modules/content'
 
 @Component({
   selector: 'com-user-card',
@@ -20,5 +21,9 @@ export class ComUserCard {
 		/*const res: any = await this.curl(this.map)
 		this.renderList = res.data && res.data.records || []
 		console.log(this.renderList)*/
+	}
+
+	openMessCtrl(info){
+		this.navCtrl.push(MessageContent, {info})
 	}
 }
