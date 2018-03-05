@@ -16,15 +16,14 @@
 				<ion-item>
 				    <ion-label fixed>日期</ion-label>
 				    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="clock"></ion-datetime>
-				    <!-- <ion-input type="date" value=""></ion-input> -->
 				</ion-item>
 				<ion-item>
 				    <ion-label fixed>时间</ion-label>
-				    <ion-input type="date" value=""></ion-input>
+				    <ion-input type="date" value="" [(ngModel)]="date"></ion-input>
 				</ion-item>
 				<ion-item>
 				    <ion-label fixed>描述</ion-label>
-				    <ion-input type="password"></ion-input>
+				    <ion-input type="text" [(ngModel)]="reason"></ion-input>
 				</ion-item>
 				</ion-list>
 		</section>

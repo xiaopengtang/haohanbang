@@ -13,6 +13,7 @@ import {ServicePage} from '../pages/service'
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'
+import * as user from 'hhb-userauth'
 // import { LocalNotifications } from '@ionic-native/local-notifications';
 // import {$pres} from 'strophe.js'
 
@@ -46,7 +47,8 @@ export class MyApp {
   async ngAfterViewInit(){
     await amap.listen()
     // console.log({$message})
-    $message.login('0000000002@ydj-b85-hd3', '123456')
+    // $message.login('0000000002@ydj-b85-hd3', '123456')
+    $message.login(`${user.id}@${user.name}`, user.state.pw)
     $message.on('MESSAGE', message => {
       console.log({message})
       /*this.notify.schedule({

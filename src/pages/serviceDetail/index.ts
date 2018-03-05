@@ -50,7 +50,8 @@ export class SerivceDetailPage {
     }
 
 	applyOrder(){
-		let modal = this.modalCtrl.create(ModalApply);
+		let orderId = this.orderId
+		let modal = this.modalCtrl.create(ModalApply, {orderId});
         modal.present();
 		
 	}

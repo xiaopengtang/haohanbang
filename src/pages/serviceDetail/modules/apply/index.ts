@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController} from 'ionic-angular';
+import { ViewController, NavParams, Platform} from 'ionic-angular';
+import * as user from 'hhb-userauth'
 
 @Component({
   selector: 'modal-apply',
@@ -7,10 +8,24 @@ import { NavController, ViewController} from 'ionic-angular';
 }) 
 export class ModalApply {
 	clock;
-	constructor(public navCtrl: NavController, public viewCtrl: ViewController) {}
+	date;
+	reason;
+	private orderId;
+	// public params: NavParams;
+	constructor(public viewCtrl: ViewController, public params: NavParams, public platform: Platform) {
+		this.orderId = this.params.get('orderId')
+	}
 	dismiss(){
 		this.viewCtrl.dismiss();
 	}
 
-	applyOrder(){}
+	applyOrder(){
+		let param = {
+			"applyTime": `${this.date} ${this.clock}`,
+			"orderId": this.orderId,
+			"reason": this.orderId,
+			"userId": user.id
+		}
+		console.log({param})
+	}
 }
