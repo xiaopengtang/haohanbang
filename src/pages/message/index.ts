@@ -3,9 +3,10 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-message',
-  templateUrl: 'index.html'  
+  templateUrl: 'index.html'
 })
 
 export class MessagePage {
 	constructor(public navCtrl: NavController) {}
+  doRefresh(){}
 }

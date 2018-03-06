@@ -76,6 +76,14 @@ export class MessageContent {
 	ngOnInit(){
 		// console.log(arguments)
 	}
+  doRefresh(refresher){
+    // console.log('Begin async operation', refresher);
+
+    // setTimeout(() => {
+      // console.log('Async operation has ended');
+      refresher.complete();
+    // }, 500);
+  }
 
 	send(){
 		let el: any = document.querySelector('#content')

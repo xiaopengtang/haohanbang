@@ -8,8 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { UserDetailPage} from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
-import {SerivceDetailPage} from '../pages/serviceDetail'   
-import {ServicePage} from '../pages/service'                        
+import {SerivceDetailPage} from '../pages/serviceDetail'
+import {ServicePage} from '../pages/service'
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'

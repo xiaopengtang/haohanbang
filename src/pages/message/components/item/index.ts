@@ -21,4 +21,12 @@ export class MessageItem {
 		// let list = await this.storage.get('FRIEND_LIST')
 		this.navCtrl.push(MessageContent, {info})
 	}
+  doRefresh(refresher){
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 }

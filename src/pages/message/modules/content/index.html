@@ -18,6 +18,14 @@
 		    </ion-card>
 	    </ion-item>
 	</ion-list> -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 	<ul class="history-list">
 		<li *ngFor="let it of list" class="{{it.isOwn ? 'self':'friend'}}">
 			<!--不要问我为什么-->

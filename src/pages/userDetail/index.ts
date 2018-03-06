@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-user-detail',
-  templateUrl: 'index.html'  
+  templateUrl: 'index.html'
 })
 
 export class UserDetailPage {
