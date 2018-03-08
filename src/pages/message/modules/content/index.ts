@@ -98,7 +98,7 @@ export class MessageContent {
 		const mess = $msg({
 			'to': `${this.friend.id}@${this.friend.name}`,
 			'from': `${this.user.id}@${this.user.name}`,
-			'type': 'normal'
+			'type': 'chat'
 		}).c('body', null, message)
 		//
 		$message.send(mess.tree())

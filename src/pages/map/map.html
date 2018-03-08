@@ -11,6 +11,10 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar placeholder="家电维修" (click)="openSearch()" (ionInput)="getItems($event)"></ion-searchbar>
-	<div class="amap" id="amap"></div>
+	<section class="main">
+    <section class="search">
+      <ion-searchbar placeholder="家电维修" (click)="openSearch()" (ionInput)="getItems($event)"></ion-searchbar>
+    </section>
+    <div class="amap" id="amap"></div>
+  </section>
 </ion-content>

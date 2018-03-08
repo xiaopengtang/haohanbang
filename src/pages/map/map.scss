@@ -1,20 +1,16 @@
-
-.amap{
-	width: 100%;
-	height: 100%;
-}
-.search-input{
-	&>*{
-		font-size: 14px;
-	}
-	.toolbar-title{
-		border: 1px solid #999;
-		background-color: #FFF;
-		input{
-			margin-bottom: 6px;
-			margin-top: 6px;
-			padding: 0 5px;
-		}
-	}
-	
+page-map{
+  .main{
+    height: 100%;
+    position: relative;
+    .amap{
+      width: 100%;
+      height: 100%;
+    }
+    .search{
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+    }
+  }
 }

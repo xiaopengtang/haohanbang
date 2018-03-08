@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Http, Headers }    from '@angular/http';
 import {SerivceDetailPage} from '../../pages/serviceDetail'
 import {config} from 'hhb-core'
+import $http from 'hhb-http'
 
 interface Params {
   "asc": boolean,
@@ -31,6 +32,7 @@ export class ComServiceItem{
 		return config('requestConfig.host')
 	}
 	async curl(map: Params){
+    // console.log({$http})
 		return await this.http.post(`${this.host}order/request/order/list`, JSON.stringify(map), {headers: new Headers({'Content-Type': 'application/json'})}).toPromise().then((res: any) => res.json())
 	}
 	async ngAfterViewInit(){
@@ -41,7 +43,7 @@ export class ComServiceItem{
 		this.renderList = res.data && res.data.records || []
 		console.log(this.renderList)
 	}
-	
+
 	constructor(public navCtrl: NavController, http: Http){
 		this.http = http
 	}

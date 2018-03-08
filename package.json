@@ -31,6 +31,7 @@
     "eruda": "^1.4.1",
     "hhb-amap": "^1.0.4",
     "hhb-core": "^1.0.5",
+    "hhb-http": "^1.0.3",
     "hhb-message": "^1.0.2",
     "hhb-userauth": "^1.0.4",
     "ionic-angular": "3.9.2",

@@ -49,8 +49,25 @@ export class MyApp {
     // console.log({$message})
     // $message.login('0000000002@ydj-b85-hd3', '123456')
     $message.login(`${user.id}@${user.name}`, user.state.pw)
+    $message.on('READY', () => {
+      // amap.on('')
+      amap.on('COMPLETE', info => {
+        $message.send({
+          'to': `admin@ydj-b85-hd3`,
+          'from': `${user.id}@ydj-b85-hd3`,
+          'type': 'normal'
+          },JSON.stringify({
+          "longitude": info.position.lng,     //经度
+          "latitude": info.position.lat,      //纬度
+          'distance':3000   //距离 单位米 需要显示附近多少米的人，默认3000米
+          }))
+          // console.log(info)
+
+        })
+      //
+    })
     $message.on('MESSAGE', message => {
-      console.log({message})
+      // console.log({message})
       /*this.notify.schedule({
         id: 1,
         text: message.message
