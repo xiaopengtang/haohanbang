@@ -1,0 +1,27 @@
+.register {
+    margin: 20px 0 0 0;
+    .inputName {
+        // text-align: center;
+        letter-spacing: 5px;
+        width: 8rem;
+    }
+    & > .list-ios {
+      margin: 0;
+      & > .item-block{
+        border-top: none;
+      }
+    }
+
+    .errMsg{
+      padding: 0 16px;
+      margin-bottom: 0;
+      color: #FF3300;
+    }
+    .login-buttons{
+      padding: 10px 16px 0px 16px;
+      &:last-child{
+        padding: 5px 16px 16px 16px;
+        // padding-bottom: 16px;
+      }
+    }
+}
