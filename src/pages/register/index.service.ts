@@ -13,8 +13,6 @@ export class Service {
         return config('requestConfig.host')
     }
     constructor(private http: Http) { 
-        // 
-        // this.http = Http;
     }
 
     async getRegisterCode(phoneNum) {
