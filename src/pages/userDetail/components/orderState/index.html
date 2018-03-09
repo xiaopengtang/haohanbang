@@ -1,0 +1,12 @@
+<ion-grid>
+  <ion-list>
+    <button ion-item (click)="itemSelected(item.navCtrl)">
+      全部请求单
+    </button>
+  </ion-list>
+  <ion-row class="states">
+    <ion-col *ngFor="let item of items" (click)="itemSelected(item.navCtrl)">
+      {{ item.name }}
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,27 @@
+.message-content{
+	.history-list{
+		.item-inner{
+			border-bottom: none !important;
+		}
+		list-style: none;
+		.avatar{
+			min-height: 50px;
+			min-width: 50px;
+			img{
+				min-height: 50px;
+			    min-width: 50px;
+			}
+		}
+		.mess-content{
+			// 
+		}
+		&.self{}
+		&.friend{}
+		ion-item{
+			&:last-child{
+				border-bottom: none !important;
+			}
+		}
+
+	}
+}

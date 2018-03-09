@@ -1,0 +1,15 @@
+.message-list {
+	ion-note {
+	    font-size: 12px;
+	    align-self: flex-start;
+	    margin-top: 14px;
+	}
+	.item-inner{
+	    border-bottom: none !important;
+	}
+	ion-item{
+	    &:not(:last-child){
+	        border-bottom: 0.55px solid #c8c7cc
+	    }
+	}
+}
