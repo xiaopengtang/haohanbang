@@ -3,7 +3,8 @@ export default {
   map: {
     'QUERY:SERVICE:LIST': 'order/request/order/list',
     // 附近人
-    'QUERY:USER:NEAR_LIST': '/member/user/nearby/user'
+    'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
+    'SAVE:USER:APPLY': '/service/order/apply/apply',
   },
   setting: {
     headers: {

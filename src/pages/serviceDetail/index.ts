@@ -10,15 +10,16 @@ import { ModalApply} from './modules/apply'
 
 export class SerivceDetailPage {
 	private orderId: string;
-	info: any = {};  
-	public $server: Service; 
-	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams ,public modalCtrl: ModalController ,public $server: Service) {
+	info: any = {};
+	public $server: Service;
+	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams ,public modalCtrl: ModalController ,$server: Service) {
         this.orderId = navParams.get('orderId')
+        this.$server = $server
     }
 
     async ngAfterViewInit(){
+      // console.log(this.$server)
     	const res = await this.$server.queryDetail(this.orderId)
-    	console.log(res)
     	return this.info = res.data || {}
     }
     reply(){
@@ -43,7 +44,7 @@ export class SerivceDetailPage {
 	            handler: data => {
 	                console.log('Saved clicked');
 	            }
-	        } 
+	        }
 	        ]
 	    });
 	    prompt.present();
@@ -53,6 +54,6 @@ export class SerivceDetailPage {
 		let orderId = this.orderId
 		let modal = this.modalCtrl.create(ModalApply, {orderId});
         modal.present();
-		
+
 	}
 }
