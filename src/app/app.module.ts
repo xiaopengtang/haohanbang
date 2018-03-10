@@ -8,6 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 // import { UserDetailPage } from '../pages/userDetail'
+// import {ComponentsModule} from '../components/index.module'
+// import {ComServiceItem} from '../components'
+// import { MapPage } from '../pages/map/map';
 
 // import { LoginPage } from '../pages/login';
 // import { RegisterPage } from '../pages/register';
@@ -30,7 +33,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
 import * as config from '../config'
 
-// console.log(LoginPage);
 // const components = Object.keys(componentsModules).map(k => componentsModules[k])
 // console.log({IonicApp})
 // 配置安装
@@ -49,9 +51,9 @@ core.config(config)
     // ...components
     // MapPage,
     // LoginPage,
-    // RegisterPage,
-    // ChangePassWordPage,
-    // addServiceForProviderPage,
+    RegisterPage,
+    ChangePassWordPage,
+    addServiceForProviderPage,
     // UserDetial
     // MessagePage
   ],
@@ -80,9 +82,10 @@ core.config(config)
     // ...components
     // MapPage,
     // LoginPage,
-    // RegisterPage,
-    // ChangePassWordPage,
-    // addServiceForProviderPage,
+    RegisterPage,
+    ChangePassWordPage,
+    addServiceForProviderPage,
+
     // MessagePage
   ],
   providers: [

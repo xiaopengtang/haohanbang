@@ -1,36 +1,42 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>用户注册</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>用户注册</ion-title>
+  </ion-navbar>
 </ion-header>
 <ion-content>
 
-    <!-- 手机号输入 -->
-    <div class="register">
-        <ion-list>
-            <ion-item>
-                <ion-label stacked>请输入手机号:</ion-label>
-                <ion-input type="text" placeholder="请先输入11位有效手机号" [(ngModel)]="phoneNum"></ion-input>
-            </ion-item>
-        </ion-list>
-        <ion-list>
-            <ion-item>
-                <ion-label stacked>请输入验证码:</ion-label>
-                <ion-input type="text" disabled=true placeholder="请先输入有效手机号后获取验证码"></ion-input>
-            </ion-item>
-        </ion-list>
-        <ion-label class="errMsg">
-            {{errorMsg}}
-        </ion-label>
-        <div class="login-buttons">
-                <button ion-button icon-right color="royal" (click)="checkPhoneNum()">获取验证码</button>
-            </div>
-        <div class="login-buttons">
-            <button ion-button icon-right color="royal" (click)="open()">确认</button>
-        </div>
+  <!-- 手机号输入 -->
+  <div class="register">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>请输入手机号:</ion-label>
+        <ion-input type="text" placeholder="请先输入11位有效手机号" [(ngModel)]="phoneNum"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>请输入密码:</ion-label>
+        <ion-input type="text" disabled={{!requested}} placeholder="最少8位有效字符串" [(ngModel)]="passWord"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>请输入验证码:</ion-label>
+        <ion-input type="text" disabled={{!requested}} placeholder="请先输入有效手机号后获取验证码" [(ngModel)]="phoneNum"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-label class="errMsg">
+      {{errorMsg}}
+    </ion-label>
+    <div class="login-buttons">
+      <button ion-button icon-right color="royal" (click)="checkPhoneNum()">获取验证码</button>
     </div>
+    <div class="login-buttons">
+      <button ion-button icon-right color="royal" (click)="open()">确认</button>
+    </div>
+  </div>
 
 </ion-content>
