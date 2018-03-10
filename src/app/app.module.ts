@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { UserDetailPage } from '../pages/userDetail'
+// import { UserDetailPage } from '../pages/userDetail'
 // import {ComponentsModule} from '../components/index.module'
 // import {ComServiceItem} from '../components'
 // import { MapPage } from '../pages/map/map';
@@ -33,7 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
 import * as config from '../config'
 
-console.log(LoginPage);
+console.log(RegisterPage);
 // const components = Object.keys(componentsModules).map(k => componentsModules[k])
 // console.log({IonicApp})
 // 配置安装
@@ -50,8 +50,8 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    LoginPage,
-    // RegisterPage,
+    // LoginPage,
+    RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
     // UserDetial
@@ -76,13 +76,13 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
-    UserDetailPage
+    // UserDetailPage,
     // ComServiceItem,
     // ComDemo
     // ...components
-    // MapPage,        
-    LoginPage,
-    // RegisterPage,
+    // MapPage,
+    // LoginPage,
+    RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
     // MessagePage

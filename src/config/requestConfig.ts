@@ -5,6 +5,10 @@ export default {
     // 附近人
     'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
     'SAVE:USER:APPLY': '/service/order/apply/apply',
+
+    //注册
+    'VERFICATION:USER:REGISTERCODE': '/member/verfication/get/register/sms/code',
+    'VERFICATION:USER:REGISTER': '/user/register'
   },
   setting: {
     headers: {
