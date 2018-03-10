@@ -1,0 +1,9 @@
+diff a/src/pages/map/map.ts b/src/pages/map/map.ts	(rejected hunks)
+@@ -4,7 +4,6 @@
+ import {MapPageSearch} from './modules/search'
+ import * as http from 'hhb-http'
+ import * as user from 'hhb-userauth'
+-import {ServicePage} from '../service'
+ @Component({
+   selector: 'page-map',
+   templateUrl: 'map.html'
