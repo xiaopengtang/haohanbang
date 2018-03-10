@@ -16,9 +16,11 @@ export class MapPage {
     // console.log(http())
     // console.log(this.$http.config.map['QUERY:USER:NEAR_LIST'])
   }
+  private $http;
   async ngAfterViewInit(){
+    console.log('this is amap')
     // 渲染一个map
-    const $map = amap.render('amap')
+    this.$map = amap.render('amap')
     let geolocation = new amap.amap.Geolocation({
         enableHighAccuracy: true,//是否使用高精度定位，默认:true
         timeout: 10000,          //超过10秒后停止定位，默认：无穷大
@@ -32,7 +34,7 @@ export class MapPage {
         panToLocation: true, //true,     //定位成功后将定位到的位置作为地图中心点，默认：true
         zoomToAccuracy: true //true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
     });
-    $map.addControl(geolocation);
+    this.$map.addControl(geolocation);
     geolocation.getCurrentPosition();
     let mainMark, list
     // 图表点击跳转列表页
@@ -44,7 +46,7 @@ export class MapPage {
           image: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png", //大图地址
           // imageOffset: new amap.amap.Pixel(-28, 0)//相对于大图的取图位置
         })})
-        mainMark.setMap($map)
+        mainMark.setMap(this.$map)
         // console.log(amap.amap.event)
         amap.amap.event.addListener(mainMark, 'click', e => {
           // alert(1)
@@ -60,61 +62,19 @@ export class MapPage {
         list = res && res.data || []
         if(Array.isArray(list) && list.length){
           amap.renderMarkList(list)
-    // $map.plugin('AMap.Geolocation', function() {
+    // this.$map.plugin('AMap.Geolocation', function() {
         }
       }else{
         mainMark.setPosition(info.position)
       }
     });//返回定位信息
-
-
-      // AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
-    // });
-    /*let scale = new amap.amap.Scale({
-      visible: false
-    })
-
-    $map.addControl(scale)*/
-    // amap.geo.getCurrentPosition()
-    // console.log({amap})
-    /*var toolBar;
-    var customMarker = new amap.amap.Marker({
-        offset: new amap.amap.Pixel(-14, -34),//相对于基点的位置
-        icon: new amap.amap.Icon({  //复杂图标
-            size: new amap.amap.Size(27, 36),//图标大小
-            image: "http://webapi.amap.com/images/custom_a_j.png", //大图地址
-            imageOffset: new amap.amap.Pixel(-28, 0)//相对于大图的取图位置
-        })
-    });
-    //初始化地图对象，加载地图
-    //地图中添加地图操作ToolBar插件
-    $map.plugin(["AMap.ToolBar"], function() {
-        toolBar = new amap.amap.ToolBar({locationMarker: customMarker}); //设置地位标记为自定义标记
-        $map.addControl(toolBar);
-    });
-    toolBar.doLocation()*/
     // 获取当前用户位置
     amap.on('COMPLETE', info => {
       if(info.type !== 'normal' || info.fromUserId === user.id){
         return
       }
       amap.renderMark(info)
-      // $map.clearMap()
-      // scale.show()
-      // $map.setCenter(new $map.amap.LngLat(info.position.lng, info.position.lat))
-      // const marker = new amap.amap.Marker({position: info.position, zoom: $map.getZoom()})
-      // marker.setMap($map)
-      // console.log(marker)
     })
-    // 监听
-    // return await amap.listen()
-    /*const $loader = amap.loader
-    $loader.on('READY', AMap => {
-      $loader.on('COMPLETE', info => {
-        console.log(info)
-      })
-    })
-    return await $loader.create()*/
   }
   openSearch(){
     this.navCtrl.push(MapPageSearch)
@@ -123,7 +83,7 @@ export class MapPage {
 
   ngOnDestroy(){
     // 清除地图的mark
-    amap.clearMap()
-    amap.clearMarker()
+    // this.$map.clearMap()
+    // amap.clearMarker()
   }
 }

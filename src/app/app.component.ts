@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-import { UserDetailPage } from '../pages/userDetail'
+import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
@@ -49,7 +49,7 @@ export class MyApp {
       { title: 'Message', component: MessagePage},
       { title: 'serviceDetail', component: SerivceDetailPage},
       { title: 'Service', component: ServicePage},
-      { title: 'UserDetailPage',component: UserDetailPage},
+      { title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
       { title: 'Login', component: LoginPage },
