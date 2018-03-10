@@ -13,9 +13,9 @@ import { ListPage } from '../pages/list/list';
 // import { MapPage } from '../pages/map/map';
 
 // import { LoginPage } from '../pages/login';
-import { RegisterPage } from '../pages/register';
-import { ChangePassWordPage } from '../pages/changePassWord';
-import { addServiceForProviderPage } from '../pages/addServiceForProvider';
+// import { RegisterPage } from '../pages/register';
+// import { ChangePassWordPage } from '../pages/changePassWord';
+// import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
 // import { RegisterModule } from '../pages/register/index.module';
 

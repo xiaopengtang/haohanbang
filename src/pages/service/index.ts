@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-service',
-  templateUrl: 'index.html'
+  templateUrl: 'index.html'  
 })
 
 export class ServicePage {
