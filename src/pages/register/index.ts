@@ -32,7 +32,7 @@ export class RegisterPage {
     this.$http = http();
 
     this.phoneNum = "";
-    this.errorMsg = ""; 
+    this.errorMsg = "";
     this.passWord = "";
 
     this.requested = false;
