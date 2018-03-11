@@ -50,7 +50,7 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    // LoginPage,
+    LoginPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
@@ -81,7 +81,7 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    // LoginPage,
+    LoginPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,

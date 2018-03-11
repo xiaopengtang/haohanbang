@@ -15,11 +15,11 @@
                 <ion-list>
                     <ion-item>
                         <ion-label class="inputName">用户ID:</ion-label>
-                        <ion-input type="text" placeholder="用户名、手机号、邮箱"></ion-input>
+                        <ion-input type="text" placeholder="用户名、手机号、邮箱" [(ngModel)]="userName"></ion-input>
                     </ion-item>
                     <ion-item>
                         <ion-label class="inputName">密码:</ion-label>
-                        <ion-input type="password" placeholder="最少有效字符六位"></ion-input>
+                        <ion-input type="password" placeholder="最少有效字符六位" [(ngModel)]="passWord"></ion-input>
                     </ion-item>
                 </ion-list>
             </ion-card>
@@ -28,7 +28,7 @@
                 <ion-label class="resetPw">忘记密码</ion-label>
             </div>
             <div class="login-buttons" padding>
-                <button ion-button icon-right color="royal">登录</button>
+                <button ion-button icon-right color="royal" (click)="login()">登录</button>
                 <button ion-button icon-right color="royal">使用手机验证码登录</button>
             </div>
         </div>

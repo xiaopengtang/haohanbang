@@ -24,6 +24,8 @@ export class RegisterPage {
   errorMsg: string;
   // 密码
   passWord: string;
+  // 验证码
+  code: string;
 
   public requested : boolean;
 
@@ -32,8 +34,10 @@ export class RegisterPage {
     this.$http = http();
 
     this.phoneNum = "";
-    this.errorMsg = "";
     this.passWord = "";
+    this.code = "";
+    this.errorMsg = "";
+
 
     this.requested = false;
   }
@@ -57,6 +61,19 @@ export class RegisterPage {
 
     } else {
       this.errorMsg = msgContent["001"];
+    }
+  }
+
+  async register(...rest: any[]){
+    let {phoneNum, passWord, code} = this;
+
+    if(true){
+      let reg = await this.$http.curl('VERFICATION:USER:REGISTER', {
+        "password": passWord,
+        "phone": phoneNum,
+        "phoneVerficationCode": code
+      });
+      console.log(reg);
     }
   }
 

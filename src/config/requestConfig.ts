@@ -6,9 +6,15 @@ export default {
     'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
     'SAVE:USER:APPLY': '/service/order/apply/apply',
 
-    //注册
+    // 注册
     'VERFICATION:USER:REGISTERCODE': '/member/verfication/get/register/sms/code',
-    'VERFICATION:USER:REGISTER': '/user/register'
+    'VERFICATION:USER:REGISTER': '/member/user/register',
+
+    // 登录
+    'USER:LOGIN': '/member/user/login',
+
+    // 用户信息
+    'USER:USERDETAILS': '/member/user/get/user/byId',
   },
   setting: {
     headers: {
