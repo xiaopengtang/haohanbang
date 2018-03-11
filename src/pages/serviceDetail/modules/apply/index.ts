@@ -22,7 +22,7 @@ export class ModalApply {
 		this.viewCtrl.dismiss();
 	}
 
-  $toast(message, callback){
+  $toast(message, callback?: Function){
     let toast = this.toastCtrl.create({
       message,
       duration: 2000,
