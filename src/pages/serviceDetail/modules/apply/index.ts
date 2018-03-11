@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ViewController, NavParams, Platform} from 'ionic-angular';
+import { ViewController, NavParams, Platform, ToastController} from 'ionic-angular';
 import * as user from 'hhb-userauth'
-import $http from 'hhb-http'
+import * as $http from 'hhb-http'
 
 @Component({
   selector: 'modal-apply',
@@ -14,7 +14,7 @@ export class ModalApply {
 	private orderId;
   private $http;
 	// public params: NavParams;
-	constructor(public viewCtrl: ViewController, public params: NavParams, public platform: Platform) {
+	constructor(public viewCtrl: ViewController, public params: NavParams, public platform: Platform, private toastCtrl: ToastController) {
 		this.orderId = this.params.get('orderId')
     this.$http = $http()
 	}
@@ -22,15 +22,38 @@ export class ModalApply {
 		this.viewCtrl.dismiss();
 	}
 
-	async applyOrder(){
+  $toast(message, callback){
+    let toast = this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'top'
+    });
+    toast.onDidDismiss(() => callback && callback() )
+    toast.present();
+  }
+
+	applyOrder(){
 		let param = {
 			"applyTime": `${this.date} ${this.clock}`,
 			"orderId": this.orderId,
 			"reason": this.orderId,
 			"userId": user.id
 		}
-    const res = await this.$http.curl('SAVE:USER:APPLY', param)
-    console.log(res)
-		// console.log({param})
+    const state = (param => {
+      if(!this.date){
+        return '请输入申请时间'
+      }
+      if(!this.clock){
+        return '请输入申请日期'
+      }
+      return ''
+    })(param)
+    // alert(state)
+    if(state){
+      return this.$toast(state)
+    }
+    const res = this.$http.curl('SAVE:ORDER:APPLY', param)
+    const message = `申请${res && res.code && '成功' || '失败'}`
+    this.$toast(message, () => this.viewCtrl.dismiss())
 	}
 }

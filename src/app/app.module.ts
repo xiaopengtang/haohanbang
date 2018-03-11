@@ -12,12 +12,12 @@ import { ListPage } from '../pages/list/list';
 // import {ComServiceItem} from '../components'
 // import { MapPage } from '../pages/map/map';
 
-import { LoginPage } from '../pages/login';
+// import { LoginPage } from '../pages/login';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
-import { RegisterModule } from '../pages/register/index.module';
+// import { RegisterModule } from '../pages/register/index.module';
 
 // import { MessagePage } from '../pages/message';
 import { MessageModule } from '../pages/message/index.module';
@@ -33,7 +33,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
 import * as config from '../config'
 
-console.log(RegisterPage);
 // const components = Object.keys(componentsModules).map(k => componentsModules[k])
 // console.log({IonicApp})
 // 配置安装
@@ -45,6 +44,7 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
+    // UserDetailPage,
     // UserDetailPage
     // ComServiceItem
     // ComDemo
@@ -67,8 +67,8 @@ core.config(config)
     MessageModule,
     MapModule,
     ServiceModule,
-    ServiceDetailModule
-    // UserDetialModule,
+    ServiceDetailModule,
+    UserDetialModule,
     // RegisterModule
   ],
   bootstrap: [IonicApp],
@@ -85,6 +85,7 @@ core.config(config)
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
+
     // MessagePage
   ],
   providers: [

@@ -14,8 +14,8 @@ import { ModalApply} from './modules/apply'
 	imports: [IonicModule.forRoot(SerivceDetailPage), ComponentsModule],
 	entryComponents: [SerivceDetailPage, ModalApply],
 	exports: [SerivceDetailPage],
-  providers: [Service],
-  bootstrap: [SerivceDetailPage]
+    providers: [Service],
+    bootstrap: [SerivceDetailPage]
 })
 
 export class ServiceDetailModule {}

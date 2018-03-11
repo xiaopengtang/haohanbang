@@ -11,15 +11,16 @@ import {ServicePage} from '../service'
 })
 export class MapPage {
   $map: any;
-  private $http;
   constructor(public navCtrl: NavController){
     this.$http = http()
     // console.log(http())
     // console.log(this.$http.config.map['QUERY:USER:NEAR_LIST'])
   }
+  private $http;
   async ngAfterViewInit(){
+    console.log('this is amap')
     // 渲染一个map
-    const $map = amap.render('amap')
+    this.$map = amap.render('amap')
     let geolocation = new amap.amap.Geolocation({
         enableHighAccuracy: true,//是否使用高精度定位，默认:true
         timeout: 10000,          //超过10秒后停止定位，默认：无穷大
@@ -33,7 +34,7 @@ export class MapPage {
         panToLocation: true, //true,     //定位成功后将定位到的位置作为地图中心点，默认：true
         zoomToAccuracy: true //true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
     });
-    $map.addControl(geolocation);
+    this.$map.addControl(geolocation);
     geolocation.getCurrentPosition();
     let mainMark, list
     // 图表点击跳转列表页
@@ -45,27 +46,29 @@ export class MapPage {
           image: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png", //大图地址
           // imageOffset: new amap.amap.Pixel(-28, 0)//相对于大图的取图位置
         })})
-        mainMark.setMap($map)
+        mainMark.setMap(this.$map)
         // console.log(amap.amap.event)
         amap.amap.event.addListener(mainMark, 'click', e => {
           // alert(1)
           this.navCtrl.push(ServicePage)
         })
-        list = await this.$http.curl('QUERY:USER:NEAR_LIST', {
+        const res = await this.$http.curl('QUERY:USER:NEAR_LIST', {
             "distance": 0,
             "group": null,
             "latitude": info.position.lat,
             "longitude": info.position.lng,
             "userId": user.id
           })
+        list = res && res.data || []
         if(Array.isArray(list) && list.length){
           amap.renderMarkList(list)
+    // this.$map.plugin('AMap.Geolocation', function() {
         }
       }else{
         mainMark.setPosition(info.position)
       }
-
     });//返回定位信息
+    // 获取当前用户位置
     amap.on('COMPLETE', info => {
       if(info.type !== 'normal' || info.fromUserId === user.id){
         return
@@ -80,7 +83,7 @@ export class MapPage {
 
   ngOnDestroy(){
     // 清除地图的mark
-    amap.clearMap()
-    amap.clearMarker()
+    // this.$map.clearMap()
+    // amap.clearMarker()
   }
 }

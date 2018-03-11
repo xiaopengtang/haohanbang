@@ -11,7 +11,7 @@ export {default as requestConfig} from './requestConfig'
 
 export const amap = {
 	'key': '8236443209b67c2e2c0ecdeb7ef315c0',
-  'v': '1.4.3',
+  'v': '1.4.4',
 	"plugin": 'AMap.Scale,AMap.OverView,AMap.ToolBar', // 所需插件
 	// "container": 'amap', //所在el的id
 	"option": {
