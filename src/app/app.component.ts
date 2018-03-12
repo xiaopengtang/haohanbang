@@ -9,12 +9,13 @@ import { MapPage } from '../pages/map/map';
 import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
-import {ServicePage} from '../pages/service'
+// import {ServicePage} from '../pages/service'
 import { SerivceDetailPage } from '../pages/serviceDetail'
 import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
+import { AddressPage } from '../pages/address';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -57,6 +58,7 @@ export class MyApp {
       { title: 'AddServiceForProviderPage', component: addServiceForProviderPage },
       { title: 'AddServiceForUserPage', component: RegisterPage },
       { title: 'ChangePassWordPage', component: ChangePassWordPage },
+      { title: 'AddressPage', component: AddressPage },
     ];
   }
   async ngAfterViewInit(){

@@ -12,7 +12,8 @@ import { ListPage } from '../pages/list/list';
 // import {ComServiceItem} from '../components'
 // import { MapPage } from '../pages/map/map';
 
-// import { LoginPage } from '../pages/login';
+import { LoginPage } from '../pages/login';
+import { AddressPage } from '../pages/address';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -51,6 +52,7 @@ core.config(config)
     // ...components
     // MapPage,
     LoginPage,
+    AddressPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
@@ -82,6 +84,7 @@ core.config(config)
     // ...components
     // MapPage,
     LoginPage,
+    AddressPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
