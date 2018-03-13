@@ -10,7 +10,7 @@ import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 // import {ServicePage} from '../pages/service'
-import { SerivceDetailPage } from '../pages/serviceDetail'
+// import { SerivceDetailPage } from '../pages/serviceDetail'
 import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
@@ -48,7 +48,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Map', component: MapPage },
       { title: 'Message', component: MessagePage},
-      { title: 'serviceDetail', component: SerivceDetailPage},
+      // { title: 'serviceDetail', component: SerivceDetailPage},
       { title: 'Service', component: ServicePage},
       { title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },

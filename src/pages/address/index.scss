@@ -1,5 +1,20 @@
-.addressList{
-  .checkWrapper{
-    padding: 18px 0 18px 10px;
-  }
+.addressList {
+    .checkWrapper {
+        padding: 0px 0 8px 12px;
+        border-bottom: 1px solid #E5E5E5;
+
+        .defualt{
+          display: inline-block;
+          height: 21px;
+          line-height: 21px;
+          vertical-align: top;
+          margin-left: 3px;
+        }
+    }
+
+    .phoneNum{
+      color: #333;
+      font-size: 1.8rem;
+    }
+    // .addressDetail{}
 }

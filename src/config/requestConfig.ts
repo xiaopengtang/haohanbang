@@ -14,9 +14,11 @@ export default {
 
     // 登录
     'USER:LOGIN': '/member/user/login',
-
     // 用户信息
     'USER:USERDETAILS': '/member/user/get/user/byId',
+
+    // 用户地址列表
+    'ADDRESS:LIST': '/member/address/list'
   },
   setting: {
     headers: {
