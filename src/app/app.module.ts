@@ -25,7 +25,7 @@ import { MessageModule } from '../pages/message/index.module';
 import { MapModule } from '../pages/map/map.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { ServiceModule } from '../pages/service/index.module';
-// import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
+import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
 import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
 
@@ -51,8 +51,9 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    LoginPage,
     AddressPage,
+    LoginPage,
+
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
@@ -69,7 +70,7 @@ core.config(config)
     MessageModule,
     MapModule,
     ServiceModule,
-    // ServiceDetailModule,
+    ServiceDetailModule,
     UserDetialModule,
     // RegisterModule
   ],
@@ -84,11 +85,10 @@ core.config(config)
     // ...components
     // MapPage,
     LoginPage,
-    AddressPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
-
+    AddressPage,
     // MessagePage
   ],
   providers: [

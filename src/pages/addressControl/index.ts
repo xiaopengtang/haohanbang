@@ -4,14 +4,12 @@ import { NavController, Platform } from 'ionic-angular';
 import * as http from 'hhb-http'
 import * as user from 'hhb-userauth'
 
-console.log(111);
-
 @Component({
-  selector: 'page-Address',
+  selector: 'page-AddressControl',
   templateUrl: 'index.html'
 })
 
-export class AddressPage {
+export class AddressControlPage {
 
   private $http;
   public addressList: Array<object>;

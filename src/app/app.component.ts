@@ -16,6 +16,7 @@ import { ServicePage } from '../pages/service'
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
 import { AddressPage } from '../pages/address';
+import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -59,6 +60,7 @@ export class MyApp {
       { title: 'AddServiceForUserPage', component: RegisterPage },
       { title: 'ChangePassWordPage', component: ChangePassWordPage },
       { title: 'AddressPage', component: AddressPage },
+      // { title: 'AddressControlPage', component: AddressControlPage },
     ];
   }
   async ngAfterViewInit(){
