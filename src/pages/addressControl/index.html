@@ -18,30 +18,20 @@
       </ion-item>
       <ion-item>
         <ion-label>国家</ion-label>
-        <ion-select [(ngModel)]="gaming">
-          <ion-option value="china">中国</ion-option>
+        <ion-select [(ngModel)]="conunty">
+          <ion-option *ngFor="let item of conuntys" selected="item.id == 40002" value={{item.id}}>{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>省</ion-label>
-        <ion-select [(ngModel)]="gaming">
-          <ion-option value="nes">NES</ion-option>
-          <ion-option value="n64">Nintendo64</ion-option>
-          <ion-option value="ps">PlayStation</ion-option>
-          <ion-option value="genesis">Sega Genesis</ion-option>
-          <ion-option value="saturn">Sega Saturn</ion-option>
-          <ion-option value="snes">SNES</ion-option>
+        <ion-select [(ngModel)]="province" (ngModelChange)="cityList()">
+          <ion-option *ngFor="let item of provinces" value={{item.poiCode}}>{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>市</ion-label>
-        <ion-select [(ngModel)]="gaming">
-          <ion-option value="nes">NES</ion-option>
-          <ion-option value="n64">Nintendo64</ion-option>
-          <ion-option value="ps">PlayStation</ion-option>
-          <ion-option value="genesis">Sega Genesis</ion-option>
-          <ion-option value="saturn">Sega Saturn</ion-option>
-          <ion-option value="snes">SNES</ion-option>
+        <ion-select [(ngModel)]="city">
+          <ion-option *ngFor="let item of citys" value={{item.poiCode}}>{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -56,11 +46,11 @@
         </ion-select>
       </ion-item>
       <ion-item>
-          <ion-input type="text" value="" placeholder="详细地址(50个字符以内)"></ion-input>
+        <ion-input type="text" value="" placeholder="详细地址(50个字符以内)"></ion-input>
       </ion-item>
     </ion-list>
     <div class="login-buttons">
-        <button ion-button icon-right color="royal" (click)="login()">确认</button>
-      </div>
+      <button ion-button icon-right color="royal" (click)="login()">确认</button>
+    </div>
   </div>
 </ion-content>
