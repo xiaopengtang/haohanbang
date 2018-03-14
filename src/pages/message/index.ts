@@ -7,6 +7,6 @@ import { NavController } from 'ionic-angular';
 })
 
 export class MessagePage {
-	constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {}
   doRefresh(){}
 }
