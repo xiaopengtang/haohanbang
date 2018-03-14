@@ -3,47 +3,64 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>地址信息列表</ion-title>
+    <ion-title>地址信息操作</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <!-- 手机号输入 -->
-  <div class="addressList">
+  <div class="addressControl">
 
-    <ion-grid class="defaultAddress">
-      <h2 class="subTitle">默认地址</h2>
-      <ion-card>
-        <ion-card-content>
-          <p class="phoneNum">13770673044</p>
-          <p class="addressDetail">南京市北京市上海市</p>
-        </ion-card-content>
-      </ion-card>
-
-      <div class="checkWrapper">
-        <span class="defualt" *ngIf="true">添加地址</span>
-        <span class="del">删除</span>
-        <span class="add">修改</span>
+    <ion-list>
+      <ion-item>
+        <ion-label> 设置为默认</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>国家</ion-label>
+        <ion-select [(ngModel)]="gaming">
+          <ion-option value="china">中国</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>省</ion-label>
+        <ion-select [(ngModel)]="gaming">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>市</ion-label>
+        <ion-select [(ngModel)]="gaming">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>区、县</ion-label>
+        <ion-select [(ngModel)]="gaming">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-input type="text" value="" placeholder="详细地址(50个字符以内)"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="login-buttons">
+        <button ion-button icon-right color="royal" (click)="login()">确认</button>
       </div>
-
-    </ion-grid>
-
-    <ion-grid>
-
-        <ion-card>
-          <ion-card-content>
-            <p class="phoneNum">13770673044</p>
-            <p class="addressDetail">南京市北京市上海市</p>
-          </ion-card-content>
-        </ion-card>
-
-        <div class="checkWrapper">
-          <span class="defualt">设置为默认地址</span>
-          <span class="del">删除</span>
-          <span class="add">修改</span>
-        </div>
-
-      </ion-grid>
-
   </div>
 </ion-content>

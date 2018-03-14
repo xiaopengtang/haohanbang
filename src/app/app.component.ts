@@ -60,7 +60,7 @@ export class MyApp {
       { title: 'AddServiceForUserPage', component: RegisterPage },
       { title: 'ChangePassWordPage', component: ChangePassWordPage },
       { title: 'AddressPage', component: AddressPage },
-      // { title: 'AddressControlPage', component: AddressControlPage },
+      { title: 'AddressControlPage', component: AddressControlPage },
     ];
   }
   async ngAfterViewInit(){

@@ -8,17 +8,19 @@ export default {
     'SAVE:ORDER:APPLY_MESSAGE': 'order/request/order/leave/message/add',
     'SAVE:USER:APPLY': '/service/order/apply/apply',
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
+
     //注册
     'VERFICATION:USER:REGISTERCODE': '/member/verfication/get/register/sms/code',
     'VERFICATION:USER:REGISTER': '/member/user/register',
-
     // 登录
     'USER:LOGIN': '/member/user/login',
     // 用户信息
     'USER:USERDETAILS': '/member/user/get/user/byId',
-
     // 用户地址列表
-    'ADDRESS:LIST': '/member/address/list'
+    'ADDRESS:LIST': '/member/address/list',
+
+    // 地区POI相关接口
+    'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',
   },
   setting: {
     headers: {

@@ -14,6 +14,7 @@ import { ListPage } from '../pages/list/list';
 
 import { LoginPage } from '../pages/login';
 import { AddressPage } from '../pages/address';
+import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -52,6 +53,7 @@ core.config(config)
     // ...components
     // MapPage,
     AddressPage,
+    AddressControlPage,
     LoginPage,
 
     RegisterPage,
@@ -89,6 +91,7 @@ core.config(config)
     ChangePassWordPage,
     addServiceForProviderPage,
     AddressPage,
+    AddressControlPage,
     // MessagePage
   ],
   providers: [
