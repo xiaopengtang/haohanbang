@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NavController, ModalController, AlertController, NavParams, ToastController } from 'ionic-angular';
 import {Service} from './index.service'
 import { ModalApply} from './modules/apply'
@@ -10,13 +10,13 @@ import * as user from 'hhb-userauth'
   templateUrl: 'index.html'
 })
 
-export class SerivceDetailPage {
+export class SerivceDetailPage implements OnInit {
 	private orderId: string;
 	info: any = {};
   private $http;
-	public $server: Service;
+	// public $server: Service;
 	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams ,public modalCtrl: ModalController ,public $server: Service, private toastCtrl: ToastController) {
-        this.orderId = navParams.get('orderId')
+		    this.orderId = navParams.get('orderId')
         this.$http = $http()
     }
 
@@ -24,7 +24,9 @@ export class SerivceDetailPage {
     	const res = await this.$server.queryDetail(this.orderId)
     	console.log(res)
     	return this.info = res.data || {}
-    }
+		}
+		ngOnInit() {
+		}
     reply(){
     	let prompt = this.alertCtrl.create({
 	        title: '评论',

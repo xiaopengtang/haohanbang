@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { config } from 'hhb-core'
-import * as user from 'hhb-userauth'
+// import * as user from 'hhb-userauth'
 
 @Injectable()
 export class Service {

@@ -10,6 +10,8 @@ export default {
     'SAVE:USER:APPLY': '/service/order/apply/apply',
     // 
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
+    // 请求单列表
+    "QUERY:ORDER:LIST": 'order/request/order/list',
     // 获取请求单列表
     'QUERY:ORDER:REQUEST_LIST': 'order/request/order/list',
     //注册
