@@ -4,14 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+// import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
 import { SerivceDetailPage } from '../pages/serviceDetail'
-import { ServicePage } from '../pages/service'
+// import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
@@ -43,8 +43,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
+      // { title: 'Home', component: HomePage },
+      // { title: 'List', component: ListPage },
       { title: 'Map', component: MapPage },
       { title: 'Message', component: MessagePage},
       { title: 'serviceDetail', component: SerivceDetailPage},

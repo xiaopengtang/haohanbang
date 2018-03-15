@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Http, Headers }    from '@angular/http';
 import {SerivceDetailPage} from '../../pages/serviceDetail'
 import {config} from 'hhb-core'
-import $http from 'hhb-http'
+// import $http from 'hhb-http'
 
 interface Params {
   "asc": boolean,

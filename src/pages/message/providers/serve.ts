@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import * as user from 'hhb-userauth'
 
 @Injectable()
 export class Serve {
@@ -14,14 +15,14 @@ export class Serve {
 		.toPromise()
 	}
 	constructor(private http: Http) {}
-	async queryHistoryList(senderId, id, page = 1): Promise<any[]>{
+	async queryHistoryList(senderId, receiverId, page = 1): Promise<any[]>{
 		let map = {
 		    "asc": true,
 		    "endDate": null,
-		    id,
+		    "id": user.id,
 		    "orderByField": null,
 		    page,
-		    "receiverId": null,
+		    receiverId,
 		    senderId,
 		    "size": 0,
 		    "startDate": null
