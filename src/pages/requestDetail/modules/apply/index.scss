@@ -1,0 +1,14 @@
+modal-apply{
+	ion-content{
+		height: 100%;
+	}
+	.body{
+		height: 100%;
+		display: flex;
+		.apply-form{
+			flex: 1;
+		}
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}

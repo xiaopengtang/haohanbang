@@ -20,13 +20,13 @@ import {ServicePage} from '../pages/service'
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
-// import * as Eruda from 'eruda'
+import * as Eruda from 'eruda'
 import * as user from 'hhb-userauth'
 // import { LocalNotifications } from '@ionic-native/local-notifications';
 // import {$pres} from 'strophe.js'
 
 // console.log(Eruda)
-// Eruda.init()
+Eruda.init()
 
 @Component({
   templateUrl: 'app.html'
@@ -41,7 +41,7 @@ export class MyApp {
   // }
   private user;
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
     this.user = user.state || {}
@@ -55,7 +55,7 @@ export class MyApp {
       { title: '消息中心', component: MessagePage},
       // { title: 'serviceDetail', component: SerivceDetailPage},
       { title: '我的请求单', component: ServicePage},
-      { title: '我的服务单', component: ServicePage},
+      { title: '我的服务单', component: ServicePage, param: {isService: true}},
       /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
@@ -118,6 +118,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.param);
   }
 }

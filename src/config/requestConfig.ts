@@ -2,7 +2,7 @@ export default {
   host: '//1989591.51vip.biz:17001/',
   // host: 'http://yph0303.com:17001/',
   map: {
-    'QUERY:SERVICE:LIST': 'order/request/order/list',
+    // 'QUERY:SERVICE:LIST': 'order/request/order/list',
     // 附近人
     'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
     // 请求单留言
@@ -12,6 +12,12 @@ export default {
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
     // 请求单列表
     "QUERY:ORDER:LIST": 'order/request/order/list',
+    // 服务单
+    'QUERY:SERVICE:LIST': '/service/order/list',
+    // 服务单申请
+    "SAVE:SERVICE:APPLY": '/service/order/apply/apply',
+    // 服务单详情
+    "QUERY:SERVICE:DETAIL": '/service/order/detai',
     // 获取请求单列表
     'QUERY:ORDER:REQUEST_LIST': 'order/request/order/list',
     //注册
