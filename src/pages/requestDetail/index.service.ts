@@ -13,7 +13,7 @@ export class Service {
   }
   constructor(private http: Http) {}
   async queryDetail(orderId){
-    const url = `${this.host}service/order/detai`
+    const url = `${this.host}order/request/order/detail`
     return await this.http.post(url, JSON.stringify({orderId, userId: user.id}), {headers: this.headers})
     .toPromise().then((res: any) => res.json())
   }

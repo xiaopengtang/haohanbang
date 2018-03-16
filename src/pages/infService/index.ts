@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import * as http from 'hhb-http';
-import * as user from 'hhb-userauth';
+// import * as http from 'hhb-http';
+// import * as user from 'hhb-userauth';
 
-import { AddressPage } from '../address/index';
+// import { AddressPage } from '../address/index';
 
 @Component({
   selector: 'user-infoService',

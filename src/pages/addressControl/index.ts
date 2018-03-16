@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {NavController, Platform} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 
 import * as http from 'hhb-http'
-import * as user from 'hhb-userauth'
+// import * as user from 'hhb-userauth'
 
 @Component({
   selector: 'page-AddressControl',
