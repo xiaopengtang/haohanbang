@@ -6,7 +6,7 @@
   </ion-header> -->
 
   <ion-content class="menu">
-    <div class="user" *ngIf="!user.id">
+    <div class="user" *ngIf="!user.id" menuClose (click)="goToLogin()">
       <ion-icon name="contact"></ion-icon>
       <p>点击登录</p>
     </div>

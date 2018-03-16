@@ -4,7 +4,8 @@ import { NavController } from 'ionic-angular';
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
-import { HomePage } from '../home/home';
+// import { HomePage } from '../home/home';
+import { MapPage } from '../map/map'
 import { RegisterPage } from '../register/index';
 
 
@@ -48,11 +49,11 @@ export class LoginPage {
       //   toPage = RegisterPage;
       //   break;
       default:
-        toPage = HomePage;
+        toPage = MapPage;
         break;
     }
 
-    this.navCtrl.push(toPage);
+    this.navCtrl.setRoot(toPage);
   }
 
   async login() {
@@ -82,7 +83,7 @@ export class LoginPage {
         pw: passWord,
         userDetail: data.data
       });
-      this.navCtrl.push(HomePage);
+      this.navCtrl.setRoot(MapPage);
     } else {
       console.log("003");
       this.errMsg = errMsg["003"];

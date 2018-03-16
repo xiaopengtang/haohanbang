@@ -19,6 +19,7 @@ import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
+import { UserInfoService } from '../pages/infService';
 // import { RegisterModule } from '../pages/register/index.module';
 
 // import { MessagePage } from '../pages/message';
@@ -59,6 +60,7 @@ core.config(config)
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
+    UserInfoService,
     // UserDetial
     // MessagePage
   ],
@@ -92,6 +94,7 @@ core.config(config)
     addServiceForProviderPage,
     AddressPage,
     AddressControlPage,
+    UserInfoService,
     // MessagePage
   ],
   providers: [

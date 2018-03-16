@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { OrderStatusPage } from '../../modules/orderStatus'
+import { UserInfoService } from '../../../infService/index'
 
+console.log(UserInfoService);
 @Component({
   selector: 'userinfo-item',
   templateUrl: 'index.html'
@@ -13,6 +14,6 @@ export class UserInfo {
   }
 
   open(...rest: any[]) {
-    this.navCtrl.push(OrderStatusPage, {id: 11})
+    this.navCtrl.setRoot(UserInfoService, {id: 11})
   }
 }

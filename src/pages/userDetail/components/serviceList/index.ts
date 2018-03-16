@@ -9,10 +9,11 @@ import {MessageContent} from '../../modules/content'
 
 export class ServiceList {
 
-  items: Array<{ name: string, navCtrl: string }>;
+  serviceLists: Array<{ name: string, navCtrl: string }>;
 
   constructor(public navCtrl: NavController) {
-    this.items = [
+
+    this.serviceLists = [
       {
         "name": "服务单管理",
         "navCtrl": "aaa",
@@ -29,10 +30,11 @@ export class ServiceList {
         "name": "我的信息",
         "navCtrl": "aaa",
       }
-    ]
+    ];
+    console.log(this.serviceLists);
   }
 
   open(...rest: any[]) {
-    this.navCtrl.push(MessageContent, {id: 11})
+    this.navCtrl.setRoot(MessageContent, {id: 11})
   }
 }

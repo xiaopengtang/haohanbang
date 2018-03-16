@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-// import { UserDetail } from '../pages/userDetail'
+import { UserDetail } from '../pages/userDetail';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
@@ -14,7 +14,7 @@ import {ServicePage} from '../pages/service'
 // import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
-// import { LoginPage } from '../pages/login';
+import { LoginPage } from '../pages/login';
 // import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -45,6 +45,7 @@ export class MyApp {
   // private notify: LocalNotifications
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
     this.user = user.state || {}
+    // this.user = {};
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -56,6 +57,7 @@ export class MyApp {
       // { title: 'serviceDetail', component: SerivceDetailPage},
       { title: '我的请求单', component: ServicePage},
       { title: '我的服务单', component: ServicePage},
+      { title: '我的信息', component: UserDetail},
       /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
@@ -119,5 +121,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  // 登录
+  goToLogin(){
+    this.nav.push(LoginPage);
   }
 }
