@@ -3,23 +3,21 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+// import { HomePage } from '../pages/home/home';
+// import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-import { UserDetail } from '../pages/userDetail'
+// import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
-// import {ServicePage} from '../pages/service'
+import {ServicePage} from '../pages/service'
 // import { SerivceDetailPage } from '../pages/serviceDetail'
-import { ServicePage } from '../pages/service'
+// import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
-import { LoginPage } from '../pages/login';
-import { AddressPage } from '../pages/address';
-import { AddressControlPage } from '../pages/addressControl';
-import { RegisterPage } from '../pages/register';
-import { ChangePassWordPage } from '../pages/changePassWord';
-import { addServiceForProviderPage } from '../pages/addServiceForProvider';
+// import { LoginPage } from '../pages/login';
+// import { RegisterPage } from '../pages/register';
+// import { ChangePassWordPage } from '../pages/changePassWord';
+// import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 // import * as Eruda from 'eruda'
@@ -36,31 +34,36 @@ import * as user from 'hhb-userauth'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = MapPage;
+  // get user(){
+    // console.log({user})
+    // return user.state || {}
+  // }
+  private user;
 
   pages: Array<{ title: string, component: any }>;
   // private notify: LocalNotifications
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
+    this.user = user.state || {}
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Map', component: MapPage },
-      { title: 'Message', component: MessagePage},
+      // { title: 'Home', component: HomePage },
+      // { title: 'List', component: ListPage },
+      { title: '发现', component: MapPage },
+      { title: '消息中心', component: MessagePage},
       // { title: 'serviceDetail', component: SerivceDetailPage},
-      { title: 'Service', component: ServicePage},
-      { title: 'UserDetail',component: UserDetail},
+      { title: '我的请求单', component: ServicePage},
+      { title: '我的服务单', component: ServicePage},
+      /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
       { title: 'Login', component: LoginPage },
       { title: 'RegisterPage', component: RegisterPage },
       { title: 'AddServiceForProviderPage', component: addServiceForProviderPage },
       { title: 'AddServiceForUserPage', component: RegisterPage },
-      { title: 'ChangePassWordPage', component: ChangePassWordPage },
-      { title: 'AddressPage', component: AddressPage },
-      { title: 'AddressControlPage', component: AddressControlPage },
+      { title: 'ChangePassWordPage', component: ChangePassWordPage },*/
     ];
   }
   async ngAfterViewInit(){

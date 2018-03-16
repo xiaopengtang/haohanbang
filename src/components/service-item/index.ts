@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Http, Headers }    from '@angular/http';
 import {SerivceDetailPage} from '../../pages/serviceDetail'
 import {config} from 'hhb-core'
-import $http from 'hhb-http'
+// import $http from 'hhb-http'
 
 interface Params {
   "asc": boolean,
@@ -39,9 +39,12 @@ export class ComServiceItem{
 		if(Array.isArray(this.list) && this.list.length){
 			return this.renderList = this.list
 		}
+		if(!this.map){
+			return 
+		}
 		const res: any = await this.curl(this.map)
 		this.renderList = res.data && res.data.records || []
-		console.log(this.renderList)
+		// console.log(this.renderList)
 	}
 
 	constructor(public navCtrl: NavController, http: Http){

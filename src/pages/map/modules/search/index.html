@@ -7,7 +7,9 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	<ion-searchbar 
+    (ionInput)="getItems($event)" 
+    [(ngModel)]="title"></ion-searchbar>
     <!-- <ion-list></ion-list> -->
     <div class="hot" *ngIf="list.length == 0">
     	<section class="hot-list">
@@ -18,15 +20,16 @@
     			<li>测试</li>
     		</ul>
     	</section>
-    	<section class="history-list">
+    	<section class="history-list" *ngIf="history.length">
     		<h3>搜索历史</h3>
     		<ul>
-    			<li>
-    				<span>测试</span>
-    				<ion-icon name="close"></ion-icon>
+    			<li *ngFor="let key of history;let i = index">
+    				<span (click)="handleClickKeyWord(key)">{{key}}</span>
+    				<ion-icon name="close" (click)="deleteHistoryByKey(i)"></ion-icon>
     			</li>
     		</ul>
     	</section>
     </div>
     <!-- <com-service-item [list]="list"></com-service-item> -->
+    <com-service-item [list]="list" [map]="map"></com-service-item>
 </ion-content>

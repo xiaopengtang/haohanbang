@@ -5,6 +5,7 @@ import * as $message from 'hhb-message'
 import moment from 'moment'
 import { Serve } from '../../providers/serve'
 import {$msg} from 'strophe.js'
+import * as user from 'hhb-userauth'
 
 @Component({
   selector: 'message-content',
@@ -19,6 +20,8 @@ export class MessageContent {
 		'message': 'hi,jim',
 		'time': '2017-12-30 12:30:51'
 	}]
+	private loaded = false
+	private page = 1
 	get user(){
 		return {
 			id: '0000000002@',
@@ -53,9 +56,14 @@ export class MessageContent {
 
 	}
 
-	async _renderHistoryList(){
+	async _renderHistoryList(page?: number){
 		// console.log(this.serve)
-		return this.list = await this.serve.queryHistoryList(this.friend.id, '000000001')
+		const list = await this.serve.queryHistoryList(this.friend.id, user.id, page || this.page)
+		if(!list){
+			this.loaded = true
+		}
+		return this.list = list
+		// return this.list = 
 	}
 
 	async _updateFriendList(){
@@ -76,14 +84,14 @@ export class MessageContent {
 	ngOnInit(){
 		// console.log(arguments)
 	}
-  doRefresh(refresher){
-    // console.log('Begin async operation', refresher);
-
-    // setTimeout(() => {
-      // console.log('Async operation has ended');
-      refresher.complete();
-    // }, 500);
-  }
+    async doRefresh(refresher){
+		if(this.loaded){
+			return refresher.complete();
+		}
+		this.page++
+		await this._updateFriendList()
+		return refresher.complete()
+    }
 
 	send(){
 		let el: any = document.querySelector('#content')
