@@ -18,7 +18,7 @@ export class MapPage {
   }
   private $http;
   async ngAfterViewInit(){
-    // console.log('this is amap', window.AMap.Geolocation)
+    // console.log('this is amap', window.AMap)
     // 渲染一个map
     this.$map = amap.render('amap')
     amap.amap.plugin('AMap.Geolocation', () => {

@@ -6,18 +6,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-import { UserDetail } from '../pages/userDetail'
+// import { UserDetail } from '../pages/userDetail'
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
-import { SerivceDetailPage } from '../pages/serviceDetail'
+// import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
-import { LoginPage } from '../pages/login';
-import { RegisterPage } from '../pages/register';
-import { ChangePassWordPage } from '../pages/changePassWord';
-import { addServiceForProviderPage } from '../pages/addServiceForProvider';
+// import { LoginPage } from '../pages/login';
+// import { RegisterPage } from '../pages/register';
+// import { ChangePassWordPage } from '../pages/changePassWord';
+// import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 // import * as Eruda from 'eruda'
