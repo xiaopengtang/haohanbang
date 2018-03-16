@@ -72,7 +72,7 @@ export class MyApp {
     await amap.listen()
     // console.log({$message})
     // $message.login('0000000002@ydj-b85-hd3', '123456')
-    $message.login(`${user.id}@${user.name}`, user.state.pw)
+    // $message.login(`${user.id}@${user.name}`, user.state.pw)
     $message.on('READY', () => {
       // amap.on('')
       amap.on('COMPLETE', info => {

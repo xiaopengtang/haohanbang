@@ -14,20 +14,11 @@ import * as user from 'hhb-userauth'
 
 export class MessageContent {
 	private serve: Serve
-	list: any[] = [{
-		'faceUrl': 'https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png',
-		'isOwn': false,
-		'message': 'hi,jim',
-		'time': '2017-12-30 12:30:51'
-	}]
+	list: any[] = []
 	private loaded = false
 	private page = 1
 	get user(){
-		return {
-			id: '0000000002@',
-			name: 'ydj-b85-hd3',
-			'faceUrl': '//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'
-		}
+		return user.state
 	}
 	friend: any = {}
 	storage: Storage

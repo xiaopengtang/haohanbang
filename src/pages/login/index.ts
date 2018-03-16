@@ -3,10 +3,12 @@ import { NavController } from 'ionic-angular';
 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
+import * as $message from 'hhb-message'
 
 // import { HomePage } from '../home/home';
 import { MapPage } from '../map/map'
 import { RegisterPage } from '../register/index';
+import {config} from 'hhb-core'
 
 
 const errMsg = {
@@ -83,6 +85,9 @@ export class LoginPage {
         pw: passWord,
         userDetail: data.data
       });
+      // console.log(`${user.id}@${config('message.host.name')}`, $message)
+      $message.login(`${user.id}@${config('message.host.name')}`, user.state.pw)
+
       this.navCtrl.setRoot(MapPage);
     } else {
       console.log("003");

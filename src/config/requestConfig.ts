@@ -3,6 +3,8 @@ export default {
   // host: 'http://yph0303.com:17001/',
   map: {
     // 'QUERY:SERVICE:LIST': 'order/request/order/list',
+    // 聊天记录
+    'QUERY:HISTORY:LIST': 'member/chat/log/list',
     // 附近人
     'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
     // 请求单留言
