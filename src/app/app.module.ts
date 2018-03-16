@@ -25,6 +25,8 @@ import { MapModule } from '../pages/map/map.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { ServiceModule } from '../pages/service/index.module';
 import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
+import { RequestModule } from '../pages/request/index.module';
+import { RequestDetailModule } from '../pages/requestDetail/index.module';
 import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
 
@@ -69,6 +71,8 @@ core.config(config)
     ServiceModule,
     ServiceDetailModule,
     UserDetialModule,
+    RequestModule,
+    RequestDetailModule
     // RegisterModule
   ],
   bootstrap: [IonicApp],

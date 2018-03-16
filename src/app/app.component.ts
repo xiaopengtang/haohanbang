@@ -10,6 +10,7 @@ import { MapPage } from '../pages/map/map';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
+import {RequestPage} from '../pages/request'
 // import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
@@ -54,7 +55,7 @@ export class MyApp {
       { title: '发现', component: MapPage },
       { title: '消息中心', component: MessagePage},
       // { title: 'serviceDetail', component: SerivceDetailPage},
-      { title: '我的请求单', component: ServicePage},
+      { title: '我的请求单', component: RequestPage},
       { title: '我的服务单', component: ServicePage, param: {isService: true}},
       /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },

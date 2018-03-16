@@ -5,17 +5,16 @@ import {ComponentsModule} from '../../components/index.module'
 
 import {Service} from './index.service'
 
-import {SerivceDetailPage} from './index'
+import {RequestDetailPage} from './index'
 
 import { ModalApply} from './modules/apply'
 
 @NgModule({
-	declarations: [SerivceDetailPage, ModalApply],
-	imports: [IonicModule.forRoot(SerivceDetailPage), ComponentsModule],
-	entryComponents: [SerivceDetailPage, ModalApply],
-	exports: [SerivceDetailPage],
+	declarations: [RequestDetailPage, ModalApply],
+	imports: [IonicModule.forRoot(RequestDetailPage), ComponentsModule],
+	entryComponents: [RequestDetailPage, ModalApply],
+	exports: [RequestDetailPage],
     providers: [Service],
-    bootstrap: [SerivceDetailPage]
+    bootstrap: [RequestDetailPage]
 })
-
-export class ServiceDetailModule {}
+export class RequestDetailModule {}

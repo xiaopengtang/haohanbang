@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 
-import {ServicePage} from './index'
+import {RequestPage} from './index'
 // import {ComServiceItem} from '../../components'
 import {ComponentsModule} from '../../components/index.module'
 
 @NgModule({
-	declarations: [ServicePage],
-	imports: [IonicModule.forRoot(ServicePage), ComponentsModule],
-	entryComponents: [ServicePage],
-	exports: [ServicePage]
+	declarations: [RequestPage],
+	imports: [IonicModule.forRoot(RequestPage), ComponentsModule],
+	entryComponents: [RequestPage],
+	exports: [RequestPage]
 })
 
-export class ServiceModule {}
+export class RequestModule {}
