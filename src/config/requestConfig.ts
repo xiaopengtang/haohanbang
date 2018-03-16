@@ -1,5 +1,5 @@
 export default {
-  host: '//1989591.51vip.biz:17001/',
+  host: 'http://1989591.51vip.biz:17001/',
   // host: 'http://yph0303.com:17001/',
   map: {
     // 'QUERY:SERVICE:LIST': 'order/request/order/list',
