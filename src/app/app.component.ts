@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -67,6 +67,18 @@ export class MyApp {
       { title: 'AddServiceForUserPage', component: RegisterPage },
       { title: 'ChangePassWordPage', component: ChangePassWordPage },*/
     ];
+    this.platform.registerBackButtonAction(() => {
+      const overlay = this.rootPage._appRoot._overlayPortal.getActive();
+      const nav = this.rootPage.getActiveNav();
+
+      if (overlay && overlay.dismiss) {
+        overlay.dismiss();
+      } else if (nav.canGoBack()) {
+        nav.pop();
+      } else {
+        this.platform.exitApp();
+      }
+    }, 101)
   }
   async ngAfterViewInit(){
     await amap.listen()
