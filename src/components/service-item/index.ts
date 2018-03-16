@@ -2,6 +2,7 @@ import { Component, Input} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http, Headers }    from '@angular/http';
 import {SerivceDetailPage} from '../../pages/serviceDetail'
+import {RequestDetailPage} from '../../pages/requestDetail'
 import {config} from 'hhb-core'
 // import $http from 'hhb-http'
 
@@ -26,6 +27,7 @@ interface Params {
 export class ComServiceItem{
 	@Input() list: any[] = [];
 	@Input() map: Params;
+	@Input() isService?: boolean
 	private http: Http;
 	renderList: any[] = []
 	get host(){
@@ -51,6 +53,6 @@ export class ComServiceItem{
 		this.http = http
 	}
 	open(orderId: string|number){
-		this.navCtrl.push(SerivceDetailPage, {orderId})
+		this.navCtrl.push(this.isService ? SerivceDetailPage : RequestDetailPage, {orderId})
 	}
 }

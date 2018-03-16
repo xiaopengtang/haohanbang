@@ -12,11 +12,14 @@ import { ListPage } from '../pages/list/list';
 // import {ComServiceItem} from '../components'
 // import { MapPage } from '../pages/map/map';
 
-// import { LoginPage } from '../pages/login';
+import { LoginPage } from '../pages/login';
+import { AddressPage } from '../pages/address';
+import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
 import { ChangePassWordPage } from '../pages/changePassWord';
 import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
+import { UserInfoService } from '../pages/infService';
 // import { RegisterModule } from '../pages/register/index.module';
 
 // import { MessagePage } from '../pages/message';
@@ -25,6 +28,8 @@ import { MapModule } from '../pages/map/map.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { ServiceModule } from '../pages/service/index.module';
 import { ServiceDetailModule } from '../pages/serviceDetail/index.module';
+import { RequestModule } from '../pages/request/index.module';
+import { RequestDetailModule } from '../pages/requestDetail/index.module';
 import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
 
@@ -50,10 +55,14 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    // LoginPage,
+    AddressPage,
+    AddressControlPage,
+    LoginPage,
+
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
+    UserInfoService,
     // UserDetial
     // MessagePage
   ],
@@ -69,6 +78,8 @@ core.config(config)
     ServiceModule,
     ServiceDetailModule,
     UserDetialModule,
+    RequestModule,
+    RequestDetailModule
     // RegisterModule
   ],
   bootstrap: [IonicApp],
@@ -81,11 +92,13 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    // LoginPage,
+    LoginPage,
     RegisterPage,
     ChangePassWordPage,
     addServiceForProviderPage,
-
+    AddressPage,
+    AddressControlPage,
+    UserInfoService,
     // MessagePage
   ],
   providers: [

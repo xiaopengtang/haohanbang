@@ -6,11 +6,11 @@ import * as $http from 'hhb-http'
 import * as user from 'hhb-userauth'
 
 @Component({
-  selector: 'page-service-detail',
+  selector: 'page-request-detail',
   templateUrl: 'index.html'
 })
 
-export class SerivceDetailPage implements OnInit {
+export class RequestDetailPage implements OnInit {
 	private orderId: string;
 	info: any = {};
   private $http;

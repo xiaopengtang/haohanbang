@@ -4,11 +4,11 @@ import * as user from 'hhb-userauth'
 import * as $http from 'hhb-http'
 
 @Component({
-  selector: 'page-service',
+  selector: 'page-request',
   templateUrl: 'index.html'
 })
 
-export class ServicePage {
+export class RequestPage {
 	private $http
 	list: any[] = []
 	private loaded = false
@@ -24,6 +24,7 @@ export class ServicePage {
 	    // "title": null,
 	    // "userId": '0000000002'
 	}
+	isService = false
 	async doRefresh(refresher) {
 		// console.log('Begin async operation', refresher);
 

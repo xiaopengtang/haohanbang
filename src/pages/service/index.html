@@ -11,7 +11,7 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <com-service-item [list]="list" [map]="map"></com-service-item>
+  <com-service-item [list]="list" [map]="map" [isService]="isService"></com-service-item>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" (shouldEnable)="false">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

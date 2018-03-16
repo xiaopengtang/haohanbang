@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>地址信息操作</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- 手机号输入 -->
+  <div class="addressControl">
+
+    <ion-list>
+      <ion-item>
+        <ion-label> 设置为默认</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>国家</ion-label>
+        <ion-select [(ngModel)]="conunty">
+          <ion-option *ngFor="let item of conuntys" selected="item.id == 40002" value={{item.id}}>{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>省</ion-label>
+        <ion-select [(ngModel)]="province">
+          <ion-option *ngFor="let item of provinces" value={{item.poiCode}} (ionSelect)="CheckNewItem('province', item)">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>市</ion-label>
+        <ion-select [(ngModel)]="city">
+          <ion-option *ngFor="let item of citys" value={{item.poiCode}} (ionSelect)="CheckNewItem('city', item)">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>区、县</ion-label>
+        <ion-select [(ngModel)]="area">
+          <ion-option *ngFor="let item of areas" value={{item.poiCode}}>{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" value="" placeholder="详细地址(50个字符以内)"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="login-buttons">
+      <button ion-button icon-right color="royal" (click)="login()">确认</button>
+    </div>
+  </div>
+</ion-content>
