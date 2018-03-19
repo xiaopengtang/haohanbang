@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -6,27 +6,28 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-import { UserDetail } from '../pages/userDetail'
+// import { UserDetail } from '../pages/userDetail';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import {ServicePage} from '../pages/service'
-import { SerivceDetailPage } from '../pages/serviceDetail'
+import {RequestPage} from '../pages/request'
+// import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
-import { RegisterPage } from '../pages/register';
-import { ChangePassWordPage } from '../pages/changePassWord';
-import { addServiceForProviderPage } from '../pages/addServiceForProvider';
+// import { RegisterPage } from '../pages/register';
+// import { ChangePassWordPage } from '../pages/changePassWord';
+// import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
-// import * as Eruda from 'eruda'
+import * as Eruda from 'eruda'
 import * as user from 'hhb-userauth'
 // import { LocalNotifications } from '@ionic-native/local-notifications';
 // import {$pres} from 'strophe.js'
 
 // console.log(Eruda)
-// Eruda.init()
+Eruda.init()
 
 @Component({
   templateUrl: 'app.html'
@@ -41,10 +42,11 @@ export class MyApp {
   // }
   private user;
 
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
     this.user = user.state || {}
+    // this.user = {};
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -54,8 +56,8 @@ export class MyApp {
       { title: '发现', component: MapPage },
       { title: '消息中心', component: MessagePage},
       // { title: 'serviceDetail', component: SerivceDetailPage},
-      { title: '我的请求单', component: ServicePage},
-      { title: '我的服务单', component: ServicePage},
+      { title: '我的请求单', component: RequestPage},
+      { title: '我的服务单', component: ServicePage, param: {isService: true}},
       /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
@@ -70,7 +72,7 @@ export class MyApp {
     await amap.listen()
     // console.log({$message})
     // $message.login('0000000002@ydj-b85-hd3', '123456')
-    $message.login(`${user.id}@${user.name}`, user.state.pw)
+    // $message.login(`${user.id}@${user.name}`, user.state.pw)
     $message.on('READY', () => {
       // amap.on('')
       amap.on('COMPLETE', info => {
@@ -116,8 +118,16 @@ export class MyApp {
   }
 
   openPage(page) {
+    if(!user.id){
+      return this.goToLogin()
+    }
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.param);
+  }
+
+  // 登录
+  goToLogin(){
+    this.nav.push(LoginPage);
   }
 }

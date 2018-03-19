@@ -24,6 +24,7 @@ export class ServicePage {
 	    // "title": null,
 	    // "userId": '0000000002'
 	}
+	private isService: boolean
 	async doRefresh(refresher) {
 		// console.log('Begin async operation', refresher);
 
@@ -56,7 +57,7 @@ export class ServicePage {
 		//   }, 500);
 	}
 	async _loaderList(page?: number){
-		const res = await this.$http.curl('QUERY:ORDER:LIST', this.map)
+		const res = await this.$http.curl('QUERY:SERVICE:LIST', this.map)
 		if(!res){
 			return 
 		}
@@ -69,6 +70,7 @@ export class ServicePage {
 	}
 	constructor(public navCtrl: NavController) {
 		this.$http = $http()
+		this.isService = true
 		// this.map
 		// const userId = navParams.get('id')
 		// const title = navParams.get('title')

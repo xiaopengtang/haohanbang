@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>服务单详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<section class="top-detail">
+		<h2>{{info.title}}</h2>
+		<ul class="label-list" *ngIf="info.labelList">
+			<li *ngFor="let label of info.labelList">{{label.labelName}}</li>
+			<!-- <li class="active">有偿</li> -->
+		</ul>
+		<ul class="sub-txt">
+			<!-- <li>
+				<span>限制人数</span>
+				<span>1人</span>
+			</li> -->
+			<li>
+				<span>截止日期</span>
+				<span>{{info.expiryTime}}</span>
+			</li>
+		</ul>
+	</section>
+	<com-user-card *ngIf="info.user" [list]="[info.user]"></com-user-card>
+	<!-- <ion-card class="user-card" *ngIf="info.user">
+		<ion-card-content class="user-content">
+			<div class="user-detail">
+				<img src="//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+				<div class="user-sub">
+					<div class="user-top">
+						<span>{{info.user.name}}</span>
+					    <span class="leval">{{info.user.level}}</span>
+					</div>
+					<div class="user-btm">测试测试</div>
+				</div>
+			</div>
+			<ion-icon name="chatbubbles"></ion-icon>
+		</ion-card-content>
+	</ion-card> -->
+	<section class="card" *ngIf="info.describe">
+		<h2>描述详情</h2>
+		<ion-card>
+			<ion-card-content>{{info.describe}}</ion-card-content>
+		</ion-card>
+	</section>
+	<section class="card question">
+		<h2>评论</h2>
+		<ion-card >
+			<ion-card-content>
+				<com-apply-list *ngIf="info.leaveMessageList" [list]="info.leaveMessageList"></com-apply-list>
+				<p *ngIf="!info.leaveMessageList">暂无评论</p>
+			</ion-card-content>
+		</ion-card>
+		<div class="send-btn"> 
+			<button ion-button color="light" small (click)="reply()">发布评论</button>
+		</div>
+	</section>
+	<section class="card history" *ngIf="info.applyDetailRespList">
+		<h2>申请历史</h2>
+		<com-user-card [list]="info.applyDetailRespList"></com-user-card>
+		<!-- <ion-card class="user-card">
+			<ion-card-content class="user-content" *ngFor="let user of info.applyDetailRespList">
+				<div class="user-detail">
+					<img src="//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+					<div class="user-sub">
+						<div class="user-top">
+							<span>{{user.name}}</span>
+						    <span class="leval">{{user.level}}</span>
+						</div>
+						<div class="user-btm">测试测试</div>
+					</div>
+				</div>
+				<ion-icon name="chatbubbles"></ion-icon>
+			</ion-card-content>
+		</ion-card> -->
+		<!-- <ion-card> -->
+			<!-- <ion-card-content>学校学校学校学校学校学校学校学校学校学校学校学校学校</ion-card-content> -->
+		<!-- </ion-card> -->
+	</section>
+	<!-- <section class="apply-btm"> -->
+	<button ion-button full (click)="applyOrder()" >预约</button>
+	<!-- </section> -->
+</ion-content>
