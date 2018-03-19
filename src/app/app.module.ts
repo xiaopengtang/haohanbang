@@ -13,13 +13,13 @@ import { ListPage } from '../pages/list/list';
 // import { MapPage } from '../pages/map/map';
 
 import { LoginPage } from '../pages/login';
-import { AddressPage } from '../pages/address';
-import { AddressControlPage } from '../pages/addressControl';
+// import { AddressPage } from '../pages/address';
+// import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
-import { ChangePassWordPage } from '../pages/changePassWord';
-import { addServiceForProviderPage } from '../pages/addServiceForProvider';
+// import { ChangePassWordPage } from '../pages/changePassWord';
+// import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
-import { UserInfoService } from '../pages/infService';
+// import { UserInfoService } from '../pages/infService';
 // import { RegisterModule } from '../pages/register/index.module';
 
 // import { MessagePage } from '../pages/message';
@@ -55,14 +55,14 @@ core.config(config)
     // ComDemo
     // ...components
     // MapPage,
-    AddressPage,
-    AddressControlPage,
+    // AddressPage,
+    // AddressControlPage,
     LoginPage,
 
     RegisterPage,
-    ChangePassWordPage,
-    addServiceForProviderPage,
-    UserInfoService,
+    // ChangePassWordPage,
+    // addServiceForProviderPage,
+    // UserInfoService,
     // UserDetial
     // MessagePage
   ],
@@ -94,11 +94,11 @@ core.config(config)
     // MapPage,
     LoginPage,
     RegisterPage,
-    ChangePassWordPage,
-    addServiceForProviderPage,
-    AddressPage,
-    AddressControlPage,
-    UserInfoService,
+    // ChangePassWordPage,
+    // addServiceForProviderPage,
+    // AddressPage,
+    // AddressControlPage,
+    // UserInfoService,
     // MessagePage
   ],
   providers: [

@@ -32,6 +32,14 @@ export default {
     // 用户地址列表
     'ADDRESS:LIST': '/member/address/list',
 
+    // 忘记密码短信获取
+    'MEMBER:SMSCODE': '/member/verfication/get/forget/sms/code',
+    // 修改密码
+    'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
+
+    // 修改用户名
+    'MEMBER:NICKNAME': '/user/nick/name',
+
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',
   },
