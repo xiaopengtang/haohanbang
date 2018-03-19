@@ -6,10 +6,6 @@ import * as user from 'hhb-userauth';
 
 import { AddressPage } from '../address';
 import { ChangePassWordPage } from '../changePassWord';
-// console.log(22222);
-// import { AddressPage } from '../../../address/index';
-
-// import { } from '../'
 
 @Component({
   selector: 'user-infoService',

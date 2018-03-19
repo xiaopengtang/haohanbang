@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 import * as http from 'hhb-http'
 // import * as user from 'hhb-userauth'
@@ -76,7 +76,7 @@ export class AddressControlPage {
   async CheckNewItem(key, item) {
     switch (key) {
       case "province":
-        if( item.poiCode != this.province){
+        if (item.poiCode != this.province) {
           console.log(item);
           let rsp = await this.$http.curl('SUPPORT:queryByParentCode', {
             "poiCode": item.poiCode
@@ -85,7 +85,7 @@ export class AddressControlPage {
         }
         break;
       case "city":
-        if( item.poiCode != this.city){
+        if (item.poiCode != this.city) {
           let rsp = await this.$http.curl('SUPPORT:queryByParentCode', {
             "poiCode": item.poiCode
           });
@@ -95,5 +95,23 @@ export class AddressControlPage {
       default:
         break;
     }
+  }
+
+  // 添加地址
+  async addAddress() {
+    let rsp = await this.$http.curl('ADDRESS:ADD', {
+      "address": "string",
+      "cityId": 0,
+      "cityName": "string",
+      "countyId": 0,
+      "countyName": "string",
+      "isDefault": 0,
+      "name": "string",
+      "phone": "string",
+      "provinceId": 0,
+      "provinceName": "string",
+      "userId": "string",
+      "zipCode": "string"
+    });
   }
 }
