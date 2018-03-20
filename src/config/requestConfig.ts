@@ -10,7 +10,7 @@ export default {
     // 请求单留言
     'SAVE:ORDER:APPLY_MESSAGE': 'order/request/order/leave/message/add',
     'SAVE:USER:APPLY': '/service/order/apply/apply',
-    // 
+    //
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
     // 请求单列表
     "QUERY:ORDER:LIST": 'order/request/order/list',
@@ -45,9 +45,11 @@ export default {
     'MEMBER:SMSCODE': '/member/verfication/get/forget/sms/code',
     // 修改密码
     'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
-
     // 修改用户名
     'MEMBER:NICKNAME': '/user/nick/name',
+
+    // 服务单列表
+    'ORDER:LIST': '/order/service/order/list',
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',

@@ -6,8 +6,9 @@ import { addServiceForProviderPage } from './addServiceForProvider';
 import { ChangePassWordPage } from './changePassWord';
 import { AddressControlPage } from './addressControl';
 import { AddressPage } from './address';
+import {ProviderListPage} from './ProviderList';
 // import { AddressControlPage } from './addressControl';
-console.log(UserInfoService);
+// console.log(UserInfoService);
 
 export {
   MessageItem,
@@ -24,4 +25,5 @@ export {
   // 地址列表
   AddressPage,
   AddressControlPage,
+  ProviderListPage,
 }
