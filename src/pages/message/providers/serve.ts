@@ -21,14 +21,14 @@ export class Serve {
 	}
 	async queryHistoryList(senderId, receiverId, page = 1): Promise<any[]>{
 		let map = {
-		    "asc": true,
+		    "asc": false,
 		    "endDate": null,
-		    "id": user.id,
+		    "id": null,
 		    "orderByField": null,
 		    page,
 		    receiverId,
 		    senderId,
-		    "size": 0,
+		    "size": 10,
 		    "startDate": null
 		}
 		let res: any = await this.$http.curl('QUERY:HISTORY:LIST', map)

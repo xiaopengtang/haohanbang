@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import * as user from 'hhb-userauth'
 import * as $http from 'hhb-http'
 
@@ -12,7 +12,8 @@ export class ServicePage {
 	private $http
 	list: any[] = []
 	private loaded = false
-	map: any = {
+	map = null
+	$map: any = {
 	    "asc": true,
 	    // "distance": 0,
 	    // "orderByField": null,
@@ -28,12 +29,12 @@ export class ServicePage {
 	async doRefresh(refresher) {
 		// console.log('Begin async operation', refresher);
 
-		this.map.page = 1
+		this.$map.page = 1
 		await this._loaderList()
 		return refresher.complete()
 		// setTimeout(() => {
 		// //   console.log('Async operation has ended');
-		//   this.map = {
+		//   this.$map = {
 		// 	"asc": true,
 		// 	"page": 1,
 		// 	"queryUserId": user.id,
@@ -41,6 +42,9 @@ export class ServicePage {
 		//   }
 		//   refresher.complete();
 		// }, 1000);
+	}
+	async ngAfterViewInit(){
+		await this._loaderList()
 	}
 	async doInfinite(scroll){
 		if(this.loaded){
@@ -52,12 +56,13 @@ export class ServicePage {
 		// scroll.enable(false)
 		// return setTimeout(() => {
 		// 	// console.log('Async operation has ended');
-		// 	this.map.page++
+		// 	this.$map.page++
 		// 	scroll.complete()
 		//   }, 500);
 	}
 	async _loaderList(page?: number){
-		const res = await this.$http.curl('QUERY:SERVICE:LIST', this.map)
+		const res = await this.$http.curl('QUERY:SERVICE:LIST', this.$map)
+
 		if(!res){
 			return 
 		}
@@ -68,9 +73,14 @@ export class ServicePage {
 		this.list = list
 		return this.loaded = false
 	}
-	constructor(public navCtrl: NavController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams) {
 		this.$http = $http()
 		this.isService = true
+		let title = navParams.get('title')
+		// console.log(title)
+		if(title){
+			this.$map.title = title
+		}
 		// this.map
 		// const userId = navParams.get('id')
 		// const title = navParams.get('title')

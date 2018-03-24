@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 import * as $message from 'hhb-message'
+import { Storage } from '@ionic/storage'
 
 // import { HomePage } from '../home/home';
 import { MapPage } from '../map/map'
@@ -34,7 +35,7 @@ export class LoginPage {
 
   public errMsg: string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public storage: Storage) {
     this.userName = "";
     this.passWord = "";
     this.errMsg = "";
@@ -85,11 +86,12 @@ export class LoginPage {
       console.log(data);
       user.state = Object.assign(user.state, {
         id: data.data.userId,
-        pw: passWord,
+        // pw: passWord,
         userDetail: data.data
       });
-      // console.log(`${user.id}@${config('message.host.name')}`, $message)
-      $message.login(`${user.id}@${config('message.host.name')}`, user.state.pw)
+      this.storage.set('USER', user.state)
+      // console.log(`${user.id}@${config('message.host.name')}`, user.state.pw)
+      $message.login(`${user.id}@${config('message.host.name')}`, '123456')
 
       this.navCtrl.setRoot(MapPage);
     } else {
