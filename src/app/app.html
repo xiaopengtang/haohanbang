@@ -10,7 +10,7 @@
       <ion-icon name="contact"></ion-icon>
       <p>点击登录</p>
     </div>
-    <div class="user" *ngIf="user.id">
+    <div class="user" *ngIf="user.id" menuClose (click)="goToUserDetail()">
       <img [src]="user.imageUri">
       <p>{{user.name}}</p>
     </div>

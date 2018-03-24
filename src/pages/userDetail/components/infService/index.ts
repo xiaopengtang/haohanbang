@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-// import * as http from 'hhb-http';
-// import * as user from 'hhb-userauth';
+import * as http from 'hhb-http';
+import * as user from 'hhb-userauth';
 
-// import { AddressPage } from '../address/index';
+import { AddressPage } from '../address';
+import { ChangePassWordPage } from '../changePassWord';
 
 @Component({
   selector: 'user-infoService',
@@ -13,24 +14,22 @@ import { NavController } from 'ionic-angular';
 
 export class UserInfoService {
 
-  serviceLists: Array<{ name: string, navCtrl: string }>;
+  serviceLists: Array<object>;
 
   constructor(public navCtrl: NavController) {
-
     this.serviceLists = [
       {
         "name": "地址管理",
-        "navCtrl": "AddressPage",
+        "navPage": AddressPage,
       },
       {
         "name": "修改密码",
-        "navCtrl": "aaa",
+        "navPage": ChangePassWordPage,
       },
     ];
-
   }
 
-  goTo( key ){
-
+  goTo(item) {
+    this.navCtrl.setRoot(item.navPage);
   }
 }

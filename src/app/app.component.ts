@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -6,11 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-// import { UserDetail } from '../pages/userDetail';
+import { UserDetail } from '../pages/userDetail';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
-import {ServicePage} from '../pages/service'
-import {RequestPage} from '../pages/request'
+import { ServicePage } from '../pages/service'
+import { RequestPage } from '../pages/request'
 // import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
@@ -29,6 +29,8 @@ import * as user from 'hhb-userauth'
 // console.log(Eruda)
 Eruda.init()
 
+console.log(UserDetail);
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -37,8 +39,8 @@ export class MyApp {
 
   rootPage: any = MapPage;
   // get user(){
-    // console.log({user})
-    // return user.state || {}
+  // console.log({user})
+  // return user.state || {}
   // }
   private user;
 
@@ -53,11 +55,13 @@ export class MyApp {
     this.pages = [
       // { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage },
-      { title: '发现', component: MapPage },
-      { title: '消息中心', component: MessagePage},
       // { title: 'serviceDetail', component: SerivceDetailPage},
-      { title: '我的请求单', component: RequestPage},
-      { title: '我的服务单', component: ServicePage, param: {isService: true}},
+      { title: '发现', component: MapPage },
+      { title: '消息中心', component: MessagePage },
+      { title: '我的请求单', component: RequestPage },
+      { title: '我的服务单', component: ServicePage, param: { isService: true } },
+      // { title: 'ChangePassWordPage', component: ChangePassWordPage },
+      // { title: '我的信息', component: UserDetail},
       /*{ title: 'UserDetail',component: UserDetail},
       { title: 'Message', component: MessagePage },
       // { title: 'UserDetail', component: UserDetail },
@@ -68,7 +72,7 @@ export class MyApp {
       { title: 'ChangePassWordPage', component: ChangePassWordPage },*/
     ];
   }
-  async ngAfterViewInit(){
+  async ngAfterViewInit() {
     await amap.listen()
     // console.log({$message})
     // $message.login('0000000002@ydj-b85-hd3', '123456')
@@ -80,14 +84,14 @@ export class MyApp {
           'to': `admin@ydj-b85-hd3`,
           'from': `${user.id}@ydj-b85-hd3`,
           'type': 'normal'
-          },JSON.stringify({
+        }, JSON.stringify({
           "longitude": info.position.lng,     //经度
           "latitude": info.position.lat,      //纬度
-          'distance':3000   //距离 单位米 需要显示附近多少米的人，默认3000米
-          }))
-          // console.log(info)
+          'distance': 3000   //距离 单位米 需要显示附近多少米的人，默认3000米
+        }))
+        // console.log(info)
 
-        })
+      })
       //
     })
     // })
@@ -118,7 +122,7 @@ export class MyApp {
   }
 
   openPage(page) {
-    if(!user.id){
+    if (!user.id) {
       return this.goToLogin()
     }
     // Reset the content nav to have just this page
@@ -127,7 +131,11 @@ export class MyApp {
   }
 
   // 登录
-  goToLogin(){
-    this.nav.push(LoginPage);
+  goToLogin() {
+    this.nav.setRoot(LoginPage);
+  }
+
+  goToUserDetail() {
+    this.nav.setRoot(UserDetail);
   }
 }

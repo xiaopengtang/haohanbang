@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 // import {MessageContent} from '../../modules/content'
 
-import { UserInfoService } from '../../../infService/index'
+// import { UserInfoService } from '../../../infService/index'
 
 @Component({
   selector: 'message-item',
@@ -14,6 +14,6 @@ export class MessageItem {
   }
 
   open(...rest: any[]) {
-    this.navCtrl.push(UserInfoService, { id: 11 })
+    // this.navCtrl.push(UserInfoService, { id: 11 })
   }
 }

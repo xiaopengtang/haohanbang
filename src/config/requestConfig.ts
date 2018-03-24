@@ -29,8 +29,25 @@ export default {
     'USER:LOGIN': '/member/user/login',
     // 用户信息
     'USER:USERDETAILS': '/member/user/get/user/byId',
+
     // 用户地址列表
     'ADDRESS:LIST': '/member/address/list',
+    // 添加地址
+    'ADDRESS:ADD': '/member/address/add',
+    // 删除地址
+    'ADDRESS:DELETE': '/member/address/delete',
+    // 修改地址
+    'ADDRESS:MODIFY': '/member/address/modify',
+    // 修改地址
+    'ADDRESS:MODIFYDEFAULT': '/member/address/modify/default',
+
+    // 忘记密码短信获取
+    'MEMBER:SMSCODE': '/member/verfication/get/forget/sms/code',
+    // 修改密码
+    'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
+
+    // 修改用户名
+    'MEMBER:NICKNAME': '/user/nick/name',
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',
