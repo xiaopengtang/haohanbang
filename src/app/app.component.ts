@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage'
 
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
@@ -11,6 +12,7 @@ import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import { ServicePage } from '../pages/service'
 import { RequestPage } from '../pages/request'
+import {config} from 'hhb-core'
 // import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
@@ -46,7 +48,13 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen/*, private notify: LocalNotifications*/) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: Storage/*, private notify: LocalNotifications*/) {
+    storage.get('USER').then(state => {
+      user.state = Object.assign(user.state, state)
+      if(user.id){
+        $message.login(`${user.id}@${config('message.host.name')}`, '123456')
+      }
+    })
     this.user = user.state || {}
     // this.user = {};
     this.initializeApp();
@@ -77,9 +85,16 @@ export class MyApp {
     // console.log({$message})
     // $message.login('0000000002@ydj-b85-hd3', '123456')
     // $message.login(`${user.id}@${user.name}`, user.state.pw)
+    amap.on('COMPLETE', info => {
+      user.state.longitude = info.position.lng
+      user.state.latitude = info.position.lat
+    })
     $message.on('READY', () => {
+      // console.log(111)
       // amap.on('')
       amap.on('COMPLETE', info => {
+        
+        // console.log({info})
         $message.send({
           'to': `admin@ydj-b85-hd3`,
           'from': `${user.id}@ydj-b85-hd3`,

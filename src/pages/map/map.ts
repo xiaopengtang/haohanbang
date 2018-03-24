@@ -5,6 +5,7 @@ import {MapPageSearch} from './modules/search'
 import * as http from 'hhb-http'
 import * as user from 'hhb-userauth'
 import {ServicePage} from '../service'
+import * as $message from 'hhb-message'
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
@@ -69,6 +70,10 @@ export class MapPage {
           mainMark.setPosition(info.position)
         }
       });//返回定位信息
+      // 实时刷新用户定位
+      $message.on('NORMAL', data => {
+        amap.renderMark(data.message)
+      })
       // 获取当前用户位置
       amap.on('COMPLETE', info => {
         if(info.type !== 'normal' || info.fromUserId === user.id){
