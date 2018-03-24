@@ -31,5 +31,5 @@
     	</section>
     </div>
     <!-- <com-service-item [list]="list"></com-service-item> -->
-    <com-service-item [list]="list" [map]="map" [isService]="isService"></com-service-item>
+    <com-service-item *ngIf="list.length" [list]="list" [map]="map" [isService]="isService"></com-service-item>
 </ion-content>

@@ -32,7 +32,7 @@ export class MapPageSearch{
 	constructor(public navCtrl: NavController, public storage: Storage, private toastCtrl: ToastController){
 		storage.get(this.key).then((list?: any[]) => this.history = list || [])
 		this.$http = $http()
-		this.isService = true
+		this.isService = false
 	}
 	$toast(message){
 		let toast = this.toastCtrl.create({

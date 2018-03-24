@@ -10,8 +10,8 @@
 <ion-content>
   <!-- 手机号输入 -->
   <div class="addressList">
-
-    <ion-grid class="defaultAddress"  *ngFor="let item of addressList">
+    <span class="defualt" *ngIf="true" (click)="goToAddressControlPage()">添加地址</span>
+    <ion-grid class="defaultAddress" *ngFor="let item of addressList">
       <h5 class="subTitle">默认地址</h5>
       <div *ngIf="item.isDefault == 1">
         <ion-card>
@@ -22,13 +22,13 @@
           </ion-card-content>
         </ion-card>
         <div class="checkWrapper">
-            <span class="defualt" *ngIf="true" (click)="goToAddressControlPage()">添加地址</span>
-            <span class="del" (click)="delAddress(item.id)">删除</span>
-            <span class="add" (click)="goToAddressControlPage()">修改</span>
-          </div>
+          <span class="defualt" *ngIf="true" (click)="goToAddressControlPage()">添加地址</span>
+          <span class="del" (click)="delAddress(item.id)">删除</span>
+          <span class="add" (click)="goToAddressControlPage()">修改</span>
+        </div>
       </div>
     </ion-grid>
-    
+
     <ion-grid *ngFor="let item of addressList">
       <div *ngIf="item.isDefault == 0">
         <ion-card>
