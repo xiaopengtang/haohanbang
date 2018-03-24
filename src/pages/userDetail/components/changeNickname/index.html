@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>修改密码</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- 手机号输入 -->
+  <div class="register">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>修改用户名:</ion-label>
+        <ion-input type="text" placeholder="新用户名" [(ngModel)]="nickName"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-label class="errMsg">
+      {{errMsg}}
+    </ion-label>
+    <div class="login-buttons">
+      <button ion-button icon-right color="royal" (click)="changeNickName()">确认</button>
+    </div>
+  </div>
+</ion-content>

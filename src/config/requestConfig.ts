@@ -46,8 +46,8 @@ export default {
     // 修改密码
     'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
     // 修改用户名
-    'MEMBER:NICKNAME': '/user/nick/name',
-
+    'MEMBER:NICKNAME': '/member/user/nick/name',
+    
     // 服务单列表
     'ORDER:LIST': '/order/service/order/list',
     // 添加服务单

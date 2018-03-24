@@ -34,6 +34,15 @@ export class AddressPage {
     console.log(list);
   }
 
+  // 删除地址
+  async delAddress( id ){
+    let delAddress = await this.$http.curl('ADDRESS:DELETE', {
+      "id": id
+    });
+    if( delAddress.id == 1){
+      this.getAddressList();
+    }
+  }
   goToAddressControlPage(){
     this.navCtrl.setRoot(AddressControlPage);
   }

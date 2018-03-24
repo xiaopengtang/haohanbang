@@ -6,6 +6,7 @@ import * as user from 'hhb-userauth';
 import * as http from 'hhb-http'
 // import * as user from 'hhb-userauth'
 
+import { AddressPage } from '../address'
 @Component({
   selector: 'page-AddressControl',
   templateUrl: 'index.html'
@@ -24,6 +25,8 @@ export class AddressControlPage {
   public isDefualt;
   // 用户名
   public userName;
+  // 电话号码
+  public phoneNum;
   // 邮编
   public zipCode;
   // 国家
@@ -54,6 +57,7 @@ export class AddressControlPage {
     this.conunty = this.conuntys[0];
 
     this.isDefualt = true;
+    this.phoneNum = "";
     this.userName = "";
     this.zipCode = "";
     this.addressDetail = "";
@@ -119,20 +123,24 @@ export class AddressControlPage {
   // 添加地址
   async addAddress() {
     console.log(user);
-    let {isDefualt, city, province, zipCode, userName, addressDetail} = this;
+    let { isDefualt, city, province, zipCode, userName, addressDetail, phoneNum } = this;
     let rsp = await this.$http.curl('ADDRESS:ADD', {
-      "address": addressDetail,
-      "cityId": userName,
-      "cityName": "string",
       "countyId": 40002,
+      "address": addressDetail,
+      "cityId": city,
+      "cityName": "string",
       "countyName": "string",
-      "isDefault": isDefualt? 1: 0,
+      "isDefault": isDefualt ? 1 : 0,
       "name": userName,
-      "phone": "string",
+      "phone": phoneNum,
       "provinceId": province,
       "provinceName": "string",
       "userId": user.state.id,
       "zipCode": zipCode
     });
+    // 请求成功 
+    if (rsp.code == 1) {
+      this.navCtrl.setRoot(AddressPage);
+    }
   }
 }

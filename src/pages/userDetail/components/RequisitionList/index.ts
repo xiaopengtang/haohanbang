@@ -5,7 +5,7 @@ import * as http from 'hhb-http'
 import * as user from 'hhb-userauth'
 
 // import { AddressControlPage } from '../addressControl';
-import { addServiceForProviderPage } from '../addServiceForProvider';
+import { addServiceForRequisitionPage } from '../addServiceForRequisition';
 
 // const status = {
 //   "1": "已提交",
@@ -13,6 +13,7 @@ import { addServiceForProviderPage } from '../addServiceForProvider';
 //   "3": "已完成",
 //   "4": "已关闭",
 // };
+
 @Component({
   selector: 'page-providerList',
   templateUrl: 'index.html'
@@ -52,7 +53,7 @@ export class ProviderListPage {
     console.log(this.ProviderList);
   }
 
-  goToAddServiceForProviderPage() {
-    this.navCtrl.setRoot(addServiceForProviderPage);
+  goToAddServiceForRequisitionPage() {
+    this.navCtrl.setRoot(addServiceForRequisitionPage);
   }
 }

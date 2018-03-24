@@ -6,6 +6,7 @@ import * as user from 'hhb-userauth';
 
 import { AddressPage } from '../address';
 import { ChangePassWordPage } from '../changePassWord';
+import {ChangeNickNamePage} from '../changeNickname';
 
 @Component({
   selector: 'user-infoService',
@@ -19,12 +20,20 @@ export class UserInfoService {
   constructor(public navCtrl: NavController) {
     this.serviceLists = [
       {
-        "name": "地址管理",
-        "navPage": AddressPage,
+        "name": "修改用户名",
+        "navPage": ChangeNickNamePage,
+      },
+      {
+        "name": "修改用户签名",
+        "navPage": ChangePassWordPage,
       },
       {
         "name": "修改密码",
         "navPage": ChangePassWordPage,
+      },
+      {
+        "name": "地址管理",
+        "navPage": AddressPage,
       },
     ];
   }

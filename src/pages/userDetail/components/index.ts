@@ -6,9 +6,10 @@ import { addServiceForProviderPage } from './addServiceForProvider';
 import { ChangePassWordPage } from './changePassWord';
 import { AddressControlPage } from './addressControl';
 import { AddressPage } from './address';
-import {ProviderListPage} from './ProviderList';
+import { ProviderListPage } from './ProviderList';
+import { ChangeNickNamePage } from './changeNickname';
+import { addServiceForRequisitionPage } from './addServiceForRequisition';
 // import { AddressControlPage } from './addressControl';
-// console.log(UserInfoService);
 
 export {
   MessageItem,
@@ -18,12 +19,17 @@ export {
   OrderState,
   // 用户信息修改服务
   UserInfoService,
-  // 地址列表
+  // 添加服务单
   addServiceForProviderPage,
+  // 添加请求单
+  addServiceForRequisitionPage,
   // 修改密码
   ChangePassWordPage,
   // 地址列表
   AddressPage,
   AddressControlPage,
   ProviderListPage,
+  // 修改用户名
+  ChangeNickNamePage,
+
 }
