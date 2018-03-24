@@ -1,36 +1,39 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>用户登录</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>用户登录</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <div class="login-content">
-        <div class="login-body">
-            <div class="login-logo"></div>
-            <ion-card>
-                <ion-list>
-                    <ion-item>
-                        <ion-label class="inputName">用户ID:</ion-label>
-                        <ion-input type="text" placeholder="用户名、手机号、邮箱" [(ngModel)]="userName"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label class="inputName">密码:</ion-label>
-                        <ion-input type="password" placeholder="最少有效字符六位" [(ngModel)]="passWord"></ion-input>
-                    </ion-item>
-                </ion-list>
-            </ion-card>
-            <div class="otherService">
-                <ion-label class="goToRegister">免费注册</ion-label>
-                <ion-label class="resetPw">忘记密码</ion-label>
-            </div>
-            <div class="login-buttons" padding>
-                <button ion-button icon-right color="royal" (click)="login()">登录</button>
-                <button ion-button icon-right color="royal">使用手机验证码登录</button>
-            </div>
-        </div>
+  <div class="login-content">
+    <div class="login-body">
+      <div class="login-logo"></div>
+      <ion-card>
+        <ion-list>
+          <ion-item>
+            <ion-label class="inputName">用户ID:</ion-label>
+            <ion-input type="text" placeholder="用户名、手机号、邮箱" [(ngModel)]="userName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="inputName">密码:</ion-label>
+            <ion-input type="password" placeholder="最少有效字符六位" [(ngModel)]="passWord"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+      <ion-label class="errMsg">
+        {{errMsg}}
+      </ion-label>
+      <div class="otherService">
+        <ion-label class="goToRegister" (click)="goTo('RegisterPage')">免费注册</ion-label>
+        <ion-label class="resetPw"  (click)="goTo('ChangePassWordPage')">忘记密码</ion-label>
+      </div>
+
+      <div class="login-buttons">
+        <button ion-button icon-right color="royal" (click)="login()">登录</button>
+      </div>
     </div>
+  </div>
 </ion-content>

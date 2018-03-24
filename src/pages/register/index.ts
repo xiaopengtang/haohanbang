@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 import * as http from 'hhb-http'
-import * as user from 'hhb-userauth'
+// import * as user from 'hhb-userauth'
 // import {Service} from './index.service';
 
 const msgContent = {

@@ -8,12 +8,28 @@
 </ion-header>
 
 <ion-content>
+
   <!-- 用户信息 -->
-  <!-- <userinfo-item></userinfo-item> -->
+  <ion-card class="user_info">
+    <ion-item (click)="goToUserInfoService()">
+      <ion-avatar item-start>
+        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+      </ion-avatar>
+      <h2>{{nickName != ""? nickName: userId }}
+        <span class="user_info_level">{{"Lv" + level}}</span>
+      </h2>
+      <p>{{"注册时间:" + createTime}}</p>
+    </ion-item>
+  </ion-card>
+
   <!-- 请求单状态列表 -->
   <!-- <userinfo-orderstate title="111"></userinfo-orderstate> -->
   <!-- 服务单状态列表 -->
   <!-- <userinfo-orderstate title="222"></userinfo-orderstate> -->
   <!-- service列表 -->
-  <!-- <userinfo-serviceList></userinfo-serviceList> -->
+  <ion-list>
+    <button ion-item *ngFor="let item of serviceLists" (click)= "goTo(item.name)">
+      {{ item.name }}
+    </button>
+  </ion-list>
 </ion-content>

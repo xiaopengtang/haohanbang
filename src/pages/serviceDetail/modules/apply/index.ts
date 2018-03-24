@@ -22,7 +22,7 @@ export class ModalApply {
 		this.viewCtrl.dismiss();
 	}
 
-  $toast(message, callback){
+  $toast(message, callback?: Function){
     let toast = this.toastCtrl.create({
       message,
       duration: 2000,
@@ -52,7 +52,7 @@ export class ModalApply {
     if(state){
       return this.$toast(state)
     }
-    const res = this.$http.curl('SAVE:ORDER:APPLY', param)
+    const res = this.$http.curl('SAVE:SERVICE:APPLY', param)
     const message = `申请${res && res.code && '成功' || '失败'}`
     this.$toast(message, () => this.viewCtrl.dismiss())
 	}

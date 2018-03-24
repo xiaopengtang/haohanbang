@@ -2,7 +2,7 @@ export const message = {
   'host': {
     'ip': 'http://1989591.51vip.biz:17015/http-bind/',
     'name': 'ydj-b85-hd3'
-    },
+    }
   // 'host': 'http://1989591.51vip.biz:17015/http-bind/',
   // 'hostName': 'ydj-b85-hd3'
 }
