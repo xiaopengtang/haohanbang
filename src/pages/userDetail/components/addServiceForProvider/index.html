@@ -1,50 +1,58 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>新建服务单</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>新建服务单</ion-title>
+  </ion-navbar>
 </ion-header>
 <ion-content>
 
-    <!-- 手机号输入 -->
-    <div class="addServiceForProvider">
-        <ion-card>
-            <ion-card-header>
-                标题(必填)
-            </ion-card-header>
-            <ion-card-content>
-                <ion-input type="text" placeholder="请输入标题,最多20个字符"></ion-input>
-            </ion-card-content>
-        </ion-card>
+  <!-- 手机号输入 -->
+  <div class="addServiceForProvider">
+    <ion-card>
+      <ion-card-header>
+        标题(必填)
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input type="text" placeholder="请输入标题,最多20个字符"></ion-input>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-card>
-            <ion-card-header>
-                报酬
-            </ion-card-header>
-            <ion-card-content>
-                <ion-input type="number" placeholder="输入金额"></ion-input>
-            </ion-card-content>
-        </ion-card>
+    <ion-card>
+      <ion-card-header>
+        报酬
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input type="number" placeholder="输入金额"></ion-input>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-card>
-            <ion-card-header>
-                请求单详情(必填)
-            </ion-card-header>
-            <ion-card-content>
-                <ion-input type="text" placeholder="请输入请求单详细内容，200字以内"></ion-input>
-            </ion-card-content>
-        </ion-card>
+    <ion-card>
+      <ion-card-header>
+        请求单详情(必填)
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input type="text" placeholder="请输入请求单详细内容，200字以内"></ion-input>
+      </ion-card-content>
+    </ion-card>
 
-        <ion-card>
-            <ion-card-header>
-                添加图片
-            </ion-card-header>
-            <ion-card-content>
-                <ion-input type="text" placeholder="请输入请求单详细内容，200字以内"></ion-input>
-            </ion-card-content>
-        </ion-card>
-    </div>
+    <ion-item>
+      <ion-label>选择地址</ion-label>
+      <ion-select [(ngModel)]="address">
+        <ion-option *ngFor="let item of addressList" [value]="item">{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>截止时间</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" max="2020" [(ngModel)]="clearTime"></ion-datetime>
+    </ion-item>
+
+    <ion-grid>
+      <button ion-button icon-right color="royal" (click)="addProvider()">提交</button>
+    </ion-grid>
+
+  </div>
 
 </ion-content>
