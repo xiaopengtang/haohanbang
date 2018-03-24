@@ -36,6 +36,10 @@ export class UserDetail {
         "name": "服务单管理",
         "navPage": ProviderListPage,
       },
+      // {
+      //   "name": "请求单管理",
+      //   "navPage": ,
+      // },
       {
         "name": "收藏",
         "navPage": "aaa",
