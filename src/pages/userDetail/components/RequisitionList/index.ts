@@ -4,7 +4,6 @@ import { NavController } from 'ionic-angular';
 import * as http from 'hhb-http'
 import * as user from 'hhb-userauth'
 
-// import { AddressControlPage } from '../addressControl';
 import { addServiceForRequisitionPage } from '../addServiceForRequisition';
 
 // const status = {
@@ -15,15 +14,14 @@ import { addServiceForRequisitionPage } from '../addServiceForRequisition';
 // };
 
 @Component({
-  selector: 'page-providerList',
+  selector: 'page-requisitionList',
   templateUrl: 'index.html'
 })
 
-export class ProviderListPage {
+export class RequisitionListPage {
 
   private $http;
-  public ProviderList: Array<object>;
-
+  public RequisitionList: Array<object>;
   public status;
 
   constructor(public navCtrl: NavController) {
@@ -36,21 +34,21 @@ export class ProviderListPage {
       "4": "已关闭",
     };
 
-    this.getProviderList();
+    this.getRequisitionList();
   }
 
   // 获取常用地址列表
-  async getProviderList() {
-    let list = await this.$http.curl('ORDER:LIST', {
+  async getRequisitionList() {
+    let list = await this.$http.curl('ORDER:REQUEST:LIST', {
       "userId": user.state.id,
       "queryUserId": user.state.id,
       "page": 0,
       "size": 10
     });
     if (1 == list.code) {
-      this.ProviderList = list.data.records;
+      this.RequisitionList = list.data.records;
     }
-    console.log(this.ProviderList);
+    console.log(this.RequisitionList);
   }
 
   goToAddServiceForRequisitionPage() {

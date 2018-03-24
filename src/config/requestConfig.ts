@@ -52,6 +52,11 @@ export default {
     'ORDER:LIST': '/order/service/order/list',
     // 添加服务单
     'ORDER:ADD': '/order/service/order/add',
+    // 查询请求单列表
+    'ORDER:REQUEST:LIST': '/order/request/order/list',
+    // 请求单列表
+    'ORDER:REQUEST:ADD': '/order/request/order/add',
+
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',

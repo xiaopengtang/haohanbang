@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { UserInfoService, ProviderListPage } from './components';
-
+import { UserInfoService, ProviderListPage, RequisitionListPage} from './components';
+// 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
@@ -36,10 +36,10 @@ export class UserDetail {
         "name": "服务单管理",
         "navPage": ProviderListPage,
       },
-      // {
-      //   "name": "请求单管理",
-      //   "navPage": ,
-      // },
+      {
+        "name": "请求单管理",
+        "navPage": RequisitionListPage,
+      },
       {
         "name": "收藏",
         "navPage": "aaa",
@@ -48,10 +48,6 @@ export class UserDetail {
         "name": "关注",
         "navPage": "aaa",
       },
-      {
-        "name": "我的信息",
-        "navPage": "aaa",
-      }
     ];
   }
 

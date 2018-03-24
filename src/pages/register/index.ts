@@ -4,6 +4,7 @@ import {NavController} from 'ionic-angular';
 import * as http from 'hhb-http'
 // import * as user from 'hhb-userauth'
 // import {Service} from './index.service';
+import { MapPage } from '../map/map'
 
 const msgContent = {
   "001": "请输入有效手机号码",
@@ -73,7 +74,9 @@ export class RegisterPage {
         "phone": phoneNum,
         "phoneVerficationCode": code
       });
-      console.log(reg);
+      if(reg.code == 1){
+        this.navCtrl.setRoot(MapPage);
+      }
     }
   }
 

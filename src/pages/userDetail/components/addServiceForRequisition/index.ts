@@ -3,13 +3,14 @@ import { NavController } from 'ionic-angular';
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
+import {RequisitionListPage} from '../RequisitionList'
 @Component({
-  selector: 'page-register',
+  selector: 'page-addServiceForRequisition',
   templateUrl: 'index.html'
 })
 
 
-export class addServiceForProviderPage {
+export class addServiceForRequisitionPage {
 
   public $http;
 
@@ -51,9 +52,8 @@ export class addServiceForProviderPage {
   }
 
   async addProvider() {
-    console.log(1111);
     let { address, clearTime, title, price, describe } = this;
-    let Provider = await this.$http.curl('ORDER:ADD', {
+    let REQUEST = await this.$http.curl('ORDER:REQUEST:ADD', {
       "address": address,
       // "closeReason": "string",
       "describe": describe,
@@ -77,8 +77,8 @@ export class addServiceForProviderPage {
       "userId": user.state.id
     });
 
-    if (Provider.code == 1) {
-
+    if (REQUEST.code == 1) {
+      this.navCtrl.setRoot(RequisitionListPage);
     }
   }
 

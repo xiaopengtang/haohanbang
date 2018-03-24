@@ -11,9 +11,9 @@
   <!-- 手机号输入 -->
   <div class="probiderList">
     <ion-grid>
-      <button ion-button icon-right color="royal" (click)="goToAddServiceForProviderPage ()">添加服务单</button>
+      <button ion-button icon-right color="royal" (click)="goToAddServiceForRequisitionPage()">添加请求单</button>
     </ion-grid>
-    <ion-grid >
+    <ion-grid>
       <ion-card *ngFor="let item of ProviderList">
         <ion-card-content>
           <p class="subTitle">{{item.title}}</p>

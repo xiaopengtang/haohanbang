@@ -7,8 +7,9 @@ import { ChangePassWordPage } from './changePassWord';
 import { AddressControlPage } from './addressControl';
 import { AddressPage } from './address';
 import { ProviderListPage } from './ProviderList';
+import { RequisitionListPage } from './RequisitionList';
 import { ChangeNickNamePage } from './changeNickname';
-// import { addServiceForRequisitionPage } from './addServiceForRequisition';
+import { addServiceForRequisitionPage } from './addServiceForRequisition';
 // import { AddressControlPage } from './addressControl';
 
 export {
@@ -22,7 +23,7 @@ export {
   // 添加服务单
   addServiceForProviderPage,
   // 添加请求单
-  // addServiceForRequisitionPage,
+  addServiceForRequisitionPage,
   // 修改密码
   ChangePassWordPage,
   // 地址列表
@@ -31,5 +32,7 @@ export {
   ProviderListPage,
   // 修改用户名
   ChangeNickNamePage,
+  // 请求单列表
+  RequisitionListPage,
 
 }
