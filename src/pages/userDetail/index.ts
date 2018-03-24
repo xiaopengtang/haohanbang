@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { UserInfoService } from './components';
+import { UserInfoService, ProviderListPage } from './components';
 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
-console.log(UserInfoService);
+// console.log(UserInfoService);
 @Component({
   selector: 'page-userdetail',
   templateUrl: 'index.html'
@@ -34,19 +34,19 @@ export class UserDetail {
     this.serviceLists = [
       {
         "name": "服务单管理",
-        "navCtrl": "aaa",
+        "navPage": ProviderListPage,
       },
       {
         "name": "收藏",
-        "navCtrl": "aaa",
+        "navPage": "aaa",
       },
       {
         "name": "关注",
-        "navCtrl": "aaa",
+        "navPage": "aaa",
       },
       {
         "name": "我的信息",
-        "navCtrl": "aaa",
+        "navPage": "aaa",
       }
     ];
   }
@@ -55,8 +55,8 @@ export class UserDetail {
     this.navCtrl.setRoot(UserInfoService);
   }
 
-  goTo(key){
-    console.log(key);
+  goTo(item){
+    this.navCtrl.setRoot(item.navPage);
   }
 
 }

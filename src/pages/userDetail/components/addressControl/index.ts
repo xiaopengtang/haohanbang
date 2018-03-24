@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+// import * as http from 'hhb-http';
+import * as user from 'hhb-userauth';
 import * as http from 'hhb-http'
 // import * as user from 'hhb-userauth'
 
@@ -18,10 +20,22 @@ export class AddressControlPage {
   public citys;
   public areas;
 
+  // 默认
+  public isDefualt;
+  // 用户名
+  public userName;
+  // 邮编
+  public zipCode;
+  // 国家
   public conunty;
+  // 省、市
   public province;
+  // 城市
   public city;
+  // 区
   public area;
+  // 详细
+  public addressDetail;
 
   constructor(public navCtrl: NavController) {
     this.$http = http();
@@ -38,6 +52,11 @@ export class AddressControlPage {
     this.areas = [];
 
     this.conunty = this.conuntys[0];
+
+    this.isDefualt = true;
+    this.userName = "";
+    this.zipCode = "";
+    this.addressDetail = "";
     this.provinceList();
   }
 
@@ -99,19 +118,21 @@ export class AddressControlPage {
 
   // 添加地址
   async addAddress() {
+    console.log(user);
+    let {isDefualt, city, province, zipCode, userName, addressDetail} = this;
     let rsp = await this.$http.curl('ADDRESS:ADD', {
-      "address": "string",
-      "cityId": 0,
+      "address": addressDetail,
+      "cityId": userName,
       "cityName": "string",
-      "countyId": 0,
+      "countyId": 40002,
       "countyName": "string",
-      "isDefault": 0,
-      "name": "string",
+      "isDefault": isDefualt? 1: 0,
+      "name": userName,
       "phone": "string",
-      "provinceId": 0,
+      "provinceId": province,
       "provinceName": "string",
-      "userId": "string",
-      "zipCode": "string"
+      "userId": user.state.id,
+      "zipCode": zipCode
     });
   }
 }

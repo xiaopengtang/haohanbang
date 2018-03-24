@@ -8,7 +8,7 @@ import * as $message from 'hhb-message'
 // import { HomePage } from '../home/home';
 import { MapPage } from '../map/map'
 import { RegisterPage } from '../register/index';
-import { ChangePassWordPage } from '../changePassWord/index';
+// import { ChangePassWordPage } from '../changePassWord/index';
 
 import { config } from 'hhb-core'
 
@@ -49,9 +49,9 @@ export class LoginPage {
       case "RegisterPage":
         toPage = RegisterPage;
         break;
-      // 修改密码 
+      // 修改密码
       case "ChangePassWordPage":
-        toPage = ChangePassWordPage;
+        // toPage = ChangePassWordPage;
         break;
       default:
         toPage = MapPage;

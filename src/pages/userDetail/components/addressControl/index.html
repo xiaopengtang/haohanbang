@@ -14,7 +14,13 @@
     <ion-list>
       <ion-item>
         <ion-label> 设置为默认</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
+        <ion-toggle checked={{isDefault}}></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="userName" placeholder="名字"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="zipCode"  placeholder="邮编"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>国家</ion-label>
@@ -41,11 +47,11 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-input type="text" value="" placeholder="详细地址(50个字符以内)"></ion-input>
+        <ion-input type="text" [(ngModel)]="addressDetail" placeholder="详细地址(50个字符以内)"></ion-input>
       </ion-item>
     </ion-list>
     <div class="login-buttons">
-      <button ion-button icon-right color="royal" (click)="login()">确认</button>
+      <button ion-button icon-right color="royal" (click)="addAddress()">确认</button>
     </div>
   </div>
 </ion-content>
