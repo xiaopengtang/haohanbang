@@ -32,7 +32,7 @@ export class ModalApply {
     toast.present();
   }
 
-	applyOrder(){
+	async applyOrder(){
 		let param = {
 			"applyTime": `${this.date} ${this.clock}:00`,
 			"orderId": this.orderId,
@@ -52,8 +52,8 @@ export class ModalApply {
     if(state){
       return this.$toast(state)
     }
-    const res = this.$http.curl('SAVE:ORDER:APPLY', param)
-    const message = `申请${res && res.data && '成功' || '失败'}`
+    const res = await this.$http.curl('SAVE:ORDER:APPLY', param)
+    const message = res && res.msg || `申请${res && res.data && '成功' || '失败'}`
     this.$toast(message, () => this.viewCtrl.dismiss())
 	}
 }
