@@ -21,7 +21,7 @@ export class Serve {
 	}
 	async queryHistoryList(senderId, receiverId, page = 1): Promise<any[]>{
 		let map = {
-		    "asc": false,
+		    "asc": true,
 		    "endDate": null,
 		    "id": null,
 		    "orderByField": null,

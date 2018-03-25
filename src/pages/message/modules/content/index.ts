@@ -30,7 +30,7 @@ export class MessageContent {
 		this._updateFriendList()
 		console.log(this.friend)
 		$message.on('CHAT', mess => {
-			
+			console.log({mess})
 			const r = new RegExp(`^${this.friend.userId}@`)
 			// console.log({mess}, this.friend, r, r.test(mess.from))
 			if(!r.test(mess.from)){

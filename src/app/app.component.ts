@@ -56,6 +56,9 @@ export class MyApp {
       }
     })
     this.user = user.state || {}
+    $message.on('CHAT', mess => {
+      console.log(mess)
+    })
     // this.user = {};
     this.initializeApp();
 
