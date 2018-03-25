@@ -9,17 +9,17 @@ export default {
     'QUERY:USER:NEAR_LIST': '/member/user/nearby/user',
     // 请求单留言
     'SAVE:ORDER:APPLY_MESSAGE': 'order/request/order/leave/message/add',
-    'SAVE:USER:APPLY': '/service/order/apply/apply',
+    'SAVE:USER:APPLY': '/order/service/order/apply/apply',
     //
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
     // 请求单列表
     "QUERY:ORDER:LIST": 'order/request/order/list',
     // 服务单
-    'QUERY:SERVICE:LIST': '/service/order/list',
+    'QUERY:SERVICE:LIST': '/order/service/order/list',
     // 服务单申请
-    "SAVE:SERVICE:APPLY": '/service/order/apply/apply',
+    "SAVE:SERVICE:APPLY": '/order/service/order/apply/apply',
     // 服务单详情
-    "QUERY:SERVICE:DETAIL": '/service/order/detai',
+    "QUERY:SERVICE:DETAIL": '/order/service/order/detai',
     // 获取请求单列表
     'QUERY:ORDER:REQUEST_LIST': 'order/request/order/list',
     //注册
@@ -38,7 +38,7 @@ export default {
     'ADDRESS:DELETE': '/member/address/delete',
     // 修改地址
     'ADDRESS:MODIFY': '/member/address/modify',
-    // 修改地址
+    // 修改默认地址
     'ADDRESS:MODIFYDEFAULT': '/member/address/modify/default',
 
     // 忘记密码短信获取
@@ -47,7 +47,7 @@ export default {
     'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
     // 修改用户名
     'MEMBER:NICKNAME': '/member/user/nick/name',
-    
+
     // 服务单列表
     'ORDER:LIST': '/order/service/order/list',
     // 添加服务单

@@ -23,12 +23,12 @@ export class Serve {
 		let map = {
 		    "asc": true,
 		    "endDate": null,
-		    "id": user.id,
+		    "id": null,
 		    "orderByField": null,
 		    page,
 		    receiverId,
 		    senderId,
-		    "size": 0,
+		    "size": 10,
 		    "startDate": null
 		}
 		let res: any = await this.$http.curl('QUERY:HISTORY:LIST', map)

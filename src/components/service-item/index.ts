@@ -37,7 +37,8 @@ export class ComServiceItem{
     // console.log({$http})
 		return await this.http.post(`${this.host}order/request/order/list`, JSON.stringify(map), {headers: new Headers({'Content-Type': 'application/json'})}).toPromise().then((res: any) => res.json())
 	}
-	async ngAfterViewInit(){
+	async ngOnChanges(){
+		// console.log(this.list)
 		if(Array.isArray(this.list) && this.list.length){
 			return this.renderList = this.list
 		}

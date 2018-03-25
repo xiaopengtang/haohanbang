@@ -12,14 +12,14 @@
     [(ngModel)]="title"></ion-searchbar>
     <!-- <ion-list></ion-list> -->
     <div class="hot" *ngIf="list.length == 0">
-    	<section class="hot-list">
+    	<!-- <section class="hot-list">
     		<h3>热门搜索</h3>
     		<ul>
     			<li>测试</li>
     			<li>测试</li>
     			<li>测试</li>
     		</ul>
-    	</section>
+    	</section> -->
     	<section class="history-list" *ngIf="history.length">
     		<h3>搜索历史</h3>
     		<ul>
@@ -31,5 +31,5 @@
     	</section>
     </div>
     <!-- <com-service-item [list]="list"></com-service-item> -->
-    <com-service-item [list]="list" [map]="map"></com-service-item>
+    <com-service-item *ngIf="list.length" [list]="list" [map]="map" [isService]="isService"></com-service-item>
 </ion-content>

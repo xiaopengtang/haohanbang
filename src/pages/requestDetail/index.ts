@@ -20,13 +20,17 @@ export class RequestDetailPage implements OnInit {
         this.$http = $http()
     }
 
-    async ngAfterViewInit(){
+    async updateInfo(){
     	const res = await this.$server.queryDetail(this.orderId)
-    	console.log(res)
+    	// console.log(res)
     	return this.info = res.data || {}
-		}
-		ngOnInit() {
-		}
+    }
+
+    async ngAfterViewInit(){
+    	return await this.updateInfo()
+	}
+	ngOnInit() {
+	}
     reply(){
     	let prompt = this.alertCtrl.create({
 	        title: '评论',
@@ -61,6 +65,7 @@ export class RequestDetailPage implements OnInit {
                     duration: 2000,
                     position: 'top'
                   });
+                  await this.updateInfo()
 	                // console.log('Saved clicked', data);
                 }else{
                   toast = this.toastCtrl.create({

@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 
 // import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 import * as http from 'hhb-http'
 // import * as user from 'hhb-userauth'
 
-import { AddressPage } from '../address'
+import {AddressPage} from '../address'
+
 @Component({
   selector: 'page-AddressControl',
   templateUrl: 'index.html'
@@ -40,7 +41,10 @@ export class AddressControlPage {
   // 详细
   public addressDetail;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,) {
+    let type = navParams.get('type');
+    let item = navParams.get('item');
+    console.log(item);
     this.$http = http();
     // console.log(user);
 
@@ -53,14 +57,24 @@ export class AddressControlPage {
     this.provinces = [];
     this.citys = [];
     this.areas = [];
-
     this.conunty = this.conuntys[0];
 
-    this.isDefualt = true;
-    this.phoneNum = "";
-    this.userName = "";
-    this.zipCode = "";
-    this.addressDetail = "";
+    if( type ){
+      this.isDefualt = true;
+      this.userName = item.name;
+      this.phoneNum = item.phone;
+      this.zipCode = item.zipCode;
+      this.province = {name: item.provinceName, poiCode: item.provinceId};
+      this.city = {name: item.cityName, poiCode: item.countyId};
+      this.addressDetail = item.address;
+    } else {
+      this.isDefualt = true;
+      this.phoneNum = "";
+      this.userName = "";
+      this.zipCode = "";
+      this.addressDetail = "";
+    }
+
     this.provinceList();
   }
 
@@ -100,7 +114,6 @@ export class AddressControlPage {
     switch (key) {
       case "province":
         if (item.poiCode != this.province) {
-          console.log(item);
           let rsp = await this.$http.curl('SUPPORT:queryByParentCode', {
             "poiCode": item.poiCode
           });
@@ -122,23 +135,44 @@ export class AddressControlPage {
 
   // 添加地址
   async addAddress() {
-    console.log(user);
-    let { isDefualt, city, province, zipCode, userName, addressDetail, phoneNum } = this;
-    let rsp = await this.$http.curl('ADDRESS:ADD', {
-      "countyId": 40002,
-      "address": addressDetail,
-      "cityId": city,
-      "cityName": "string",
-      "countyName": "string",
-      "isDefault": isDefualt ? 1 : 0,
-      "name": userName,
-      "phone": phoneNum,
-      "provinceId": province,
-      "provinceName": "string",
-      "userId": user.state.id,
-      "zipCode": zipCode
-    });
-    // 请求成功 
+    let type = this.navParams.get('type');
+    let item = this.navParams.get('item');
+    let {isDefualt, city, province, zipCode, userName, addressDetail, phoneNum} = this;
+    let rsp;
+    // ADDRESS:MODIFY
+    if( type ){
+      rsp = await this.$http.curl('ADDRESS:MODIFY', {
+        "id": item.id,
+        "countyId": 40002,
+        "address": addressDetail,
+        "cityId": city.poiCode,
+        "cityName": city.name,
+        "countyName": "中国",
+        "isDefault": isDefualt ? 1 : 0,
+        "name": userName,
+        "phone": phoneNum,
+        "provinceId": province.poiCode,
+        "provinceName": province.name,
+        "userId": user.state.id,
+        "zipCode": zipCode
+      });
+    } else {
+      rsp = await this.$http.curl('ADDRESS:ADD', {
+        "countyId": 40002,
+        "address": addressDetail,
+        "cityId": city.poiCode,
+        "cityName": city.name,
+        "countyName": "中国",
+        "isDefault": isDefualt ? 1 : 0,
+        "name": userName,
+        "phone": phoneNum,
+        "provinceId": province.poiCode,
+        "provinceName": province.name,
+        "userId": user.state.id,
+        "zipCode": zipCode
+      });
+    }
+    // 请求成功
     if (rsp.code == 1) {
       this.navCtrl.setRoot(AddressPage);
     }

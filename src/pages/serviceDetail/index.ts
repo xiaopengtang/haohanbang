@@ -22,7 +22,7 @@ export class SerivceDetailPage implements OnInit {
 
     async ngAfterViewInit(){
     	const res = await this.$server.queryDetail(this.orderId)
-    	console.log(res)
+    	// console.log(res)
     	return this.info = res.data || {}
 		}
 		ngOnInit() {
