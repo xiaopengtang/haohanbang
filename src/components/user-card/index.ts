@@ -1,29 +1,38 @@
-import { Component, Input} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component, Input} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {MessageContent} from '../../pages/message/modules/content'
 
 @Component({
   selector: 'com-user-card',
   templateUrl: 'index.html'
-}) 
+})
 export class ComUserCard {
-	@Input() list: any[] = [];
-	// @Input() map: {}
-	
-	constructor(public navCtrl: NavController){}
-	renderList: any[] = [];
-	async ngAfterViewInit(){ 
-		
-		if(Array.isArray(this.list) && this.list.length){
-			this.renderList = this.list
-		}
-		// console.log(this.renderList)
-		/*const res: any = await this.curl(this.map)
-		this.renderList = res.data && res.data.records || []
-		console.log(this.renderList)*/
-	}
+  @Input() list: any[] = [];
+  // @Input() map: {}
+  public judge: boolean;
+  public msgStatus: boolean;
+  public msg: string;
 
-	openMessCtrl(info){
-		this.navCtrl.push(MessageContent, {info})
-	}
+  constructor(public navCtrl: NavController) {
+    this.judge = false;
+    this.msgStatus = false;
+    this.msg = ""
+  }
+
+  renderList: any[] = [];
+
+  async ngAfterViewInit() {
+
+    if (Array.isArray(this.list) && this.list.length) {
+      this.renderList = this.list
+    }
+    // console.log(this.renderList)
+    /*const res: any = await this.curl(this.map)
+        this.renderList = res.data && res.data.records || []
+        console.log(this.renderList)*/
+  }
+
+  openMessCtrl(info) {
+    this.navCtrl.push(MessageContent, {info})
+  }
 }

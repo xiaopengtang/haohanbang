@@ -14,7 +14,7 @@
       <button ion-button icon-right color="royal" (click)="goToAddServiceForRequisitionPage()">添加请求单</button>
     </ion-grid>
     <ion-grid>
-      <ion-card *ngFor="let item of ProviderList">
+      <ion-card *ngFor="let item of RequisitionList">
         <ion-card-content>
           <p class="subTitle">{{item.title}}</p>
           <p class="price">{{item.price == 0? "free": "￥"+item.price}}</p>

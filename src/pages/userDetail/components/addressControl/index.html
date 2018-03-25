@@ -34,19 +34,19 @@
       <ion-item>
         <ion-label>省</ion-label>
         <ion-select [(ngModel)]="province">
-          <ion-option *ngFor="let item of provinces" value={{item.poiCode}} (ionSelect)="CheckNewItem('province', item)">{{item.name}}</ion-option>
+          <ion-option *ngFor="let item of provinces"  [value]="item" (ionSelect)="CheckNewItem('province', item)">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>市</ion-label>
         <ion-select [(ngModel)]="city">
-          <ion-option *ngFor="let item of citys" value={{item.poiCode}} (ionSelect)="CheckNewItem('city', item)">{{item.name}}</ion-option>
+          <ion-option *ngFor="let item of citys"  [value]="item" (ionSelect)="CheckNewItem('city', item)">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>区、县</ion-label>
         <ion-select [(ngModel)]="area">
-          <ion-option *ngFor="let item of areas" value={{item.poiCode}}>{{item.name}}</ion-option>
+          <ion-option *ngFor="let item of areas" [value]="item">{{item.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
