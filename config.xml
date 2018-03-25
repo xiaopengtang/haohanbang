@@ -84,4 +84,11 @@
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="hhb" />
+    </plugin>
+    <plugin name="cordova-plugin-amap" spec="^2.0.0">
+        <variable name="API_KEY_FOR_ANDROID" value="8236443209b67c2e2c0ecdeb7ef315c0" />
+        <variable name="API_KEY_FOR_IOS" value="8236443209b67c2e2c0ecdeb7ef315c0" />
+    </plugin>
 </widget>

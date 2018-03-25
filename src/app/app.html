@@ -11,7 +11,7 @@
       <p>点击登录</p>
     </div>
     <div class="user" *ngIf="user.id" menuClose (click)="goToUserDetail()">
-      <img [src]="user.imageUri">
+      <img [src]="user.imageUri" onError="src='https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'">
       <p>{{user.name}}</p>
     </div>
     <ion-list>

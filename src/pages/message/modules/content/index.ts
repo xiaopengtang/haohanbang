@@ -28,7 +28,7 @@ export class MessageContent {
 		this.friend = navParams.get('info')
 		this.serve = serve
 		this._updateFriendList()
-		console.log(this.friend)
+		console.log(this.user)
 		$message.on('CHAT', mess => {
 			
 			const r = new RegExp(`^${this.friend.userId}@`)

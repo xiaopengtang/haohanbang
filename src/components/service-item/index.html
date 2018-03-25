@@ -1,7 +1,7 @@
 <ion-list>
     <ion-item *ngFor="let it of renderList" (click)="open(it.orderId)">
 	    <ion-avatar item-start>
-	        <img [src]="it.imageList && it.imageList[0] || ''" />
+	        <img [src]="it.imageList && it.imageList[0] || ''" onError="src='https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'"/>
 	        <p class="price-txt" *ngIf="it.price">￥{{it.price}}</p>
 	    </ion-avatar>
 	    <h2>{{it.title}}</h2>
