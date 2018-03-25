@@ -6,12 +6,12 @@ import * as user from 'hhb-userauth';
 
 import { UserInfoService } from '../infService';
 @Component({
-  selector: 'page-changeNickName',
+  selector: 'page-changeAutoGraph',
   templateUrl: 'index.html'
 })
 
 // 修改用户名
-export class ChangeNickNamePage {
+export class ChangeAutoGraphPage {
 
   public $http;
 
@@ -24,10 +24,10 @@ export class ChangeNickNamePage {
     this.errMsg = "";
   }
 
-  async changeNickName() {
+  async changeAutoGraph() {
     let { autograph } = this;
-    let changeAutographReq = await this.$http.curl('MEMBER:NICKNAME', {
-      "nickName": autograph,
+    let changeAutographReq = await this.$http.curl('MEMBER:SIGN', {
+      "sign": autograph,
       "userId": user.state.id
     });
     if (changeAutographReq.code == 1) {

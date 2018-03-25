@@ -10,8 +10,13 @@ export default {
     // 请求单留言
     'SAVE:ORDER:APPLY_MESSAGE': 'order/request/order/leave/message/add',
     'SAVE:USER:APPLY': '/order/service/order/apply/apply',
-    //
+    // 添加请求单申请人
     'SAVE:ORDER:APPLY': 'order/request/order/apply/apply',
+    // 请求单审核申请人
+    'SAVE:ORDER:APPROVE': 'order/request/order/apply/approve',
+
+    // 请求单审核申请人
+    'SAVE:SERVICE:APPROVE': 'order/service/order/apply/approve',
     // 请求单列表
     "QUERY:ORDER:LIST": 'order/request/order/list',
     // 服务单
@@ -47,6 +52,8 @@ export default {
     'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
     // 修改用户名
     'MEMBER:NICKNAME': '/member/user/nick/name',
+    // 修改用户签名
+    'MEMBER:SIGN': '/member/user/sign',
 
     // 服务单列表
     'ORDER:LIST': '/order/service/order/list',
@@ -56,7 +63,10 @@ export default {
     'ORDER:REQUEST:LIST': '/order/request/order/list',
     // 请求单列表
     'ORDER:REQUEST:ADD': '/order/request/order/add',
-
+    // 申请人确认完成
+    'ORDER:REQUEST:CONFIRM':"/order/request/order/applier/confirm",
+    // 服务单确认完成 
+    'ORDER:SERVICE:CONFIRM':"/order/service/order/user/confirm",
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',

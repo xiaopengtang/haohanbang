@@ -137,17 +137,17 @@ export class AddressControlPage {
   async addAddress() {
     let type = this.navParams.get('type');
     let item = this.navParams.get('item');
-    let {isDefualt, city, province, zipCode, userName, addressDetail, phoneNum} = this;
+    let {isDefualt, city, province, zipCode, userName, addressDetail, phoneNum, area} = this;
     let rsp;
     // ADDRESS:MODIFY
     if( type ){
       rsp = await this.$http.curl('ADDRESS:MODIFY', {
         "id": item.id,
-        "countyId": 40002,
+        "countyId": area.poiCode,
         "address": addressDetail,
         "cityId": city.poiCode,
         "cityName": city.name,
-        "countyName": "中国",
+        "countyName": area.name,
         "isDefault": isDefualt ? 1 : 0,
         "name": userName,
         "phone": phoneNum,

@@ -37,7 +37,7 @@
           <ion-card-content>
             <p class="phoneNum">{{item.phone}}</p>
             <p class="addressDetail">创建于:{{item.createTime}}</p>
-            <p class="addressDetail">{{item.provinceName+"省 "}}{{item.cityName+"市 "}}{{item.address}}</p>
+            <p class="addressDetail">{{item.provinceName+"省 "}}{{item.cityName+"市 "}}{{item.countyName+"区 "}}{{item.address}}</p>
             <span *ngIf="item.isDefault == 1">默认地址</span>
           </ion-card-content>
         </ion-card>

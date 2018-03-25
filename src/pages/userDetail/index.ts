@@ -59,8 +59,8 @@ export class UserDetail {
     this.navCtrl.setRoot(item.navPage);
   }
 
+  // 退出登录
   logOut(){
 
   }
-
 }

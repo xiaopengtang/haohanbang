@@ -19,6 +19,8 @@ export class ChangePassWordPage {
 
   public $http
 
+  // 手机短信码
+  smsCode: string
   // 电话号码
   phoneNum: string
   // 旧密码
@@ -33,19 +35,25 @@ export class ChangePassWordPage {
     this.oldPass = "";
     this.newPass = "";
     this.newPassCheck = "";
+    this.smsCode = "";
 
     this.$http = http();
     // this.errorMsg = "";
   }
 
-  async changePass() {
+  async getSmsCode() {
     let { phoneNum } = this;
-    console.log(1111);
-    console.log(user);
     let snsCode = await this.$http.curl('MEMBER:SMSCODE', {
       "phone": phoneNum
     });
   }
 
-
+  async changePass() {
+    let { phoneNum, newPass, smsCode } = this;
+    let snsCode = await this.$http.curl('MEMBER:PWDPHONE', {
+      "password": smsCode,
+      "phone": phoneNum,
+      "verficationCode": newPass
+    });
+  }
 }

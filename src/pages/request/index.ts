@@ -22,7 +22,7 @@ export class RequestPage {
 	    "size": 10,
 	    // "status": 0,
 	    // "title": null,
-	    // "userId": '0000000002'
+	    "userId": user.id
 	}
 	isService = false
 	async doRefresh(refresher) {
