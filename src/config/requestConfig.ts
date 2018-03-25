@@ -38,7 +38,7 @@ export default {
     'ADDRESS:DELETE': '/member/address/delete',
     // 修改地址
     'ADDRESS:MODIFY': '/member/address/modify',
-    // 修改地址
+    // 修改默认地址
     'ADDRESS:MODIFYDEFAULT': '/member/address/modify/default',
 
     // 忘记密码短信获取
@@ -47,7 +47,7 @@ export default {
     'MEMBER:PWDPHONE': '/member/user/forget/pwd/phone',
     // 修改用户名
     'MEMBER:NICKNAME': '/member/user/nick/name',
-    
+
     // 服务单列表
     'ORDER:LIST': '/order/service/order/list',
     // 添加服务单
