@@ -1,15 +1,20 @@
-<ion-card class="user-card" *ngFor="let user of list" (click)="openMessCtrl(user)">
+<ion-card class="user-card" *ngFor="let user of list">
 	<ion-card-content class="user-content" >
 		<div class="user-detail">
 			<img src="//ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
 			<div class="user-sub">
 				<div class="user-top">
 					<span>{{user.nickName}}</span>
-				    <span class="leval">v{{user.level}}</span>
+				    <span class="leval">{{"lv"+user.level}}</span>
 				</div>
-				<div class="user-btm">测试测试</div>
+				<div class="user-btm">{{user.sign}}</div>
 			</div>
 		</div>
-		<ion-icon name="chatbubbles"></ion-icon>
+    <div class="user-contrl" *ngIf="judge && user.status == 1">
+      <div (click)="applyApprove(2, user.userId)">同意</div>
+      <div (click)="applyApprove(3, user.userId)">拒绝</div>
+    </div>
+    <div class="statusMsg" *ngIf="user.status != 1 && judge">{{user.status == 2? "已通过": "已拒绝"}}</div>
+		<ion-icon name="chatbubbles" (click)="openMessCtrl(user)"></ion-icon>
 	</ion-card-content>
 </ion-card>

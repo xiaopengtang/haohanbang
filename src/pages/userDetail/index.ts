@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { UserInfoService, ProviderListPage, RequisitionListPage} from './components';
-// 
+//
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
@@ -59,4 +59,8 @@ export class UserDetail {
     this.navCtrl.setRoot(item.navPage);
   }
 
+  // 退出登录
+  logOut(){
+
+  }
 }

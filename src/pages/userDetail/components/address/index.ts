@@ -43,7 +43,21 @@ export class AddressPage {
       this.getAddressList();
     }
   }
-  goToAddressControlPage(){
-    this.navCtrl.setRoot(AddressControlPage);
+
+  // 设置默认地址
+  async resetDefualtAddress( id ){
+    let resetDefualt = await this.$http.curl('ADDRESS:MODIFYDEFAULT', {
+      "id": id
+    });
+    if( resetDefualt.id == 1){
+      this.getAddressList();
+    }
+  }
+
+  goToAddressControlPage(flag, item){
+    this.navCtrl.setRoot(AddressControlPage,{
+      type: flag,
+      item: item
+    });
   }
 }

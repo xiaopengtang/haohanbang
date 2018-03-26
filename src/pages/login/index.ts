@@ -83,7 +83,6 @@ export class LoginPage {
     });
 
     if (data.code == 1) {
-      console.log(data);
       user.state = Object.assign(user.state, {
         id: data.data.userId,
         // pw: passWord,

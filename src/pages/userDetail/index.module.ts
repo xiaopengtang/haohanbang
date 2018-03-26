@@ -12,7 +12,8 @@ import {
   RequisitionListPage,
   addServiceForProviderPage,
   addServiceForRequisitionPage,
-  ChangeNickNamePage
+  ChangeNickNamePage,
+  ChangeAutoGraphPage
 } from './components';
 
 import { OrderStatusPage } from './modules/orderStatus';
@@ -32,7 +33,9 @@ import { OrderStatusPage } from './modules/orderStatus';
       RequisitionListPage,
       addServiceForProviderPage,
       addServiceForRequisitionPage,
-      ChangeNickNamePage]
+      ChangeNickNamePage,
+      ChangeAutoGraphPage
+    ]
   ),
   imports: [IonicModule.forRoot(UserDetail)],
   entryComponents: [].concat(
@@ -49,7 +52,8 @@ import { OrderStatusPage } from './modules/orderStatus';
       RequisitionListPage,
       addServiceForProviderPage,
       addServiceForRequisitionPage,
-      ChangeNickNamePage
+      ChangeNickNamePage,
+      ChangeAutoGraphPage
     ]
   ),
   exports: [UserDetail]

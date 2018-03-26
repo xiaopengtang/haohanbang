@@ -22,6 +22,7 @@ com-user-card{
 			// }
 			.user-detail{
 				display: flex;
+
 				&>img{
 					max-width: 48px;
 					max-height: 48px;
@@ -46,6 +47,15 @@ com-user-card{
 					}
 				}
 			}
+
+      .user-contrl{
+        //float: right;
+        //justify-content: flex-end;
+        div{
+          float: left;
+          margin-right: 10px;
+        }
+      }
 		}
 	}
 }

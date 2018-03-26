@@ -58,6 +58,9 @@ export class MyApp {
     })
     // console.log(AMapPlugin)
     this.user = user.state || {}
+    $message.on('CHAT', mess => {
+      console.log(mess)
+    })
     // this.user = {};
     this.initializeApp();
 

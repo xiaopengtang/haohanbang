@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>服务单详情</ion-title>
+    <ion-title>请求单详情</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -25,7 +25,7 @@
 			</li>
 		</ul>
 	</section>
-	<com-user-card *ngIf="info.user" [list]="[info.user]"></com-user-card>
+	<com-user-card *ngIf="info.user" [list]="[info.user]" [judge]="false"></com-user-card>
 	<!-- <ion-card class="user-card" *ngIf="info.user">
 		<ion-card-content class="user-content">
 			<div class="user-detail">
@@ -61,7 +61,7 @@
 	</section>
 	<section class="card history" *ngIf="info.applyDetailRespList">
 		<h2>申请历史</h2>
-		<com-user-card [list]="info.applyDetailRespList"></com-user-card>
+		<com-user-card [list]="info.applyDetailRespList" [judge]="true" [orderId]="orderId" [type]="0"></com-user-card>
 		<!-- <ion-card class="user-card">
 			<ion-card-content class="user-content" *ngFor="let user of info.applyDetailRespList">
 				<div class="user-detail">
@@ -83,5 +83,6 @@
 	</section>
 	<!-- <section class="apply-btm"> -->
 	<button ion-button full (click)="applyOrder()" >预约</button>
+	<button ion-button full (click)="confirmOrder()" >确认完成</button>
 	<!-- </section> -->
 </ion-content>

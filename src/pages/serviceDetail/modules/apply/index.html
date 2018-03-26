@@ -1,32 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>预约</ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">取消</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title>预约</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="dismiss()">
+				<span ion-text color="primary" showWhen="ios">取消</span>
+				<ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 <ion-content>
 	<section class="body">
 		<section class="apply-form">
 			<ion-list>
 				<ion-item>
-				    <ion-label fixed>日期</ion-label>
-				    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="clock"></ion-datetime>
+					<ion-label fixed>日期</ion-label>
+					<ion-input type="date" value="" [(ngModel)]="date"></ion-input>
 				</ion-item>
 				<ion-item>
-				    <ion-label fixed>时间</ion-label>
-				    <ion-input type="date" value="" [(ngModel)]="date"></ion-input>
+					<ion-label fixed>时间</ion-label>
+					<ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="clock"></ion-datetime>
 				</ion-item>
 				<ion-item>
-				    <ion-label fixed>描述</ion-label>
-				    <ion-input type="text" [(ngModel)]="reason"></ion-input>
+					<ion-label fixed>描述</ion-label>
+					<ion-input type="text" [(ngModel)]="reason"></ion-input>
 				</ion-item>
-				</ion-list>
+			</ion-list>
 		</section>
-		<button  ion-button full (click)="applyOrder()" >提交</button>
+		<button ion-button full (click)="applyOrder()">提交</button>
 	</section>
 </ion-content>

@@ -18,6 +18,12 @@
     </ion-list>
     <ion-list>
       <ion-item>
+        <ion-label stacked>短信验证码:</ion-label>
+        <ion-input type="text" placeholder="短信验证码" [(ngModel)]="smsCode"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
         <ion-label stacked>原密码:</ion-label>
         <ion-input type="text" placeholder="原密码" [(ngModel)]="oldPass"></ion-input>
       </ion-item>
@@ -37,6 +43,9 @@
     <ion-label class="errMsg">
       {{errorMsg}}
     </ion-label>
+    <div class="login-buttons">
+      <button ion-button icon-right color="royal" (click)="getSmsCode()">获取短信验证码</button>
+    </div>
     <div class="login-buttons">
       <button ion-button icon-right color="royal" (click)="changePass()">确认</button>
     </div>

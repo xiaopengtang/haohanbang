@@ -76,7 +76,6 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.1" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
@@ -91,4 +90,6 @@
         <variable name="API_KEY_FOR_ANDROID" value="8236443209b67c2e2c0ecdeb7ef315c0" />
         <variable name="API_KEY_FOR_IOS" value="8236443209b67c2e2c0ecdeb7ef315c0" />
     </plugin>
+    <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

@@ -10,6 +10,7 @@ import { ProviderListPage } from './ProviderList';
 import { RequisitionListPage } from './RequisitionList';
 import { ChangeNickNamePage } from './changeNickname';
 import { addServiceForRequisitionPage } from './addServiceForRequisition';
+import { ChangeAutoGraphPage } from './changeAutograph';
 // import { AddressControlPage } from './addressControl';
 
 export {
@@ -34,5 +35,5 @@ export {
   ChangeNickNamePage,
   // 请求单列表
   RequisitionListPage,
-
+  ChangeAutoGraphPage,
 }

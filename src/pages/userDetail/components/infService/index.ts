@@ -6,7 +6,8 @@ import * as user from 'hhb-userauth';
 
 import { AddressPage } from '../address';
 import { ChangePassWordPage } from '../changePassWord';
-import {ChangeNickNamePage} from '../changeNickname';
+import { ChangeNickNamePage } from '../changeNickname';
+import { ChangeAutoGraphPage } from '../changeAutograph';
 
 @Component({
   selector: 'user-infoService',
@@ -25,7 +26,7 @@ export class UserInfoService {
       },
       {
         "name": "修改用户签名",
-        "navPage": ChangePassWordPage,
+        "navPage": ChangeAutoGraphPage,
       },
       {
         "name": "修改密码",
