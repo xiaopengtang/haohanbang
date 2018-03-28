@@ -37,6 +37,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
 import * as config from '../config'
+import { Network } from '@ionic-native/network';
 
 // const components = Object.keys(componentsModules).map(k => componentsModules[k])
 // console.log({IonicApp})
@@ -105,6 +106,7 @@ core.config(config)
     StatusBar,
     SplashScreen,
     LocalNotifications,
+    Network,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
