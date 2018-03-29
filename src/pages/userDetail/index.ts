@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 import {UserInfoService, ProviderListPage} from './components';
-
+import { Storage } from '@ionic/storage'
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 
@@ -19,7 +19,7 @@ export class UserDetail {
   // 服务列表
   public serviceLists : Array < object >;
 
-  constructor(public navCtrl : NavController) {
+  constructor(public navCtrl : NavController, public storage: Storage) {
     let {nickName, userId, level, createTime} = user.state.userDetail;
 
     this.nickName = nickName;
@@ -54,6 +54,10 @@ export class UserDetail {
     this
       .navCtrl
       .setRoot(item.navPage);
+  }
+
+  logOut(){
+    this.storage.set('USER', {});
   }
 
 }

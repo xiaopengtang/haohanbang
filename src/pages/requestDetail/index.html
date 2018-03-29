@@ -10,14 +10,24 @@
 <ion-content>
   <!-- 单子信息 -->
   <ion-card class="order_info">
-    <p class="orderTitle">{{info.title}}</p>
-    <div class="label-list" *ngIf="info.labelList">
-      <span class="label" *ngFor="let label of info.labelList">{{label.labelName}}</span>
-    </div>
-    <p class="limit">
-      <span>截止日期: </span>
-      <span>{{info.expiryTime}}</span>
-    </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10>
+          <p class="orderTitle">{{info.title}}</p>
+          <div class="label-list" *ngIf="info.labelList">
+            <span class="label" *ngFor="let label of info.labelList">{{label.labelName}}</span>
+          </div>
+          <p class="limit">
+            <span>截止日期: </span>
+            <span>{{info.expiryTime}}</span>
+          </p>
+        </ion-col>
+        <ion-col col-2 class="order-icon-wrapper">
+          <ion-icon name="heart" color="danger" class="order-icon-heart"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
   </ion-card>
 
   <!-- 申请人信息 -->
@@ -73,8 +83,8 @@
   </section>
 
   <section class="card buttons">
-    <button ion-button block (click)="applyOrder()">预约</button>
-    <button ion-button block (click)="confirmOrder()">确认完成</button>
+    <button *ngIf="userId!=info.userId && !adopt" ion-button block (click)="applyOrder()">预约</button>
+    <button *ngIf="userId!=info.userId && adopt" ion-button block (click)="confirmOrder()">确认完成</button>
   </section>
 
 </ion-content>
