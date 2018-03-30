@@ -89,8 +89,9 @@ export class MyApp {
     ];
   }
   async ngAfterViewInit() {
-    console.log(this.network)
+    // console.log(this.network)
     this.network.onDisconnect().subscribe(() => {
+      console.log('this is ondis')
       let toast = this.toast.create({
 	      message: '当前网络已断开连接，请检测',
 	      duration: 2000,
@@ -99,7 +100,9 @@ export class MyApp {
 	    // toast.onDidDismiss(() => callback && callback() )
 	    toast.present();
     })
-    this.network.onConnect().subscribe(async() => {
+    // console.log(await this.network.onConnect())
+    // this.network.onConnect().subscribe(async() => {
+      // console.log('this is network')
       await amap.listen()
       amap.on('COMPLETE', info => {
         user.state.longitude = info.position.lng
@@ -131,7 +134,7 @@ export class MyApp {
 
       })
 
-    })
+    // })
     
   }
 
