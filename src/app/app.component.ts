@@ -50,7 +50,7 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     public toast: ToastController,
     public storage: Storage, public network: Network) {
     storage.get('USER').then(state => {
@@ -112,7 +112,7 @@ export class MyApp {
         // console.log(111)
         // amap.on('')
         amap.on('COMPLETE', info => {
-          
+
           // console.log({info})
           $message.send({
             'to': `admin@ydj-b85-hd3`,
@@ -135,7 +135,7 @@ export class MyApp {
       })
 
     // })
-    
+
   }
 
   initializeApp() {
