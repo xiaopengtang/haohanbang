@@ -2,7 +2,7 @@
 <ion-list class="message-list">
     <ion-item *ngFor="let it of list" (click)="open(it)">
         <ion-avatar item-start>
-            <img [src]="it.imageUri">
+            <img onError="src='https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'" [src]="it.imageUri">
         </ion-avatar>
     <h2>{{it.nickName}}</h2>
     <p>{{it.message}}</p>

@@ -26,13 +26,14 @@ import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'
 import * as user from 'hhb-userauth'
+// import AMapPlugin from 'cordova-plugin-badge'
 // import { LocalNotifications } from '@ionic-native/local-notifications';
 // import {$pres} from 'strophe.js'
 
 // console.log(Eruda)
 Eruda.init()
 
-console.log(UserDetail);
+// console.log(UserDetail);
 
 @Component({
   templateUrl: 'app.html'
@@ -58,6 +59,7 @@ export class MyApp {
         $message.login(`${user.id}@${config('message.host.name')}`, '123456')
       }
     })
+    // console.log(AMapPlugin)
     this.user = user.state || {}
     $message.on('CHAT', mess => {
       console.log(mess)
