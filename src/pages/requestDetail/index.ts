@@ -14,15 +14,32 @@ export class RequestDetailPage implements OnInit {
 	private orderId: string;
 	info: any = {};
 	private $http;
+	private userId;
+	private adopt;
 	// public $server: Service;
 	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public $server: Service, private toastCtrl: ToastController) {
 		this.orderId = navParams.get('orderId')
-		this.$http = $http()
+		this.$http = $http();
+
+		this.adopt = false;
+		this.userId = user.state.id;
 	}
 
 	async updateInfo() {
-		const res = await this.$server.queryDetail(this.orderId)
-		// console.log(res)
+		const res = await this.$server.queryDetail(this.orderId);
+
+		// console.log(res);
+		try{
+      let applyDetailRespList = res.data.applyDetailRespList;
+      applyDetailRespList.map((item)=>{
+        console.log(item);
+        if(item.userId == this.userId){
+          this.adopt = true;
+        }
+      })
+    } catch(e){
+
+    }
 		return this.info = res.data || {}
 	}
 

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage'
@@ -13,6 +13,7 @@ import { MessagePage } from '../pages/message';
 import { ServicePage } from '../pages/service'
 import { RequestPage } from '../pages/request'
 import {config} from 'hhb-core'
+import { Network } from '@ionic-native/network';
 // import { SerivceDetailPage } from '../pages/serviceDetail'
 // import { ServicePage } from '../pages/service'
 
@@ -25,13 +26,14 @@ import * as $message from 'hhb-message'
 import * as amap from 'hhb-amap'
 import * as Eruda from 'eruda'
 import * as user from 'hhb-userauth'
+// import AMapPlugin from 'cordova-plugin-badge'
 // import { LocalNotifications } from '@ionic-native/local-notifications';
 // import {$pres} from 'strophe.js'
 
 // console.log(Eruda)
 Eruda.init()
 
-console.log(UserDetail);
+// console.log(UserDetail);
 
 @Component({
   templateUrl: 'app.html'
@@ -48,13 +50,16 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: Storage/*, private notify: LocalNotifications*/) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+    public toast: ToastController,
+    public storage: Storage, public network: Network) {
     storage.get('USER').then(state => {
       user.state = Object.assign(user.state, state)
       if(user.id){
         $message.login(`${user.id}@${config('message.host.name')}`, '123456')
       }
     })
+    // console.log(AMapPlugin)
     this.user = user.state || {}
     $message.on('CHAT', mess => {
       console.log(mess)
@@ -84,50 +89,53 @@ export class MyApp {
     ];
   }
   async ngAfterViewInit() {
-    await amap.listen()
-    // console.log({$message})
-    // $message.login('0000000002@ydj-b85-hd3', '123456')
-    // $message.login(`${user.id}@${user.name}`, user.state.pw)
-    amap.on('COMPLETE', info => {
-      user.state.longitude = info.position.lng
-      user.state.latitude = info.position.lat
+    // console.log(this.network)
+    this.network.onDisconnect().subscribe(() => {
+      console.log('this is ondis')
+      let toast = this.toast.create({
+	      message: '当前网络已断开连接，请检测',
+	      duration: 2000,
+	      position: 'top'
+	    });
+	    // toast.onDidDismiss(() => callback && callback() )
+	    toast.present();
     })
-    $message.on('READY', () => {
-      // console.log(111)
-      // amap.on('')
+    // console.log(await this.network.onConnect())
+    // this.network.onConnect().subscribe(async() => {
+      // console.log('this is network')
+      await amap.listen()
       amap.on('COMPLETE', info => {
-        
-        // console.log({info})
-        $message.send({
-          'to': `admin@ydj-b85-hd3`,
-          'from': `${user.id}@ydj-b85-hd3`,
-          'type': 'normal'
-        }, JSON.stringify({
-          "longitude": info.position.lng,     //经度
-          "latitude": info.position.lat,      //纬度
-          'distance': 3000   //距离 单位米 需要显示附近多少米的人，默认3000米
-        }))
-        // console.log(info)
+        user.state.longitude = info.position.lng
+        user.state.latitude = info.position.lat
+      })
+      $message.on('READY', () => {
+        // console.log(111)
+        // amap.on('')
+        amap.on('COMPLETE', info => {
+          
+          // console.log({info})
+          $message.send({
+            'to': `admin@ydj-b85-hd3`,
+            'from': `${user.id}@ydj-b85-hd3`,
+            'type': 'normal'
+          }, JSON.stringify({
+            "longitude": info.position.lng,     //经度
+            "latitude": info.position.lat,      //纬度
+            'distance': 3000   //距离 单位米 需要显示附近多少米的人，默认3000米
+          }))
+          // console.log(info)
+
+        })
+        //
+      })
+
+      $message.on('MESSAGE', message => {
+        // console.log({message})
 
       })
-      //
-    })
+
     // })
-    //
-    // })
-    $message.on('MESSAGE', message => {
-      // console.log({message})
-      /*this.notify.schedule({
-        id: 1,
-        text: message.message
-      })*/
-    })
-    /*var pres = $pres({
-        from: '0000000002@ydj-b85-hd3',
-        to: 'admin@ydj-b85-hd3' + "/" + '0000000002'
-    }).c('x',{xmlns: 'http://jabber.org/protocol/muc'}).tree();
-    $message.send(pres);*/
-    // console.log({pres})
+    
   }
 
   initializeApp() {
