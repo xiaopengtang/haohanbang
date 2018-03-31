@@ -32,7 +32,7 @@ import { RequestModule } from '../pages/request/index.module';
 import { RequestDetailModule } from '../pages/requestDetail/index.module';
 import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
-
+import { TabsPage } from '../pages/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
@@ -59,7 +59,7 @@ core.config(config)
     // AddressPage,
     // AddressControlPage,
     LoginPage,
-
+    TabsPage,
     RegisterPage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
@@ -88,6 +88,7 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
+    TabsPage,
     // UserDetailPage,
     // ComServiceItem,
     // ComDemo
