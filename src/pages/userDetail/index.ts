@@ -71,7 +71,7 @@ export class UserDetail {
   goTo(item) {
     this
       .navCtrl
-      .setRoot(item.navPage); ß
+      .setRoot(item.navPage);
   }
 
   logOut() {
