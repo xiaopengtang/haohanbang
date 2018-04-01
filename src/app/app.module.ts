@@ -19,6 +19,7 @@ import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
+import { UserProfilePage } from '../pages/userProfile';
 // import { UserInfoService } from '../pages/infService';
 // import { RegisterModule } from '../pages/register/index.module';
 
@@ -61,6 +62,7 @@ core.config(config)
     LoginPage,
     TabsPage,
     RegisterPage,
+    UserProfilePage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
     // UserInfoService,
@@ -89,6 +91,7 @@ core.config(config)
     HomePage,
     ListPage,
     TabsPage,
+    UserProfilePage,
     // UserDetailPage,
     // ComServiceItem,
     // ComDemo

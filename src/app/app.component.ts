@@ -20,6 +20,7 @@ import { Network } from '@ionic-native/network';
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
+import { UserProfilePage } from '../pages/userProfile';
 // import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -51,7 +52,7 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     public toast: ToastController,
     public storage: Storage, public network: Network) {
     storage.get('USER').then(state => {
@@ -78,6 +79,7 @@ export class MyApp {
       { title: '我的请求单', component: RequestPage },
       { title: '我的服务单', component: ServicePage, param: { isService: true } },
       { title: 'tabs', component: TabsPage, },
+      // { title: 'UserProfilePage', component: UserProfilePage},
       // { title: 'ChangePassWordPage', component: ChangePassWordPage },
       // { title: '我的信息', component: UserDetail},
       /*{ title: 'UserDetail',component: UserDetail},
@@ -114,7 +116,7 @@ export class MyApp {
         // console.log(111)
         // amap.on('')
         amap.on('COMPLETE', info => {
-          
+
           // console.log({info})
           $message.send({
             'to': `admin@ydj-b85-hd3`,
@@ -137,7 +139,7 @@ export class MyApp {
       })
 
     // })
-    
+
   }
 
   initializeApp() {
