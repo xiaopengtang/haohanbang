@@ -16,6 +16,7 @@ import { LoginPage } from '../pages/login';
 // import { AddressPage } from '../pages/address';
 // import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
+import { FollowListPage } from '../pages/followList';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
@@ -63,6 +64,7 @@ core.config(config)
     TabsPage,
     RegisterPage,
     UserProfilePage,
+    FollowListPage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
     // UserInfoService,
@@ -99,6 +101,7 @@ core.config(config)
     // MapPage,
     LoginPage,
     RegisterPage,
+    FollowListPage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
     // AddressPage,
