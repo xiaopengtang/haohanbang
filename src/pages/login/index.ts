@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
@@ -35,12 +35,17 @@ export class LoginPage {
 
   public errMsg: string;
 
-  constructor(public navCtrl: NavController, public storage: Storage) {
+  private history;
+
+  constructor(public navCtrl: NavController, public storage: Storage, public navParams: NavParams) {
     this.userName = "";
     this.passWord = "";
     this.errMsg = "";
 
     this.$http = http();
+
+    this.history = this.navParams.get('history');
+    console.log(history);
   }
 
   goTo(name: string) {
@@ -93,6 +98,7 @@ export class LoginPage {
       $message.login(`${user.id}@${config('message.host.name')}`, '123456')
 
       this.navCtrl.setRoot(MapPage);
+      // this.navCtrl.pop();
     } else {
       console.log("003");
       this.errMsg = errMsg["003"];

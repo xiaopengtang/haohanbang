@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage'
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { UserDetail } from '../pages/userDetail';
+import { TabsPage } from '../pages/tabs';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import { ServicePage } from '../pages/service'
@@ -19,6 +20,8 @@ import { Network } from '@ionic-native/network';
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
+import { UserProfilePage } from '../pages/userProfile';
+import { FollowListPage } from '../pages/followList';
 // import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -41,7 +44,7 @@ Eruda.init()
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MapPage;
+  rootPage: any = TabsPage;
   // get user(){
   // console.log({user})
   // return user.state || {}
@@ -76,6 +79,8 @@ export class MyApp {
       { title: '消息中心', component: MessagePage },
       { title: '我的请求单', component: RequestPage },
       { title: '我的服务单', component: ServicePage, param: { isService: true } },
+      { title: 'tabs', component: TabsPage, },
+      // { title: 'UserProfilePage', component: UserProfilePage},
       // { title: 'ChangePassWordPage', component: ChangePassWordPage },
       // { title: '我的信息', component: UserDetail},
       /*{ title: 'UserDetail',component: UserDetail},

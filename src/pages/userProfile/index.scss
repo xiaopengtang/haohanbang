@@ -1,0 +1,22 @@
+page-userProfile {
+  .impression {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    background: #EAEAEA;
+    .photo{
+      width: 100px;
+      height: 100px;
+      bottom: -50px;
+      margin-left: -50px;
+      left: 50%;
+      position: absolute;
+    }
+  }
+  .info{
+    margin-top: 70px;
+  }
+  .buttons{
+    padding: 20px;
+  }
+}

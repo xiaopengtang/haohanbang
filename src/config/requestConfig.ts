@@ -54,6 +54,12 @@ export default {
     'MEMBER:NICKNAME': '/member/user/nick/name',
     // 修改用户签名
     'MEMBER:SIGN': '/member/user/sign',
+    // 获取用户关注列表
+    'MEMBER:FOLLOWLIST': '/member/interest/user/list',
+    // 关注用户
+    'MEMBER:ADDFOLLOW': '/member/interest/user/add',
+    // 取消关注
+    'MEMBER:DELETEFOLLOW': '/member/interest/user/delete',
 
     // 服务单列表
     'ORDER:LIST': '/order/service/order/list',
@@ -64,9 +70,9 @@ export default {
     // 请求单列表
     'ORDER:REQUEST:ADD': '/order/request/order/add',
     // 申请人确认完成
-    'ORDER:REQUEST:CONFIRM':"/order/request/order/applier/confirm",
+    'ORDER:REQUEST:CONFIRM': "/order/request/order/applier/confirm",
     // 服务单确认完成 
-    'ORDER:SERVICE:CONFIRM':"/order/service/order/user/confirm",
+    'ORDER:SERVICE:CONFIRM': "/order/service/order/user/confirm",
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',

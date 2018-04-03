@@ -16,9 +16,11 @@ import { LoginPage } from '../pages/login';
 // import { AddressPage } from '../pages/address';
 // import { AddressControlPage } from '../pages/addressControl';
 import { RegisterPage } from '../pages/register';
+import { FollowListPage } from '../pages/followList';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
 import { UserDetialModule } from '../pages/userDetail/index.module';
+import { UserProfilePage } from '../pages/userProfile';
 // import { UserInfoService } from '../pages/infService';
 // import { RegisterModule } from '../pages/register/index.module';
 
@@ -32,7 +34,7 @@ import { RequestModule } from '../pages/request/index.module';
 import { RequestDetailModule } from '../pages/requestDetail/index.module';
 import { LocalNotifications } from '@ionic-native/local-notifications'
 // import {ComDemo} from '../components/demo'
-
+import { TabsPage } from '../pages/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as core from 'hhb-core'
@@ -59,8 +61,10 @@ core.config(config)
     // AddressPage,
     // AddressControlPage,
     LoginPage,
-
+    TabsPage,
     RegisterPage,
+    UserProfilePage,
+    FollowListPage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
     // UserInfoService,
@@ -88,6 +92,8 @@ core.config(config)
     MyApp,
     HomePage,
     ListPage,
+    TabsPage,
+    UserProfilePage,
     // UserDetailPage,
     // ComServiceItem,
     // ComDemo
@@ -95,6 +101,7 @@ core.config(config)
     // MapPage,
     LoginPage,
     RegisterPage,
+    FollowListPage,
     // ChangePassWordPage,
     // addServiceForProviderPage,
     // AddressPage,

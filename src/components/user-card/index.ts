@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { MessageContent } from '../../pages/message/modules/content'
+import { UserProfilePage } from '../../pages/userProfile';
 
 import * as user from 'hhb-userauth'
 import * as $http from 'hhb-http'
@@ -55,6 +56,10 @@ export class ComUserCard {
     this.navCtrl.push(MessageContent, { info })
   }
 
+  goToUserProfilePage(user){
+    this.navCtrl.setRoot(UserProfilePage, {user});
+  }
+
   // 审核申请人
   async applyApprove(status, userId) {
     console.log(this.type)
@@ -93,4 +98,6 @@ export class ComUserCard {
       toast.present();
     }
   }
+
+
 }

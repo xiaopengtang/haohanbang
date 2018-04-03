@@ -80,7 +80,7 @@ export class MapPage {
         });//返回定位信息
         // 实时刷新用户定位
         $message.on('NORMAL', data => {
-          // amap.renderMarkList([data.message])
+          amap.renderMarkList([data.message])
         })
         // 获取当前用户位置
         amap.on('COMPLETE', info => {
