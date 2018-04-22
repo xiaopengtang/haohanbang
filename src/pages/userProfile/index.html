@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{userInfo.nickName}}的简介</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="impression">
+    <img src="" class="photo" />
+  </div>
+  <ion-list class="info">
+    <ion-item *ngFor="let item of showInfo">
+      <span class="title">{{item.title}}:</span>
+      <span>{{item.value}}</span>
+    </ion-item>
+    <!--<ion-item>-->
+      <!--<span class="title">昵称:</span>-->
+      <!--<span>小明明</span>-->
+    <!--</ion-item>-->
+  </ion-list>
+  <div class="buttons">
+    <button ion-button block (click)="follow()">关注</button>
+    <button ion-button block (click)="openMessCtrl(userInfo)" >发消息</button>
+  </div>
+</ion-content>

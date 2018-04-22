@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage'
 // import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { UserDetail } from '../pages/userDetail';
+import { TabsPage } from '../pages/tabs';
 import { MessagePage } from '../pages/message';
 // import {SerivceDetailPage} from '../pages/serviceDetail'
 import { ServicePage } from '../pages/service'
@@ -19,6 +20,8 @@ import { Network } from '@ionic-native/network';
 
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
+import { UserProfilePage } from '../pages/userProfile';
+import { FollowListPage } from '../pages/followList';
 // import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';
@@ -41,7 +44,7 @@ Eruda.init()
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MapPage;
+  rootPage: any = TabsPage;
   // get user(){
   // console.log({user})
   // return user.state || {}
@@ -50,7 +53,7 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, param?: any }>;
   // private notify: LocalNotifications
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     public toast: ToastController,
     public storage: Storage, public network: Network) {
     storage.get('USER').then(state => {
@@ -76,6 +79,8 @@ export class MyApp {
       { title: '消息中心', component: MessagePage },
       { title: '我的请求单', component: RequestPage },
       { title: '我的服务单', component: ServicePage, param: { isService: true } },
+      { title: 'tabs', component: TabsPage, },
+      // { title: 'UserProfilePage', component: UserProfilePage},
       // { title: 'ChangePassWordPage', component: ChangePassWordPage },
       // { title: '我的信息', component: UserDetail},
       /*{ title: 'UserDetail',component: UserDetail},
@@ -89,8 +94,9 @@ export class MyApp {
     ];
   }
   async ngAfterViewInit() {
-    console.log(this.network)
+    // console.log(this.network)
     this.network.onDisconnect().subscribe(() => {
+      console.log('this is ondis')
       let toast = this.toast.create({
 	      message: '当前网络已断开连接，请检测',
 	      duration: 2000,
@@ -99,7 +105,9 @@ export class MyApp {
 	    // toast.onDidDismiss(() => callback && callback() )
 	    toast.present();
     })
-    this.network.onConnect().subscribe(async() => {
+    // console.log(await this.network.onConnect())
+    // this.network.onConnect().subscribe(async() => {
+      // console.log('this is network')
       await amap.listen()
       amap.on('COMPLETE', info => {
         user.state.longitude = info.position.lng
@@ -109,7 +117,7 @@ export class MyApp {
         // console.log(111)
         // amap.on('')
         amap.on('COMPLETE', info => {
-          
+
           // console.log({info})
           $message.send({
             'to': `admin@ydj-b85-hd3`,
@@ -131,8 +139,8 @@ export class MyApp {
 
       })
 
-    })
-    
+    // })
+
   }
 
   initializeApp() {
