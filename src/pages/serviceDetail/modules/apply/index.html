@@ -15,7 +15,8 @@
 			<ion-list>
 				<ion-item>
 					<ion-label fixed>日期</ion-label>
-					<ion-input type="date" value="" [(ngModel)]="date"></ion-input>
+					<!-- <ion-input type="date" value="" [(ngModel)]="date"></ion-input> -->
+					<ion-datetime displayFormat="MM/DD/YYYY" max="2020" [(ngModel)]="date"></ion-datetime>
 				</ion-item>
 				<ion-item>
 					<ion-label fixed>时间</ion-label>

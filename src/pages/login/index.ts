@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
@@ -9,7 +9,10 @@ import { Storage } from '@ionic/storage'
 // import { HomePage } from '../home/home';
 import { MapPage } from '../map/map'
 import { RegisterPage } from '../register/index';
-// import { ChangePassWordPage } from '../changePassWord/index';
+import { ChangePassWordPage } from '../../pages/userDetail/components/changePassWord/index';
+
+
+// changePassWord/index';
 
 import { config } from 'hhb-core'
 
@@ -35,12 +38,17 @@ export class LoginPage {
 
   public errMsg: string;
 
-  constructor(public navCtrl: NavController, public storage: Storage) {
+  private history;
+
+  constructor(public navCtrl: NavController, public storage: Storage, public navParams: NavParams) {
     this.userName = "";
     this.passWord = "";
     this.errMsg = "";
 
     this.$http = http();
+
+    this.history = this.navParams.get('history');
+    console.log(history);
   }
 
   goTo(name: string) {
@@ -52,7 +60,7 @@ export class LoginPage {
         break;
       // 修改密码
       case "ChangePassWordPage":
-        // toPage = ChangePassWordPage;
+        toPage = ChangePassWordPage;
         break;
       default:
         toPage = MapPage;
@@ -93,6 +101,7 @@ export class LoginPage {
       $message.login(`${user.id}@${config('message.host.name')}`, '123456')
 
       this.navCtrl.setRoot(MapPage);
+      // this.navCtrl.pop();
     } else {
       console.log("003");
       this.errMsg = errMsg["003"];
