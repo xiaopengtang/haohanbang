@@ -53,9 +53,9 @@ export class UserDetail {
       setTimeout(() => {
         loading.dismiss();//显示多久消失
         this
-        .navCtrl
-        .setRoot(LoginPage);
-    }, 3000);
+          .navCtrl
+          .setRoot(LoginPage);
+      }, 3000);
 
     }
 
