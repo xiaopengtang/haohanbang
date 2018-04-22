@@ -21,6 +21,7 @@ import { Network } from '@ionic-native/network';
 // import { UserDetail } from '../pages/userDetail';
 import { LoginPage } from '../pages/login';
 import { UserProfilePage } from '../pages/userProfile';
+import { FollowListPage } from '../pages/followList';
 // import { RegisterPage } from '../pages/register';
 // import { ChangePassWordPage } from '../pages/changePassWord';
 // import { addServiceForProviderPage } from '../pages/addServiceForProvider';

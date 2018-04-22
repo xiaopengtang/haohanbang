@@ -3,16 +3,28 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title></ion-title>
+    <ion-title>发现</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <com-service-item [list]="list" [map]="map" [isService]="isService"></com-service-item>
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" (shouldEnable)="false">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+
+  <ion-card>
+    <ion-card-content>
+      为您主动搜索附近3公里以内所有提供服务者~
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <com-service-item [list]="list" [map]="map" [isService]="isService"></com-service-item>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" (shouldEnable)="false">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

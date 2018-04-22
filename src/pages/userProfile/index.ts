@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, LoadingController, ToastController} from 'ionic-angular';
 import {MessageContent} from '../../pages/message/modules/content';
 
 import * as http from 'hhb-http';
@@ -26,7 +26,7 @@ export class UserProfilePage {
   private userInfo;
   private showInfo;
 
-  constructor(public navCtrl: NavController, public storage: Storage, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public storage: Storage, public navParams: NavParams, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
     this.$http = http();
     this.userInfo = navParams.get('user');
     this.showInfo = [
@@ -38,6 +38,29 @@ export class UserProfilePage {
 
   openMessCtrl(info) {
     this.navCtrl.push(MessageContent, {info})
+  }
+
+  async follow() {
+    let loading = this.loadingCtrl.create({
+      content: "请稍等...",
+      // duration: 3000
+    });
+    loading.present();
+    const res = await this.$http.curl('MEMBER:ADDFOLLOW', {
+      "interestUserId": this.userInfo.userId,
+      "userId": user.state.id
+    });
+    if (res.code == 1) {
+      loading.dismiss();
+    } else {
+      let toast = this.toastCtrl.create({
+        message: '关注失败~!',
+        duration: 3000
+      });
+      toast.present();
+      loading.dismiss();
+    }
+
   }
 
   // async f

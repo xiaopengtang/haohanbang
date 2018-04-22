@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { MapPage } from '../map/map';
 import { UserDetail } from '../userDetail';
+import { ServicePage } from '../service';
+import { FollowListPage } from '../followList';
 
 @Component({
   selector: 'page-tabs',
@@ -24,8 +26,8 @@ export class TabsPage {
 
     this.tabs = [
       { title: "搜索", page: MapPage, icon: "water" },
-      { title: "通信录", page: MapPage, icon: "leaf" },
-      { title: "发现", page: MapPage, icon: "flame" },
+      { title: "通信录", page: FollowListPage, icon: "leaf" },
+      { title: "发现", page: ServicePage, icon: "flame" },
       { title: "我", page: UserDetail, icon: "magnet" },
     ];
     // ...
