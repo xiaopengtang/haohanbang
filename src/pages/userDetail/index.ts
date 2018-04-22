@@ -19,6 +19,8 @@ export class UserDetail {
 
   // 服务列表
   public serviceLists: Array<object>;
+  // 单子状态类型
+  public serviceStates: Array<object>;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public storage: Storage) {
     if (!!user.state.id) {
@@ -29,6 +31,23 @@ export class UserDetail {
       this.level = level;
       this.createTime = createTime;
 
+      // 单子状态类型
+      this.serviceStates= [
+        {
+          "name": "待确认",
+        },
+        {
+          "name": "进行中",
+        },
+        {
+          "name": "已完成",
+        },
+        {
+          "name": "已关闭",
+        }
+      ];
+
+      // 
       this.serviceLists = [
         {
           "name": "服务单管理",
@@ -58,8 +77,6 @@ export class UserDetail {
       }, 3000);
 
     }
-
-
   }
 
   goToUserInfoService() {
