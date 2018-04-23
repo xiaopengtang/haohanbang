@@ -64,7 +64,7 @@ export class ServicePage {
 		const res = await this.$http.curl('QUERY:SERVICE:LIST', this.$map)
 
 		if(!res){
-			return 
+			return
 		}
 		const list = res.data && res.data.records || []
 		if(list.length === 0){
@@ -82,11 +82,11 @@ export class ServicePage {
 			this.$map.title = title
 		}
 		// this.map
-		// const userId = navParams.get('id')
+		const userId = navParams.get('id')
 		// const title = navParams.get('title')
-		// if(userId){
-		// 	this.map.queryUserId = userId
-		// }
+		if(userId){
+			this.$map.queryUserId = userId
+		}
 		// if(title){
 		// 	this.map.title = title
 		// }
