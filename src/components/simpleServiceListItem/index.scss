@@ -1,0 +1,41 @@
+com-service-item{
+  .serviceItem{
+    border: none;
+    border-bottom: 0.55px solid #c8c7cc;
+    padding: 10px 0;
+    &:last-child{
+      border: none;
+    }
+    //border
+  }
+
+	.price-txt{
+		padding-top: 5px;
+	}
+	.sub-txt{
+		padding: 5px 0;
+		.dis{
+			color: green;
+			padding-left: 10px;
+		}
+	}
+	.label{
+		list-style: none;
+		padding-top: 5px;
+		margin: 0;
+		li{
+			border: 1px solid #999;
+			float: left;
+			line-height: 1.5;
+			vertical-align: middle;
+			padding: 0 5px;
+			margin: 5px;
+			font-size: 12px;
+		}
+		&:after{
+			clear: both;
+			display: block;
+			content: "";
+		}
+	}
+}

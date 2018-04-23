@@ -1,0 +1,10 @@
+.user_info {
+  padding: 1rem .4rem;
+  h2 {
+    & > .user_info_level {
+      color: #D94600;
+      font-size: .8rem;
+      margin-left: .3rem;
+    }
+  }
+}

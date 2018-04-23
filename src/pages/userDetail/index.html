@@ -22,45 +22,51 @@
     </ion-item>
   </ion-card>
 
-  <!-- 请求单状态列表 -->
-  <!-- <userinfo-orderstate title="111"></userinfo-orderstate> -->
-  <!-- 服务单状态列表 -->
-  <!-- <userinfo-orderstate title="222"></userinfo-orderstate> -->
-  <!-- service列表 -->
-
   <!-- 请求单 -->
-  <ion-list class="serviceStates">
-      {{ "全部请求单" }}
-  </ion-list>
-  <ion-list>
-    <ion-row>
-      <ion-col class="state" *ngFor="let item of serviceStates">
-        <ion-icon name="ionic" color="primary"></ion-icon>
-        <p>{{item.name}}</p>
-      </ion-col>
-    </ion-row>
-  </ion-list>
+  <ion-card>
+    <ion-list class="serviceStates">
+      <button ion-item>
+        {{ "全部请求单" }}
+      </button>
+    </ion-list>
+    <ion-list>
+      <ion-row>
+        <ion-col class="state" *ngFor="let item of serviceStates">
+          <ion-icon name="ionic" color="primary"></ion-icon>
+          <p>{{item.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-card>
 
   <!-- 服务单 -->
-  <ion-list class="serviceStates">
-      {{ "全部服务单" }}
-  </ion-list>
-  <ion-list>
-    <ion-row>
-      <ion-col class="state" *ngFor="let item of serviceStates">
-        <ion-icon name="ionic" color="primary"></ion-icon>
-        <p>{{item.name}}</p>
-      </ion-col>
-    </ion-row>
-  </ion-list>
+  <ion-card>
+    <ion-list class="serviceStates">
+      <button ion-item>
+        {{ "全部服务单" }}
+      </button>
+    </ion-list>
+    <ion-list>
+      <ion-row>
+        <ion-col class="state" *ngFor="let item of serviceStates">
+          <ion-icon name="ionic" color="primary"></ion-icon>
+          <p>{{item.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-card>
 
-  <ion-list>
-    <button ion-item *ngFor="let item of serviceLists" (click)="goTo(item)">
-      {{ item.name }}
-    </button>
-  </ion-list>
+  <!-- 服务列表 -->
+  <ion-card>
+    <ion-list>
+      <button ion-item *ngFor="let item of serviceLists" (click)="goTo(item)">
+        {{ item.name }}
+      </button>
+    </ion-list>
+  </ion-card>
 
   <div class="login-buttons">
     <button ion-button icon-right color="royal" (click)="logOut()">退出登录</button>
   </div>
+  
 </ion-content>
