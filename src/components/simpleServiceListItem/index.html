@@ -1,0 +1,17 @@
+<ion-list>
+    <ion-item class="serviceItem" *ngFor="let it of renderList" (click)="open(it.orderId)">
+	    <ion-avatar item-start>
+	        <img [src]="it.imageList && it.imageList[0] || ''" onError="src='https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png'"/>
+	        <p class="price-txt" *ngIf="it.price">￥{{it.price}}</p>
+	    </ion-avatar>
+	    <h2>{{it.title}}</h2>
+	    <div class="sub-txt">
+	    	<ion-icon name="locate" *ngIf="it.address.address"></ion-icon>
+	    	<span>{{it.address.address}}</span>
+	    	<span class="dis" *ngIf="it.distance" >距离{{it.distance}}米</span>
+	    </div>
+	    <ul class="label" *ngIf="it.labelList" >
+	    	<li *ngFor="let label of it.labelList">{{label.labelName}}</li>
+	    </ul>
+    </ion-item>
+</ion-list>

@@ -73,6 +73,8 @@ export default {
     'ORDER:REQUEST:CONFIRM': "/order/request/order/applier/confirm",
     // 服务单确认完成 
     'ORDER:SERVICE:CONFIRM': "/order/service/order/user/confirm",
+    // 获取收藏列表
+    'ORDER:REQUEST:COLLECTION': "/order/request/order/collection/list",
 
     // 地区POI相关接口
     'SUPPORT:queryByParentCode': '/support/district/queryByParentCode',

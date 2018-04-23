@@ -1,0 +1,25 @@
+page-userdetail {
+    .serviceStates{
+        // margin: 0 0 10px 0;
+        // padding: 10px 15px 10px;
+        font-size: 8px;
+        // border-bottom: 1px solid #eee;
+        // text-align: right;
+    }
+    .state{
+        padding: 10px 0;
+        .icon{
+            text-align: center;
+            font-size: 24px;
+            display: block;
+        }
+        p{
+            text-align: center;
+            margin: 5px 0 0 0;
+        }
+    }
+
+    .login-buttons{
+        margin-bottom: 20px;
+    }
+}
