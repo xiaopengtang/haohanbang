@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ModalController, AlertController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, ModalController, AlertController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { Service } from './index.service'
 import { ModalApply } from './modules/apply'
 import * as $http from 'hhb-http'
@@ -15,9 +15,15 @@ export class SerivceDetailPage implements OnInit {
 	info: any = {};
 	private $http;
 	// public $server: Service;
-	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public $server: Service, private toastCtrl: ToastController) {
+	constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public $server: Service, private toastCtrl: ToastController, public viewCtrl : ViewController) {
 		this.orderId = navParams.get('orderId')
 		this.$http = $http()
+	}
+	
+	dismiss() {
+		this
+		  .viewCtrl
+		  .dismiss();
 	}
 
 	async ngAfterViewInit() {
@@ -27,6 +33,8 @@ export class SerivceDetailPage implements OnInit {
 	}
 	ngOnInit() {
 	}
+	
+	// 评论
 	reply() {
 		let prompt = this.alertCtrl.create({
 			title: '评论',
@@ -85,9 +93,14 @@ export class SerivceDetailPage implements OnInit {
 	// 'ORDER:SERVICE:CONFIRM'
 	// 确认完成
 	async confirmOrder() {
-		let req = this.$http.curl('ORDER:SERVICE:CONFIRM', {
-			"orderId": this.orderId,
-			"userId": user.id
-		});
+		// let req = this.$http.curl('ORDER:SERVICE:CONFIRM', {
+		// 	"orderId": this.orderId,
+		// 	"userId": user.id
+		// });
+	}
+
+	// 收藏
+	collection() {
+		console.log(1234);
 	}
 }

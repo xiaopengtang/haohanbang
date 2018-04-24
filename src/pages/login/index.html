@@ -1,10 +1,13 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-toolbar>
     <ion-title>用户登录</ion-title>
-  </ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios" class="cancel">取消</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -28,7 +31,7 @@
       </ion-label>
       <div class="otherService">
         <ion-label class="goToRegister" (click)="goTo('RegisterPage')">免费注册</ion-label>
-        <ion-label class="resetPw"  (click)="goTo('ChangePassWordPage')">忘记密码</ion-label>
+        <ion-label class="resetPw" (click)="goTo('ChangePassWordPage')">忘记密码</ion-label>
       </div>
 
       <div class="login-buttons">

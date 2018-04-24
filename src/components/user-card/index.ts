@@ -1,33 +1,29 @@
-import { Component, Input } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
-import { MessageContent } from '../../pages/message/modules/content'
-import { UserProfilePage } from '../../pages/userProfile';
+import {Component, Input} from '@angular/core';
+import {NavController, ToastController} from 'ionic-angular';
+import {MessageContent} from '../../pages/message/modules/content'
+import {UserProfilePage} from '../../pages/userProfile';
 
 import * as user from 'hhb-userauth'
 import * as $http from 'hhb-http'
 
-@Component({
-  selector: 'com-user-card',
-  templateUrl: 'index.html'
-})
+@Component({selector: 'com-user-card', templateUrl: 'index.html'})
 export class ComUserCard {
-  @Input() list: any[] = [];
-  @Input() judge: boolean;
-  @Input() orderId;
-  @Input() type;
-  // @Input() map: {}
-  // public judge: boolean;
-  public msgStatus: boolean;
-  public msg: string;
+  @Input()list : any[] = [];
+  @Input()judge : boolean;
+  @Input()orderId;
+  @Input()type;
+  // @Input() map: {} public judge: boolean;
+  public msgStatus : boolean;
+  public msg : string;
 
   public http;
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
+  constructor(public navCtrl : NavController, public toastCtrl : ToastController) {
     // console.log(this.judge);
-    if (typeof (this.judge) == "undefined") {
+    if (typeof(this.judge) == "undefined") {
       this.judge = false;
     }
-    if (typeof (this.orderId) == "undefined") {
+    if (typeof(this.orderId) == "undefined") {
       this.orderId = "";
     }
     this.msgStatus = false;
@@ -39,7 +35,7 @@ export class ComUserCard {
     console.log(this.list)
   }
 
-  renderList: any[] = [];
+  renderList : any[] = [];
 
   async ngAfterViewInit() {
 
@@ -53,30 +49,38 @@ export class ComUserCard {
   }
 
   openMessCtrl(info) {
-    this.navCtrl.push(MessageContent, { info })
+    this
+      .navCtrl
+      .push(MessageContent, {info})
   }
 
-  goToUserProfilePage(user){
-    this.navCtrl.setRoot(UserProfilePage, {user});
+  goToUserProfilePage(user) {
+    this
+      .navCtrl
+      .push(UserProfilePage, {user});
   }
 
   // 审核申请人
   async applyApprove(status, userId) {
     console.log(this.type)
     let applyApprove_rsp;
-    if( this.type == 0){
-      applyApprove_rsp = await this.http.curl('SAVE:ORDER:APPROVE', {
-        "orderId": this.orderId,
-        "status": status,
-        "userId": userId
-      });
+    if (this.type == 0) {
+      applyApprove_rsp = await this
+        .http
+        .curl('SAVE:ORDER:APPROVE', {
+          "orderId": this.orderId,
+          "status": status,
+          "userId": userId
+        });
     }
-    if( this.type == 1){
-      applyApprove_rsp = await this.http.curl('SAVE:SERVICE:APPROVE', {
-        "orderId": this.orderId,
-        "status": status,
-        "userId": userId
-      });
+    if (this.type == 1) {
+      applyApprove_rsp = await this
+        .http
+        .curl('SAVE:SERVICE:APPROVE', {
+          "orderId": this.orderId,
+          "status": status,
+          "userId": userId
+        });
     }
 
     let msg = "";
@@ -90,14 +94,11 @@ export class ComUserCard {
     }
 
     if (msg != "") {
-      toast = this.toastCtrl.create({
-        message: msg,
-        duration: 2000,
-        position: 'top'
-      });
+      toast = this
+        .toastCtrl
+        .create({message: msg, duration: 2000, position: 'top'});
       toast.present();
     }
   }
-
 
 }

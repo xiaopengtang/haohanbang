@@ -1,64 +1,61 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams, ModalController} from 'ionic-angular';
 
 import * as http from 'hhb-http';
 import * as user from 'hhb-userauth';
 import * as $message from 'hhb-message'
-import { Storage } from '@ionic/storage'
+import {Storage} from '@ionic/storage'
 
 // import { HomePage } from '../home/home';
-import { MapPage } from '../map/map'
-import { RegisterPage } from '../register/index';
-import { ChangePassWordPage } from '../../pages/userDetail/components/changePassWord/index';
-
+import {MapPage} from '../map/map'
+import {RegisterPage} from '../register/index';
+import {ChangePassWordPage} from '../../pages/userDetail/components/changePassWord/index';
 
 // changePassWord/index';
 
-import { config } from 'hhb-core'
-
+import {config} from 'hhb-core'
 
 const errMsg = {
   "001": "用户名不可以为空",
   "002": "密码不可以为空",
   "003": "用户名或密码错误",
-  "004": "请输入一个有效的手机号码",
+  "004": "请输入一个有效的手机号码"
 }
 
-@Component({
-  selector: 'page-login',
-  templateUrl: 'index.html'
-})
+@Component({selector: 'page-login', templateUrl: 'index.html'})
 
 export class LoginPage {
 
   private $http;
 
-  public userName: string;
-  public passWord: string;
+  public userName : string;
+  public passWord : string;
 
-  public errMsg: string;
+  public errMsg : string;
 
   private history;
 
-  constructor(public navCtrl: NavController, public storage: Storage, public navParams: NavParams) {
+  constructor(public navCtrl : NavController, public storage : Storage, public navParams : NavParams, public modalCtrl : ModalController) {
     this.userName = "";
     this.passWord = "";
     this.errMsg = "";
 
     this.$http = http();
 
-    this.history = this.navParams.get('history');
+    this.history = this
+      .navParams
+      .get('history');
     console.log(history);
   }
 
-  goTo(name: string) {
+  goTo(name : string) {
     let toPage
     switch (name) {
-      // 注册
+        // 注册
       case "RegisterPage":
         toPage = RegisterPage;
         break;
-      // 修改密码
+        // 修改密码
       case "ChangePassWordPage":
         toPage = ChangePassWordPage;
         break;
@@ -67,11 +64,15 @@ export class LoginPage {
         break;
     }
 
-    this.navCtrl.setRoot(toPage);
+    let modal = this
+      .modalCtrl
+      .create(toPage, {});
+    modal.present();
+    // this.navCtrl.setRoot(toPage);
   }
 
   async login() {
-    let { userName, passWord } = this;
+    let {userName, passWord} = this;
     if (userName == "") {
       this.errMsg = errMsg["001"];
       return 0;
@@ -85,10 +86,12 @@ export class LoginPage {
       return 0;
     }
 
-    let data = await this.$http.curl('USER:LOGIN', {
-      "account": userName,
-      "password": passWord
-    });
+    let data = await this
+      .$http
+      .curl('USER:LOGIN', {
+        "account": userName,
+        "password": passWord
+      });
 
     if (data.code == 1) {
       user.state = Object.assign(user.state, {
@@ -96,11 +99,15 @@ export class LoginPage {
         // pw: passWord,
         userDetail: data.data
       });
-      this.storage.set('USER', user.state)
+      this
+        .storage
+        .set('USER', user.state)
       // console.log(`${user.id}@${config('message.host.name')}`, user.state.pw)
       $message.login(`${user.id}@${config('message.host.name')}`, '123456')
 
-      this.navCtrl.setRoot(MapPage);
+      this
+        .navCtrl
+        .setRoot(MapPage);
       // this.navCtrl.pop();
     } else {
       console.log("003");

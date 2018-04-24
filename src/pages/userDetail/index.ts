@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, LoadingController} from 'ionic-angular';
+import {NavController, LoadingController, ModalController} from 'ionic-angular';
 
 import {UserInfoService, ProviderListPage} from './components';
 import {LoginPage} from '../login';
@@ -35,7 +35,7 @@ export class UserDetail {
   // 单子状态类型
   public serviceStates : Array < object >;
 
-  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, public storage : Storage) {
+  constructor(public navCtrl : NavController, public loadingCtrl : LoadingController, public storage : Storage, public modalCtrl : ModalController) {
     if (!!user.state.id) {
       let {nickName, userId, level, createTime} = user.state.userDetail;
 
@@ -82,9 +82,10 @@ export class UserDetail {
       loading.present();
       setTimeout(() => {
         loading.dismiss(); //显示多久消失
-        this
-          .navCtrl
-          .setRoot(LoginPage);
+        let modal = this
+          .modalCtrl
+          .create(LoginPage, {});
+        modal.present();
       }, 3000);
 
     }

@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform, ToastController} from 'ionic-angular';
+import {Nav, Platform, ToastController, ModalController} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Storage} from '@ionic/storage'
@@ -50,7 +50,7 @@ export class MyApp {
     param?: any
   } >;
   // private notify: LocalNotifications
-  constructor(public platform : Platform, public statusBar : StatusBar, public splashScreen : SplashScreen, public toast : ToastController, public storage : Storage, public network : Network) {
+  constructor(public platform : Platform, public statusBar : StatusBar, public splashScreen : SplashScreen, public toast : ToastController, public storage : Storage, public network : Network, public modalCtrl: ModalController) {
     storage
       .get('USER')
       .then(state => {
@@ -161,8 +161,6 @@ export class MyApp {
       .platform
       .ready()
       .then(() => {
-        // Okay, so the platform is ready and our plugins are available. Here you can do
-        // any higher level native things you might need.
         this
           .statusBar
           .styleDefault();
@@ -176,8 +174,6 @@ export class MyApp {
     if (!user.id) {
       return this.goToLogin()
     }
-    // Reset the content nav to have just this page we wouldn't want the back button
-    // to show in this scenario
     this
       .nav
       .setRoot(page.component, page.param);
@@ -185,9 +181,11 @@ export class MyApp {
 
   // 登录
   goToLogin() {
-    this
-      .nav
-      .setRoot(LoginPage);
+    let modal = this.modalCtrl.create(LoginPage, { });
+		modal.present();
+    // this
+    //   .nav
+    //   .setRoot(LoginPage);
   }
 
   goToUserDetail() {

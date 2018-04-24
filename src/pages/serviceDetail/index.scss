@@ -1,107 +1,145 @@
-page-service-detail{
-	.top-detail{
-		padding: 10px $banner-width 0;
-		h2{
-			font-size: 16px;
-			line-height: 18px;
-			margin: 0;
-		}
-		ul.sub-txt{
-			list-style: none;
-			li{
-				font-size: 0;
-				span{
-					font-size: 12px;
-					line-height: 1.2;
-				}
-				&:not(:last-child){
-					padding-bottom: 10px;
-				}
-			}
-		}
-		ul.label-list{
-			margin: 0;
-			list-style: none;
-			padding: 10px 0;
-			display: flex;
-			justify-content: flex-start;
-			li{
-				font-size: 14px;
-				line-height: 16px;
-				padding: 5px 15px;
-				border: 1px solid #999;
-				&:not(:last-child){
-					margin-right: 10px;
-				}
-				&.active{
-					color: #FFFFFF;
-					background-color: #aed381;
-				}
-			}
-		}
+page-service-detail {
+	.cancel{
+		margin-left: 3px;
 	}
-	.user-card{
-		.user-content{
-			ion-icon{
-				// height: 20px;
-				// width: 20px;
-				&:before{
-					// width: 40px;
-					font-size: 1.8em;
-					color: #444;
-					// height: 40px;
-				}
-			}
-			padding: $banner-width;
-			// .user-content{
-			align-items: center;
-			display: flex;
-			justify-content: space-between;
-			// }
-			.user-detail{
-				display: flex;
-				&>img{
-					max-width: 48px;
-					max-height: 48px;
-				}
-				.user-sub{
-					padding-left: 10px;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					.user-top{
-						font-size: 0;
-						span{
-							font-size: 14px;
-							&:not(:last-child){
-								padding-right: 10px;
-							}
-						}
-					}
-					.user-btm{
-						font-size: 12px;
-						color: #999;
-					}
-				}
-			}
-		}
-	}
-	.card{
-		h2{
-			font-size: 1em;
-			font-weight: normal;
-			line-height: 1.2;
-			padding-left: $banner-width;
-		}
-	}
-	.apply-btm{
-		button{
-			width: 100%;
-		}
-	}
-	.question{
-		.send-btn{
-			text-align: right;
-		}
-	}
+    // 订单详情
+    .order_info {
+        padding: 8px 12px;
+        .orderTitle {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+        }
+        .label-list {
+            margin: 6px 0;
+            .label {
+                display: inline-block;
+                font-size: 10px;
+                padding: 2px 10px;
+                color: #696969;
+                background: rgba(174, 211, 129, 0.5);
+                border-radius: 3px;
+            }
+        }
+        .limit {
+            font-size: 10px;
+        }
+        .order-icon-wrapper {
+            padding: 24px 0 24px 18px;
+            box-sizing: border-box;
+            .order-icon-heart {
+                font-size: 32px;
+            }
+        }
+    }
+    .describe {
+        .describeContent {
+            min-height: 150px;
+        }
+    }
+    .buttons {
+        padding: 12px;
+    }
+    .top-detail {
+        padding: 10px $banner-width 0;
+        h2 {
+            font-size: 16px;
+            line-height: 18px;
+            margin: 0;
+        }
+        ul.sub-txt {
+            list-style: none;
+            li {
+                font-size: 0;
+                span {
+                    font-size: 12px;
+                    line-height: 1.2;
+                }
+                &:not(:last-child) {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        ul.label-list {
+            margin: 0;
+            list-style: none;
+            padding: 10px 0;
+            display: flex;
+            justify-content: flex-start;
+            li {
+                font-size: 14px;
+                line-height: 16px;
+                padding: 5px 15px;
+                border: 1px solid #999;
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+                &.active {
+                    color: #FFFFFF;
+                    background-color: #aed381;
+                }
+            }
+        }
+    }
+    .user-card {
+        .user-content {
+            ion-icon {
+                // height: 20px;
+                // width: 20px;
+                &:before {
+                    // width: 40px;
+                    font-size: 1.8em;
+                    color: #444; // height: 40px;
+                }
+            }
+            padding: $banner-width; // .user-content{
+            align-items: center;
+            display: flex;
+            justify-content: space-between; // }
+            .user-detail {
+                display: flex;
+                &>img {
+                    max-width: 48px;
+                    max-height: 48px;
+                }
+                .user-sub {
+                    padding-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .user-top {
+                        font-size: 0;
+                        span {
+                            font-size: 14px;
+                            &:not(:last-child) {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                    .user-btm {
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+    .card {
+        h2 {
+            font-size: 1em;
+            font-weight: normal;
+            line-height: 1.2;
+            padding-left: $banner-width;
+        }
+    }
+    .apply-btm {
+        button {
+            width: 100%;
+        }
+    }
+    .question {
+        .send-btn {
+            text-align: right;
+        }
+    }
 }

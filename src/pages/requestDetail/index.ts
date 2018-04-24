@@ -46,8 +46,10 @@ export class RequestDetailPage implements OnInit {
 	async ngAfterViewInit() {
 		return await this.updateInfo()
 	}
+	// 初始化
 	ngOnInit() {
 	}
+	// 评价
 	reply() {
 		let prompt = this.alertCtrl.create({
 			title: '评论',
@@ -97,7 +99,11 @@ export class RequestDetailPage implements OnInit {
 		});
 		prompt.present();
 	}
-
+	// 收藏
+	collection() {
+		console.log(1234);
+	}
+	
 	applyOrder() {
 		let orderId = this.orderId
 		let modal = this.modalCtrl.create(ModalApply, { orderId });
@@ -106,9 +112,9 @@ export class RequestDetailPage implements OnInit {
 
 	// 确认完成
 	async confirmOrder() {
-		let req = this.$http.curl('ORDER:REQUEST:CONFIRM', {
-			"orderId": this.orderId,
-			"userId": user.id
-		});
+		// let request = this.$http.curl('ORDER:REQUEST:CONFIRM', {
+		// 	"orderId": this.orderId,
+		// 	"userId": user.id
+		// });
 	}
 }

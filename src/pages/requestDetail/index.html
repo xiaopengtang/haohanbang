@@ -22,8 +22,8 @@
             <span>{{info.expiryTime}}</span>
           </p>
         </ion-col>
-        <ion-col col-2 class="order-icon-wrapper">
-          <ion-icon name="heart" color="danger" class="order-icon-heart"></ion-icon>
+        <ion-col col-2 class="order-icon-wrapper" (click)="collection()">
+          <ion-icon name="heart" color="danger" class="order-icon-heart" (click)="collection()"></ion-icon>
         </ion-col>
       </ion-row>
 

@@ -7,7 +7,7 @@
 					<span>{{user.nickName}}</span>
 				    <span class="leval">{{"lv"+user.level}}</span>
 				</div>
-				<div class="user-btm">{{user.sign}}</div>
+				<div *ngIf="user.sign!= ''" class="user-btm">{{user.sign}}</div>
 			</div>
 		</div>
     <div class="user-contrl" *ngIf="judge && user.status == 1">
