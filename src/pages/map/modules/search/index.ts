@@ -46,7 +46,7 @@ export class MapPageSearch{
 	async queryList(title){
 		const res = await this.$http.curl('QUERY:ORDER:REQUEST_LIST', {
 		    "asc": true,
-		   
+
 		    "page": 1,
 		    "queryUserId": user.id,
 		    "size": 10,
@@ -70,15 +70,23 @@ export class MapPageSearch{
 		this.history = this.history.filter((v, k) => k !== i)
 		this.updateHistory()
 	}
+	timer = 0
 	async handleClickKeyWord(title){
-		this.title = title
-		return await this.queryList(title)
+	  if(this.timer){
+	    return
+    }
+    this.timer = setTimeout(async () => {
+      this.timer = 0
+      this.title = title
+      return await this.queryList(title)
+    }, 1000)
+
 	}
 	async getItems(e){
 		// console.log({e})
 		const value = e.target.value
 		if(!value){
-			return 
+			return
 		}
 		this.history.push(value)
 		if(this.history.length > 10){

@@ -34,9 +34,9 @@ export class MapPage {
           maximumAge: 0,           //定位结果缓存0毫秒，默认：0
           convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
           showButton: true,        //显示定位按钮，默认：true
-          GeoLocationFirst: true,
+          // GeoLocationFirst: true,
           // noIpLocate: 3,
-          useNative: true,
+          // useNative: true,
           buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
           // buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
           showMarker: false, //true,        //定位成功后在定位到的位置显示点标记，默认：true
@@ -48,7 +48,7 @@ export class MapPage {
         geolocation.getCurrentPosition();
         // let mainMark, list
         // 图表点击跳转列表页
-        amap.on('CLICK:MARKER', data => this.navCtrl.push(ServicePage, {uid: data.fromUserId}))
+        // amap.on('CLICK:MARKER', data => this.navCtrl.push(ServicePage, {uid: data.fromUserId}))
         let friend = []
         amap.amap.event.addListener(geolocation, 'complete', async (info) => {
           this.renderList([{
@@ -64,12 +64,8 @@ export class MapPage {
               "longitude": info.position.lng,
               "queryUserId": user.id
             })
-            friend = res && res.data || [
-              {
-                fromUserId: 1,
-                position: [31, 118]
-              }
-            ]
+            friend = res && res.data || []
+
 
             this.renderList(friend)
           }
@@ -107,6 +103,7 @@ export class MapPage {
         //   amap.renderMarkList([data.message])
         })
         $message.on('NORMAL', data => {
+          // console.log({data})
           this.renderList([data.message])
         })
         // 获取当前用户位置
@@ -114,7 +111,9 @@ export class MapPage {
           if(info.type !== 'normal' || info.fromUserId === user.id){
             return
           }
-          amap.renderMark(info)
+          // amap.renderMark(info)
+          this.renderList([info])
+          // console.log(info)
         })
       })
     // })
@@ -126,6 +125,7 @@ export class MapPage {
   getItems(){}
 
   renderList(list){
+    // console.log(this.markList)
     list.forEach(info => {
       const {fromUserId} = info
       let lat = info.position && (info.position.lat || info.position.latitude) || info.latitude
@@ -138,13 +138,17 @@ export class MapPage {
             image: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png", //大图地址
           } : {})()
         })})
+        // alert(fromUserId)
+        // console.log(amap.amap.event, this.markList[fromUserId])
         amap.amap.event.clearListeners(this.markList[fromUserId], 'click')
+        // this.markList[fromUserId].on('click', e => alert(11))
         amap.amap.event.addListener(this.markList[fromUserId], 'click', e => {
-          this.navCtrl.push(ServicePage)
+          // alert()
+          this.navCtrl.push(ServicePage, {id: fromUserId})
         })
         this.markList[fromUserId].setMap(this.$map)
       }else{
-        this.markList[fromUserId].setPosition([lat, lng])
+        this.markList[fromUserId].setPosition([lng, lat])
       }
     })
   }
