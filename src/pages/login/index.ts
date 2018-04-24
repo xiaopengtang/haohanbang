@@ -63,7 +63,6 @@ export class LoginPage {
         toPage = MapPage;
         break;
     }
-
     let modal = this
       .modalCtrl
       .create(toPage, {});
